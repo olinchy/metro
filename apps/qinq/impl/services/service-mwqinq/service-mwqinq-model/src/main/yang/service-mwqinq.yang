@@ -1,0 +1,19 @@
+module service-mwqinq {
+    yang-version 1;
+    namespace "urn:zte:ngip:ipsdn:service-mwqinq";
+    prefix "service-mwqinq";
+
+    revision "2017-03-27" {
+        description "Initial revision of service-mwqinq model";
+    }
+
+    container qinq-counter{
+        leaf counter {
+                type uint32;
+        }
+            leaf hi{
+                type string;
+                config false;
+        }
+    }
+}

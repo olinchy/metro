@@ -1,0 +1,216 @@
+module qinq-service-model {
+    yang-version 1;
+    namespace "urn:zte:ngip:ipsdn:service-mwqinq:qinq-service-model";
+    prefix "qinq-service-model";
+
+    import ietf-inet-types {prefix inet; revision-date "2010-09-24"; }
+    import ietf-yang-types {prefix "yang"; }
+    import yang-ext { prefix ext; }
+
+    import opendaylight-inventory {prefix inv;revision-date "2013-08-19";}
+    import network-topology {prefix nt;revision-date "2013-07-12";}
+    import qos {prefix qos;revision-date "2016-04-22";}
+
+    organization "ZTE";
+    contact "ZTE";
+    description "qinq-service-model";
+
+    revision "2017-09-05" {
+        description "Initial revision of qinq-service model.";
+    }
+
+    typedef evc-type {
+        description "The type of evc service";
+        type enumeration {
+            enum EP-LINE {
+                value 0;
+            }
+            enum EVP-LINE {
+                value 1;
+            }
+            enum EP-LAN {
+                value 2;
+            }
+            enum EVP-LAN {
+                value 3;
+            }
+        }
+    }
+
+    grouping service-identifier{
+        choice access-type{
+            description "access-type";
+            case port{
+                description "port.";
+            }
+
+            case dot1q {
+                description "Dot1Q";
+                leaf dot1q-vlan-bitmap {
+                    type int32 {
+                        range "1..4094";
+                    }
+                    description "Dot1Q Vlan Bitmap." ;
+                }
+            }
+
+            case vlanrange {
+                description "vlanr range";
+                list vlan-range {
+                    leaf vlan-begin {
+                        type int32 {
+                            range "1..4094";
+                        }
+                        description "Vlan Bitmap." ;
+                    }
+
+                    leaf vlan-end {
+                        type int32 {
+                            range "1..4094";
+                        }
+                        description "Vlan Bitmap." ;
+                    }
+                }
+            }
+
+            case qinq {
+                description "QinQ";
+                leaf qinq-svlan-bitmap {
+                    type int32 {
+                        range "1..4094";
+                    }
+                    description "QinQ svlan Bitmap." ;
+                }
+
+                leaf qinq-cvlan-bitmap {
+                    type int32 {
+                        range "1..4094";
+                    }
+                    description "QinQ cvlan Bitmap." ;
+                }
+            }
+        }
+
+        choice access-action {
+            description "access type. Can update." ;
+            case keep {
+                description "keep." ;
+            }
+            case push {
+                description "push." ;
+                leaf push-vlan-id {
+                    type int32 {
+                        range "1..4094";
+                    }
+                    description "action vlan id." ;
+                }
+            }
+            case pop {
+                description "pop." ;
+            }
+            case swap {
+                description "swap." ;
+                leaf swap-vlan-id {
+                    type int32 {
+                        range "1..4094";
+                    }
+                    description "action vlan id." ;
+                }
+            }
+        }
+        description "distinguish the customer service";
+    }
+
+    grouping ac {
+        leaf port-id {
+            type string;
+        }
+        leaf ac-nodeid {
+            type inv:node-id;
+        }
+        leaf name {
+            type string;
+        }
+        
+        uses  service-identifier;
+        description "access circuit including access interface and customer service identifier";
+    }
+	grouping tunnel{
+	    leaf tunnel-id{
+		    type int32;
+		}
+		leaf evc-svlan{
+		    type int32;
+		}
+        description "tunnel based on the 802.1q technology";
+	}
+
+	grouping car-policy{
+	    uses  qos:car;
+	    description "car policy";
+	}
+
+	grouping qos{
+        uses  car-policy;
+		leaf delay{
+		    type uint32;
+			description 'ms';
+		}
+		leaf priority{
+		    type uint32;
+			description '0:cos0 ~ 7:cos7 ';
+		}
+        description "interpreted SLA";
+	}
+
+	grouping qinq-service {
+        leaf name {
+           type string;
+        }
+        leaf txid {
+            type string;
+        }
+        leaf description {
+            type string;
+        }
+        leaf evc-type {
+            type evc-type;
+        }
+	    list ac {
+            key "ac-nodeid name";
+            uses  ac;
+		}
+		container path {
+		    description "the service path";
+	        list link {
+                key "link-id";
+                uses nt:link-attributes;
+            }
+		}
+        container tunnel {
+            description "the service tunnel";
+            uses  tunnel;
+        }
+        container qos {
+            description "the service qos";
+            uses  qos;
+        }
+   }
+
+   container mw-l2vpn {
+       description "mw l2vpn";
+       list qinq-service-instance{
+           key "name txid";
+           use qinq-service;
+       }
+   }
+
+   container tunnel-db {
+       list tunnels {
+           use tunnel;
+           leaf is-used {
+               type boolean;
+           }
+       }
+   }
+}

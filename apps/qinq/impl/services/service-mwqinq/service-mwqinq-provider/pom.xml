@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>com.zte.ngip.ipsdn</groupId>
+        <artifactId>mw-qinq-config-parent</artifactId>
+        <version>2.1.10.R2-WAN-SNAPSHOT</version>
+        <relativePath>../../../../parent/config-parent</relativePath>
+    </parent>
+
+    <artifactId>service-mwqinq-provider</artifactId>
+    <name>${project.artifactId}</name>
+    <packaging>bundle</packaging>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.zte.ngip.ipsdn</groupId>
+            <artifactId>service-mwqinq-model</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.zte.sdn.oscp.controller</groupId>
+            <artifactId>sal-binding-config</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.zte.sdn.oscp.controller</groupId>
+            <artifactId>sal-binding-api</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.zte.sdn.oscp.controller</groupId>
+            <artifactId>sal-common-util</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.zte.sdn.oscp.controller</groupId>
+            <artifactId>config-api</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.zte.ngip.ipsdn</groupId>
+            <artifactId>netconf-xml-transform</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.zte.ngip.ipsdn</groupId>
+            <artifactId>restclient-model</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.zte.sdn.oscp.utils</groupId>
+            <artifactId>xml-json-bean-util</artifactId>
+            <version>1.0.0-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>com.zte.sdn.oscp.utils</groupId>
+            <artifactId>yang-data-transform</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.zte.ngip.ipsdn</groupId>
+            <artifactId>common-util</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.zte.sdn.oscp.controller</groupId>
+            <artifactId>sal-distributed-datastore</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.zte.ngip.ipsdn</groupId>
+            <artifactId>device-restart-manager-model</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.zte.sdn.oscp.controller</groupId>
+            <artifactId>sal-binding-broker-impl</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.zte.sdn.oscp.controller</groupId>
+            <artifactId>sal-binding-broker-impl</artifactId>
+            <type>test-jar</type>
+            <scope>test</scope>
+        </dependency>
+
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-checkstyle-plugin</artifactId>
+                <configuration>
+                    <skip>false</skip>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>

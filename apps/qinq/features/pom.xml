@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Copyright(c) ZTE,Inc.2015-2018 and others. All rights reserved.
+This program and the accompanying materials are made available under the
+terms of the Eclipse Public License v1.0 which accompanies this distribution,
+and is available at http://www.eclipse.org/legal/epl-v10.html INTERNAL
+-->
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <groupId>com.zte.sdn.oscp.odlparent</groupId>
+        <artifactId>features-parent</artifactId>
+        <version>1.6.5-2.00.10R1B05</version>
+        <relativePath/>
+    </parent>
+
+    <groupId>com.zte.ngip.ipsdn</groupId>
+    <artifactId>mw-qinq-features</artifactId>
+    <name>${project.artifactId}</name>
+    <version>2.1.10.R2-WAN-SNAPSHOT</version>
+    <modelVersion>4.0.0</modelVersion>
+    <packaging>jar</packaging>
+
+    <properties>
+        <configfile.directory>etc/opendaylight/karaf</configfile.directory>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>com.zte.ngip.ipsdn</groupId>
+                <artifactId>ipsdn-features</artifactId>
+                <version>${project.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>com.zte.ngip.ipsdn</groupId>
+                <artifactId>mw-qinq-config-parent</artifactId>
+                <version>${project.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>   
+        </dependencies>
+    </dependencyManagement>
+
+    <dependencies>
+         <dependency>
+            <groupId>com.zte.ngip.ipsdn</groupId>
+            <artifactId>ipsdn-features</artifactId>
+            <classifier>features</classifier>
+            <type>xml</type>
+            <scope>runtime</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.zte.ngip.ipsdn</groupId>
+            <artifactId>service-mwqinq-model</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.zte.ngip.ipsdn</groupId>
+            <artifactId>service-mwqinq-provider</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.zte.ngip.ipsdn</groupId>
+            <artifactId>service-mwqinq-provider</artifactId>
+            <type>xml</type>
+            <classifier>config</classifier>
+        </dependency>
+
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <configuration>
+                    <skip>true</skip>
+                </configuration>
+            </plugin>      
+      </plugins>
+    </build>
+
+    <distributionManagement>
+        <snapshotRepository>
+            <id>central</id>
+            <name>ipsdn.snapshot-respository</name>
+            <url>http://nj.artifactory.zte.com.cn/artifactory/zenic_wan-snapshot-maven</url>
+        </snapshotRepository>
+        <repository>
+            <id>central</id>
+            <name>ipsdn.release-respository</name>
+            <url>http://nj.artifactory.zte.com.cn/artifactory/zenic_wan-alpha-maven</url>
+        </repository>
+    </distributionManagement>
+
+</project>

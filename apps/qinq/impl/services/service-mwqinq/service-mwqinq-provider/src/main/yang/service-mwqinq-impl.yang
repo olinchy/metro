@@ -1,0 +1,80 @@
+module service-mwqinq-impl {
+    yang-version 1;
+    namespace "urn:zte:ngip:ipsdn:service-mwqinq:impl";
+    prefix "service-mwqinq-impl";
+
+    import config { prefix config; revision-date 2013-04-05; }
+    import opendaylight-md-sal-binding { prefix mdsal; revision-date 2013-10-28;}
+    import netconf-xml-transform { prefix netc-xml; revision-date 2015-09-24;}
+    import yang-data-transform { prefix data-transform; revision-date 2016-07-18;}
+    description
+        "Service definition for service-mwqinq project";
+
+    revision "2017-03-27" {
+        description
+            "Initial revision";
+    }
+
+    identity service-mwqinq-impl {
+        base config:module-type;
+        config:java-name-prefix Servicemwqinq;
+    }
+
+    augment "/config:modules/config:module/config:configuration" {
+        case service-mwqinq-impl {
+            when "/config:modules/config:module/config:type = 'service-mwqinq-impl'";
+
+            container rpc-registry {
+                uses config:service-ref {
+                    refine type {
+                        mandatory true;
+                        config:required-identity mdsal:binding-rpc-registry;
+                    }
+                }
+            }
+
+            container data-broker {
+                uses config:service-ref {
+                    refine type {
+                        mandatory false;
+                        config:required-identity mdsal:binding-async-data-broker;
+                    }
+                }
+            }
+
+            container notification-service {
+                uses config:service-ref {
+                    refine type {
+                        mandatory true;
+                        config:required-identity mdsal:binding-notification-service;
+                    }
+                }
+            }
+            container broker {
+                uses config:service-ref {
+                    refine type {
+                        mandatory true;
+                            config:required-identity mdsal:binding-broker-osgi-registry;
+                        }
+                }
+            }
+            container netconf-xml-transform {
+                uses config:service-ref {
+                    refine type {
+                        mandatory true;
+                        config:required-identity netc-xml:netconf-xml-transform;
+                    }
+                }
+            }
+            container yang-data-transform {
+                uses config:service-ref {
+                    refine type {
+                        mandatory true;
+                        config:required-identity data-transform:yang-data-transform;
+                    }
+                }
+            }
+
+        }
+    }
+}
