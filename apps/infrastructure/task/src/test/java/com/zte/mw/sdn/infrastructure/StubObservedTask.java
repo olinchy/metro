@@ -16,9 +16,14 @@ import com.zte.mw.sdn.infrastructure.task.TaskObserver;
  * Created by odl on 17-9-11.
  */
 public class StubObservedTask extends ObservedTask {
-    public StubObservedTask(final TaskObserver observer) {
+    public StubObservedTask(final TaskObserver observer, final int index, final int parentIndex) {
         super(observer);
+        this.index = index;
+        this.parentIndex = parentIndex;
     }
+
+    private final int index;
+    private final int parentIndex;
 
     @Override
     protected void pre() {
@@ -27,7 +32,8 @@ public class StubObservedTask extends ObservedTask {
 
     @Override
     protected void execute() {
-        System.out.println("start to execute subTask at " + System.currentTimeMillis());
+        System.out.println(
+                "start to execute subTask " + parentIndex + "_" + index + " at " + System.currentTimeMillis());
         try {
             Thread.sleep(1000);
         } catch (InterruptedException e) {

@@ -18,12 +18,17 @@ import java.util.concurrent.ThreadPoolExecutor;
  * Created by odl on 17-9-11.
  */
 public class SpyScheduledTask extends SelfScheduledTask {
-    public SpyScheduledTask(final ThreadPoolExecutor pool, Spy spy) {
+    public SpyScheduledTask(
+            final ThreadPoolExecutor pool, Spy spy, int index, final SpyObserver observer) {
         super(pool);
         this.spy = spy;
+        this.index = index;
+        this.spyObserver = observer;
     }
 
     private final Spy spy;
+    private final int index;
+    private final SpyObserver spyObserver;
 
     @Override
     protected void pre() {
@@ -32,9 +37,9 @@ public class SpyScheduledTask extends SelfScheduledTask {
 
     @Override
     protected void execute() {
-        this.subTasks = new StubObservedTask[20];
+        this.subTasks = new StubObservedTask[spyObserver.getSubTaskCount()];
         for (int i = 0; i < subTasks.length; i++) {
-            subTasks[i] = new StubObservedTask(observer);
+            subTasks[i] = new StubObservedTask(observer, i, index);
         }
         spy.addTimeMark(System.currentTimeMillis());
     }
@@ -47,5 +52,6 @@ public class SpyScheduledTask extends SelfScheduledTask {
     @Override
     protected void postWithResults(final ArrayList<Result> results) {
         spy.watch(results);
+        spyObserver.update(results.size());
     }
 }
