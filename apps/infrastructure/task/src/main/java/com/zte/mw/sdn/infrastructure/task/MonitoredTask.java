@@ -11,8 +11,8 @@ package com.zte.mw.sdn.infrastructure.task;
 /**
  * Created by odl on 17-9-11.
  */
-public abstract class ObservedTask extends Task {
-    public ObservedTask(TaskObserver observer) {
+public abstract class MonitoredTask extends Task {
+    public MonitoredTask(TaskObserver observer) {
         this.observer = observer;
     }
 

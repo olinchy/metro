@@ -9,14 +9,14 @@
 package com.zte.mw.sdn.infrastructure.e2e;
 
 import com.zte.mw.sdn.infrastructure.SDNException;
-import com.zte.mw.sdn.infrastructure.task.ObservedTask;
+import com.zte.mw.sdn.infrastructure.task.MonitoredTask;
 import com.zte.mw.sdn.infrastructure.task.Result;
 import com.zte.mw.sdn.infrastructure.task.TaskObserver;
 
 /**
  * Created by odl on 17-9-11.
  */
-public abstract class DriverTask<T extends Driver> extends ObservedTask {
+public abstract class DriverTask<T extends Driver> extends MonitoredTask {
     public DriverTask(final TaskObserver observer, T driver) {
         super(observer);
         this.driver = driver;

@@ -8,15 +8,15 @@
 
 package com.zte.mw.sdn.infrastructure;
 
-import com.zte.mw.sdn.infrastructure.task.ObservedTask;
+import com.zte.mw.sdn.infrastructure.task.MonitoredTask;
 import com.zte.mw.sdn.infrastructure.task.Result;
 import com.zte.mw.sdn.infrastructure.task.TaskObserver;
 
 /**
  * Created by odl on 17-9-11.
  */
-public class StubObservedTask extends ObservedTask {
-    public StubObservedTask(final TaskObserver observer, final int index, final int parentIndex) {
+public class StubMonitoredTask extends MonitoredTask {
+    public StubMonitoredTask(final TaskObserver observer, final int index, final int parentIndex) {
         super(observer);
         this.index = index;
         this.parentIndex = parentIndex;
