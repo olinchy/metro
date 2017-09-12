@@ -37,9 +37,9 @@ public class SpyScheduledTask extends SelfScheduledTask {
 
     @Override
     protected void execute() {
-        this.subTasks = new StubObservedTask[spyObserver.getSubTaskCount()];
+        this.subTasks = new StubMonitoredTask[spyObserver.getSubTaskCount()];
         for (int i = 0; i < subTasks.length; i++) {
-            subTasks[i] = new StubObservedTask(observer, i, index);
+            subTasks[i] = new StubMonitoredTask(observer, i, index);
         }
         spy.addTimeMark(System.currentTimeMillis());
     }

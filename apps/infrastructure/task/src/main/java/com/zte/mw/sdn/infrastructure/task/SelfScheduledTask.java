@@ -20,13 +20,13 @@ public abstract class SelfScheduledTask extends Task {
     }
 
     private final ThreadPoolExecutor pool;
-    protected ObservedTask[] subTasks = new ObservedTask[0];
+    protected MonitoredTask[] subTasks = new MonitoredTask[0];
     protected TaskObserver observer = new TaskObserver(this);
 
     @Override
     protected final void post() {
         this.observer.setTaskCount(subTasks.length);
-        for (ObservedTask task : subTasks) {
+        for (MonitoredTask task : subTasks) {
             pool.execute(task);
         }
         try {
