@@ -3,17 +3,165 @@ module service-mwqinq {
     namespace "urn:zte:ngip:ipsdn:service-mwqinq";
     prefix "service-mwqinq";
 
-    revision "2017-03-27" {
+    revision "2017-09-12" {
         description "Initial revision of service-mwqinq model";
     }
 
-    container qinq-counter{
-        leaf counter {
+    import ietf-l2vpn-svc {prefix l2svc;revision-date "2017-06-22";}
+
+    grouping svc-type-grouping {
+        container evc {
+            leaf enabled {
+                type boolean;
+                description
+                "Enabled EVC";
+            }
+            leaf evc-type {
+                type identityref {
+                base l2svc:evc-type;
+                }
+                description
+                "EVC type. mwqinq point-to-ponit corresponding with epl and evpl;
+                 multiponit-to-multipoint corresponding with ep-lan and evp-lan;
+                 rooted-multipoint corresponding with hub spoke scenario";
+            }
+            leaf number-of-pe {
                 type uint32;
-        }
-            leaf hi{
-                type string;
                 config false;
+                description
+                 "Number of PE";
+            }
+            leaf number-of-site {
+                type uint32;
+                config false;
+                description
+                 "Number of Sites";
+            }
+            container uni-list {
+            if-feature uni-list;
+            list uni-list {
+                 key "uni-site-id";
+                 leaf uni-site-id {
+                     type string;
+                     description
+                     "UNI site Identifier. mwqinq uni-site-id correspongding with PE+UNI,
+                     which is ac-node + ac-port for mw qinq scenario";
+                 }
+                 description
+                   "List for UNIs";
+            }
+            description
+             "Container for UNI List";
+            }
+            leaf ce-vlan-preservation {
+                type boolean;
+                description
+                "CE vlan preservation. mwqinq true for default";
+            }
+            leaf ce-vlan-cos-perservation {
+                type boolean;
+                description
+                "CE vlan COS preservation mwqinq true for default";
+            }
+            leaf service-multiplexing {
+                 type boolean;
+                 description
+                   "Service multiplexing. mwqinq true for evpl and evp-lan; false for ep-lan and evp-lan";
+            }
+            description
+            "Container for Ethernet virtual connection.";
+        }
+        description
+        "Grouping of service types.";
+    }
+
+    grouping l2vpn-svc-evc-qinq{
+        container vpn-services {
+        list vpn-svc {
+            key "vpn-id";
+            leaf vpn-id {
+                type l2svc:svc-id;
+                description
+                "Defining a service id. mwqinq interprete it to txid";
+            }
+            leaf vpn-type {
+                type identityref {
+                    base l2svc:service-type;
+                }
+            description
+            "Service type mwqinq epl evpl e-lan evp-lan";
+            }
+
+            uses service-mwqinq:svc-type-grouping;
+
+            leaf svc-topo {
+                type identityref {
+                    base l2svc:vpn-topology;
+                }
+                description
+                "Defining service topology, such as
+                 any-to-any,hub-spoke, etc. mwqinq for e(v)p-lan and e(v)pl, use any-to-any.";
+            }
+
+            uses l2svc:site-service;
+
+            description
+            "List of vpn-svc";
+        }
+        description
+        "Container for VPN services.";
+        }
+
+        /* SITE */
+        container sites {
+        list site {
+            key "site-id site-type";
+            leaf site-id {
+                type string;
+                description
+                "Site id";
+            }
+            leaf site-type {
+                type identityref {
+                base l2svc:site-type;
+                }
+                description
+                "Site type. mwqinq uni for mwqinq scenario";
+            }
+
+            container site-network-accesses {
+            list site-network-accesse {
+            key "network-access-id";
+            leaf network-access-id {
+              type string;
+              description
+              "Identifier of network access. mwqinq must the same with one of 'uni-site-id'";
+            }
+
+            uses l2svc:ethernet-connection-grouping;
+
+            uses l2svc:vpn-attachment-grouping;
+
+
+            uses l2svc:service-grouping;
+
+            description
+              "List of ports";
+            }
+            description
+            "Container of port configurations";
+            }
+            description
+            "List of sites";
+        }
+        description
+        "Container of site configurations";
+        }
+    }
+
+    rpc create-l2vpn-svc{
+        input {
+            uses service-mwqinq:l2vpn-svc-evc-qinq;
         }
     }
 }
