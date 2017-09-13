@@ -32,21 +32,6 @@
                         </type>
                         <name>binding-notification-broker</name>
                     </notification-service>
-                    <broker>
-                        <type xmlns:binding="urn:opendaylight:params:xml:ns:yang:controller:md:sal:binding">binding:binding-broker-osgi-registry</type>
-                        <name>binding-osgi-broker</name>
-                    </broker>
-                    <force-reuse>true</force-reuse>
-                    <params>
-                        <user-view-tunnel-type>with-protection</user-view-tunnel-type>
-                        <wtr>5</wtr>
-                        <tx-interval>50</tx-interval>
-                        <rx-interval>50</rx-interval>
-                        <multiplier>3</multiplier>
-                        <is-static>false</is-static>
-                        <pce-initiated>true</pce-initiated>
-                        <dynamic-bidirectional>two-single-tunnel</dynamic-bidirectional>
-                    </params>
                 </module>
             </modules>
         </data>
