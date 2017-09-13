@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<archetype-descriptor
+        xsi:schemaLocation="http://maven.apache.org/plugins/maven-archetype-plugin/archetype-descriptor/1.0.0 http://maven.apache.org/xsd/archetype-descriptor-1.0.0.xsd"
+        name="example-aggregator"
+        xmlns="http://maven.apache.org/plugins/maven-archetype-plugin/archetype-descriptor/1.0.0"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <requiredProperties>
+        <requiredProperty key="classPrefix">
+            <defaultValue>
+                ${artifactId.substring(0,1).toUpperCase()}${artifactId.replaceAll("-","").substring(1)}
+            </defaultValue>
+        </requiredProperty>
+        <requiredProperty key="copyright">
+            <defaultValue>
+                Copyright (c) 2015 ZTE, Inc.
+            </defaultValue>
+        </requiredProperty>
+        <requiredProperty key="version">
+            <defaultValue>
+                1.0.0.R2-SNAPSHOT
+            </defaultValue>
+        </requiredProperty>
+    </requiredProperties>
+
+    <fileSets>
+        <!-- parent -->
+        <fileSet filtered="true" encoding="UTF-8">
+            <directory></directory>
+            <includes>
+                <include>pom.xml</include>
+            </includes>
+        </fileSet>
+
+        <!-- provider1 -->
+
+        <fileSet filtered="true" encoding="UTF-8">
+            <directory>__rootArtifactId__-provider</directory>
+            <includes>
+                <include>pom.xml</include>
+            </includes>
+        </fileSet>
+        <fileSet filtered="true" encoding="UTF-8">
+            <directory>__rootArtifactId__-provider/src/main/java</directory>
+            <includes>
+                <include>**/*.java</include>
+            </includes>
+        </fileSet>
+        <fileSet filtered="true" encoding="UTF-8">
+            <directory>__rootArtifactId__-provider/src/test/java</directory>
+            <includes>
+                <include>**/*.java</include>
+            </includes>
+        </fileSet>
+
+        <fileSet filtered="true" encoding="UTF-8">
+            <directory>__rootArtifactId__-provider/src/main/yang</directory>
+            <includes>
+                <include>**/*.yang</include>
+            </includes>
+        </fileSet>
+
+        <fileSet filtered="true" encoding="UTF-8">
+            <directory>__rootArtifactId__-provider/src/main/config</directory>
+            <includes>
+                <include>**/*.xml</include>
+            </includes>
+        </fileSet>
+
+        <!-- model -->
+
+        <fileSet filtered="true" encoding="UTF-8">
+            <directory>__rootArtifactId__-model</directory>
+            <includes>
+                <include>pom.xml</include>
+            </includes>
+        </fileSet>
+        <fileSet filtered="true" encoding="UTF-8">
+            <directory>__rootArtifactId__-model/src/main/yang</directory>
+            <includes>
+                <include>**/*.yang</include>
+            </includes>
+        </fileSet>
+
+    </fileSets>
+</archetype-descriptor>

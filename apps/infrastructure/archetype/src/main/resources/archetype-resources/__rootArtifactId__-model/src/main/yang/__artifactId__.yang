@@ -1,0 +1,9 @@
+module ${artifactId} {
+    yang-version 1;
+    namespace "urn:zte:sdn:mw:${artifactId}";
+    prefix "${artifactId}";
+
+    revision "2017-9-13" {
+        description "Initial revision of ${artifactId} model";
+    }
+}

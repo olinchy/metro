@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- vi: set et smarttab sw=4 tabstop=4: -->
+<!--
+Copyright © 2015 ZTE and others. All rights reserved.
+
+This program and the accompanying materials are made available under the
+terms of the Eclipse Public License v1.0 which accompanies this distribution,
+and is available at http://www.eclipse.org/legal/epl-v10.html
+-->
+<features name="mw-metro-${project.version}" xmlns="http://karaf.apache.org/xmlns/features/v1.2.0"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://karaf.apache.org/xmlns/features/v1.2.0 http://karaf.apache.org/xmlns/features/v1.2.0">
+    <repository>mvn:com.zte.sdn.oscp.dlux/features-dlux/{{VERSION}}/xml/features</repository>
+    <repository>mvn:com.zte.sdn.oscp.mdsal.model/features-mdsal-model/{{VERSION}}/xml/features</repository>
+    <repository>mvn:com.zte.sdn.oscp.netconf/features-restconf/{{VERSION}}/xml/features</repository>
+    <repository>mvn:com.zte.sdn.oscp.netconf/features-netconf/{{VERSION}}/xml/features</repository>
+    <repository>mvn:com.zte.sdn.oscp.netconf/features-netconf-connector/{{VERSION}}/xml/features</repository>
+
+    <feature name="mw-metro" description="mw :: metro :: qinq">
+        <bundle>mvn:com.zte.ngip.ipsdn/qinq-provider/{{VERSION}}</bundle>
+        <bundle>mvn:com.zte.ngip.ipsdn/qinq-model/{{VERSION}}</bundle>
+        <configfile finalname="${configfile.directory}/qinq.xml" override="true">
+            mvn:com.zte.ngip.ipsdn/qinq-provider/{{VERSION}}/xml/config
+        </configfile>
+    </feature>
+</features>
