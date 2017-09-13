@@ -1,0 +1,46 @@
+module mw-path-function {
+    yang-version 1;
+    namespace "urn:zte:ngip:ipsdn:function:mw-path-function";
+    prefix "mw-path-function";
+
+    import qinq-service-model {prefix qinq-service-model;revision-date "2017-09-05";}
+
+    organization "zte";
+    contact "zte";
+    description "mw-path-function";
+
+    revision "2017-09-11" {
+        description "Initial revision of path model";
+    }
+
+
+    rpc create-path {
+        input {
+            leaf name {
+                type leafref {
+                    path '/qinq-service-model:mw-l2vpn/qinq-service-model:qinq-service-instance/qinq-service-model:name';
+                }
+            }
+            leaf txid {
+                type leafref {
+                    path '/qinq-service-model:mw-l2vpn/qinq-service-model:qinq-service-instance/qinq-service-model:txid';
+                }
+            }
+        }
+    }
+
+    rpc delete-path {
+        input {
+            leaf name {
+                type leafref {
+                    path '/qinq-service-model:mw-l2vpn/qinq-service-model:qinq-service-instance/qinq-service-model:name';
+                }
+            }
+            leaf txid {
+                type leafref {
+                    path '/qinq-service-model:mw-l2vpn/qinq-service-model:qinq-service-instance/qinq-service-model:txid';
+                }
+            }
+        }
+    }
+}

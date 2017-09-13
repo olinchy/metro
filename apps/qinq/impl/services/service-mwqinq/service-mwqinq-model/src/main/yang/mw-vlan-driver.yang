@@ -1,0 +1,67 @@
+module mw-vlan-driver {
+    yang-version 1;
+    namespace "urn:zte:ngip:ipsdn:dirver:mw-vlan-driver";
+    prefix "mw-vlan-driver";
+
+    import opendaylight-inventory {prefix inv; revision-date "2013-08-19";}
+
+    organization "zte";
+        contact "zte";
+        description "mw-vlan-driver";
+
+    revision "2017-09-11" {
+        description "Initial revision of mw-vlan-driver model";
+    }
+
+    grouping vlan-instance {
+        container c-vlan {
+            list vlan-range {
+                leaf vlan-begin {
+                    type int32 {
+                        range "1..4094";
+                    }
+                    description "Vlan Bitmap." ;
+                }
+
+                leaf vlan-end {
+                    type int32 {
+                        range "1..4094";
+                    }
+                    description "Vlan Bitmap." ;
+                }
+            }
+        }
+
+        leaf s-vlan {
+            type int32 {
+                range "1..4094";
+            }
+            description "QinQ svlan Bitmap." ;
+        }
+    }
+
+    rpc create-driver-vlan {
+        input {
+            leaf pe-node {
+                type inv:node-id;
+            }
+            leaf interface-name {
+                type string;
+            }
+            uses vlan-instance;
+        }
+    }
+
+    rpc delete-driver-vlan {
+        input {
+            leaf pe-node {
+                type inv:node-id;
+            }
+            leaf interface-name {
+                type string;
+            }
+            uses vlan-instance;
+        }
+    }
+
+}
