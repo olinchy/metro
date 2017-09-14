@@ -12,12 +12,12 @@
         </requiredProperty>
         <requiredProperty key="copyright">
             <defaultValue>
-                Copyright (c) 2015 ZTE, Inc.
+                Copyright (c) 2017 ZTE, Inc.
             </defaultValue>
         </requiredProperty>
         <requiredProperty key="version">
             <defaultValue>
-                1.0.0.R2-SNAPSHOT
+                1.0.0-SNAPSHOT
             </defaultValue>
         </requiredProperty>
     </requiredProperties>
@@ -34,33 +34,33 @@
         <!-- provider1 -->
 
         <fileSet filtered="true" encoding="UTF-8">
-            <directory>__rootArtifactId__-provider</directory>
+            <directory>__rootArtifactId__-impl</directory>
             <includes>
                 <include>pom.xml</include>
             </includes>
         </fileSet>
         <fileSet filtered="true" encoding="UTF-8">
-            <directory>__rootArtifactId__-provider/src/main/java</directory>
+            <directory>__rootArtifactId__-impl/src/main/java</directory>
             <includes>
                 <include>**/*.java</include>
             </includes>
         </fileSet>
         <fileSet filtered="true" encoding="UTF-8">
-            <directory>__rootArtifactId__-provider/src/test/java</directory>
+            <directory>__rootArtifactId__-impl/src/test/java</directory>
             <includes>
                 <include>**/*.java</include>
             </includes>
         </fileSet>
 
         <fileSet filtered="true" encoding="UTF-8">
-            <directory>__rootArtifactId__-provider/src/main/yang</directory>
+            <directory>__rootArtifactId__-impl/src/main/yang</directory>
             <includes>
                 <include>**/*.yang</include>
             </includes>
         </fileSet>
 
         <fileSet filtered="true" encoding="UTF-8">
-            <directory>__rootArtifactId__-provider/src/main/config</directory>
+            <directory>__rootArtifactId__-impl/src/main/config</directory>
             <includes>
                 <include>**/*.xml</include>
             </includes>

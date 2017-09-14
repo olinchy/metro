@@ -9,7 +9,7 @@
         <groupId>com.zte.ngip.ipsdn</groupId>
         <artifactId>ipsdn-model-parent</artifactId>
         <version>2.2.8.R3-WAN-SNAPSHOT</version>
-        <relativePath>../../../../parent/yang-parent</relativePath>
+        <relativePath/>
     </parent>
 
     <!-- This pom.xml is providing the hook to the yang files that define the
