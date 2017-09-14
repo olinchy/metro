@@ -1,9 +1,0 @@
-module qinq {
-    yang-version 1;
-    namespace "urn:zte:ngip:ipsdn:qinq";
-    prefix "qinq";
-
-    revision "2017-03-27" {
-        description "Initial revision of qinq model";
-    }
-}

@@ -17,10 +17,10 @@ and is available at http://www.eclipse.org/legal/epl-v10.html
     <repository>mvn:com.zte.sdn.oscp.netconf/features-netconf-connector/{{VERSION}}/xml/features</repository>
 
     <feature name="mw-metro" description="mw :: metro :: qinq">
-        <bundle>mvn:com.zte.ngip.ipsdn/qinq-provider/{{VERSION}}</bundle>
-        <bundle>mvn:com.zte.ngip.ipsdn/qinq-model/{{VERSION}}</bundle>
-        <configfile finalname="${configfile.directory}/qinq.xml" override="true">
-            mvn:com.zte.ngip.ipsdn/qinq-provider/{{VERSION}}/xml/config
+        <bundle>mvn:com.zte.sdn.mw.e2e.qinq.service.nbi/nbirpc-impl/{{VERSION}}</bundle>
+        <bundle>mvn:com.zte.sdn.mw.e2e.qinq.service.nbi/nbirpc-model/{{VERSION}}</bundle>
+        <configfile finalname="${configfile.directory}/mw_qinq_config.xml" override="true">
+            mvn:com.zte.sdn.mw.e2e.qinq.service.nbi/nbirpc-impl/{{VERSION}}/xml/config
         </configfile>
     </feature>
 </features>

@@ -11,7 +11,10 @@ mvn archetype:generate -DarchetypeGroupId=org.opendaylight.controller -Darchetyp
 ```
 export ODL_KARAF_HOME=~/Downloads/ipsdn-all-karaf-2.2.7.R3B07
 mkdir -p $ODL_KARAF_HOME/system/com/zte/sdn/mw/e2e
-cp -R ~/.m2/repository/com/zte/ngip/ipsdn $ODL_KARAF_HOME/system/com/zte/ngip/
+
+cp -R ~/.m2/repository/com/zte/ngip/ipsdn/ $ODL_KARAF_HOME/system/com/zte/ngip
+
+cp -R ~/.m2/repository/com/zte/sdn/mw $ODL_KARAF_HOME/system/com/zte/sdn
 ```
 --- start odl
 ```
@@ -20,6 +23,6 @@ cd $ODL_KARAF_HOME
 ```
 --- install feature
 ```
-feature:repo-add mvn:com.zte.ngip.ipsdn/metro-features/1.0.0-SNAPSHOT/xml/features
+feature:repo-add mvn:com.zte.sdn.mw.e2e/metro-features/1.0.0-SNAPSHOT/xml/features
 feature:install mw-metro
 ```
