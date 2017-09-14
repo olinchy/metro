@@ -3,8 +3,7 @@ module qinq-service-model {
     namespace "urn:zte:ngip:ipsdn:service-mwqinq:qinq-service-model";
     prefix "qinq-service-model";
 
-    import opendaylight-inventory {prefix inv;revision-date "2013-08-19";}
-    import network-topology {prefix nt;revision-date "2013-07-12";}
+    import network-topology {prefix nt;revision-date "2013-10-21"; }
     import qos {prefix qos;revision-date "2016-04-22";}
 
     organization "ZTE";
@@ -122,7 +121,7 @@ module qinq-service-model {
             type string;
         }
         leaf ac-nodeid {
-            type inv:node-id;
+            type nt:node-id;
         }
         leaf name {
             type string;
@@ -133,7 +132,7 @@ module qinq-service-model {
     }
 	grouping tunnel{
 	    leaf tunnel-id{
-		    type int32;
+		    type uint32;
 		}
 		leaf evc-svlan{
 		    type int32;

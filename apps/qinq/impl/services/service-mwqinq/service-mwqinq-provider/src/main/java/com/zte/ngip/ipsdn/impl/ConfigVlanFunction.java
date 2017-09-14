@@ -8,13 +8,20 @@
 
 package com.zte.ngip.ipsdn.impl;
 
+import com.zte.ngip.ipsdn.impl.utils.DataBrokerProvider;
 import org.opendaylight.yang.gen.v1.urn.zte.ngip.ipsdn.function.mw.vlan.function.rev170911.CreateVlanInput;
 import org.opendaylight.yang.gen.v1.urn.zte.ngip.ipsdn.function.mw.vlan.function.rev170911.DeleteVlanInput;
 import org.opendaylight.yang.gen.v1.urn.zte.ngip.ipsdn.function.mw.vlan.function.rev170911.MwVlanFunctionService;
+import org.opendaylight.yang.gen.v1.urn.zte.ngip.ipsdn.service.mwqinq.qinq.service.model.rev170905.MwL2vpn;
+import org.opendaylight.yang.gen.v1.urn.zte.ngip.ipsdn.service.mwqinq.qinq.service.model.rev170905.mw.l2vpn.QinqServiceInstance;
+import org.opendaylight.yang.gen.v1.urn.zte.ngip.ipsdn.service.mwqinq.qinq.service.model.rev170905.mw.l2vpn.QinqServiceInstanceKey;
+import org.opendaylight.yang.gen.v1.urn.zte.ngip.ipsdn.service.mwqinq.qinq.service.model.rev170905.qinq.service.path.Link;
+import org.opendaylight.yangtools.yang.binding.InstanceIdentifier;
 import org.opendaylight.yangtools.yang.common.RpcResult;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.util.List;
 import java.util.concurrent.Future;
 
 /**
@@ -39,6 +46,16 @@ public class ConfigVlanFunction implements MwVlanFunctionService {
 
     @Override
     public Future<RpcResult<Void>> createVlan(CreateVlanInput input) {
+        InstanceIdentifier<QinqServiceInstance> qinqServiceInstancePath = InstanceIdentifier.create(MwL2vpn.class)
+                .child(QinqServiceInstance.class, new QinqServiceInstanceKey(input.getName(), input.getTxid()));
+        QinqServiceInstance qinqServiceInstance = DataBrokerProvider.getInstance().readConfiguration(qinqServiceInstancePath);
+
+        List<Link> linkList = qinqServiceInstance.getPath().getLink();
+        for (Link link: linkList) {
+            link.getDestination().getDestNode();
+        }
+
+
         return null;
     }
 }

@@ -85,7 +85,12 @@
         <dependency>
             <groupId>com.zte.ngip.ipsdn</groupId>
             <artifactId>tunnel-manager-provider</artifactId>
-            <version>2.2.8.R3-WAN-SNAPSHOT</version>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.zte.ngip.ipsdn</groupId>
+            <artifactId>pce-path-impl</artifactId>
+            <version>${project.version}</version>
         </dependency>
 
     </dependencies>
