@@ -3,7 +3,8 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.zte.sdn.mw</groupId>
-    <artifactId>module-archetype</artifactId>
+    <artifactId>css-archetype</artifactId>
+    <name>${project.artifactId}</name>
     <version>1.0.0-snapshot</version>
     <packaging>maven-archetype</packaging>
 

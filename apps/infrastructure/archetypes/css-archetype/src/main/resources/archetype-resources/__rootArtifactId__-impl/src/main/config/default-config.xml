@@ -12,7 +12,8 @@
         <data xmlns="urn:ietf:params:xml:ns:netconf:base:1.0">
             <modules xmlns="urn:opendaylight:params:xml:ns:yang:controller:config">
                 <module>
-                    <type xmlns:prefix="urn:zte:sdn:mw:${artifactId.replaceAll("-",":")}:impl">prefix:${artifactId}-impl</type>
+                    <type-",":")}:impl">prefix:${artifactId}-impl
+                </type>
                     <name>${artifactId}-impl</name>
                     <rpc-registry>
                         <type
