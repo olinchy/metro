@@ -896,7 +896,7 @@ module zxr10-switchvlan {
               case type {
                 description 'The external type information after translated.'
                             ;
-                leaf type {
+                leaf vlanType {
                   description 'Egress internal VLAN type.'
                               ;
                   type enumeration {
@@ -939,7 +939,7 @@ module zxr10-switchvlan {
               case type {
                 description 'The external VLAN type after translated.'
                             ;
-                leaf type {
+                leaf vlanType {
                   description 'The external VLAN type after translated.'
                               ;
                   type enumeration {
