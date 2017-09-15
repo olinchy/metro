@@ -60,14 +60,6 @@ and is available at http://www.eclipse.org/legal/epl-v10.html INTERNAL
     </dependencyManagement>
 
     <dependencies>
-        <!--<dependency>-->
-        <!--<groupId>com.zte.ngip.ipsdn</groupId>-->
-        <!--<artifactId>ipsdn-features</artifactId>-->
-        <!--<version>${ipsdn.version}</version>-->
-        <!--<classifier>features</classifier>-->
-        <!--<type>xml</type>-->
-        <!--<scope>runtime</scope>-->
-        <!--</dependency>-->
         <dependency>
             <groupId>com.zte.sdn.oscp.dlux</groupId>
             <artifactId>features-dlux</artifactId>
