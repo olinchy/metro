@@ -11,16 +11,19 @@ and is available at http://www.eclipse.org/legal/epl-v10.html
           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
           xsi:schemaLocation="http://karaf.apache.org/xmlns/features/v1.2.0 http://karaf.apache.org/xmlns/features/v1.2.0">
     <repository>mvn:com.zte.sdn.oscp.dlux/features-dlux/{{VERSION}}/xml/features</repository>
-    <repository>mvn:com.zte.sdn.oscp.mdsal.model/features-mdsal-model/{{VERSION}}/xml/features</repository>
-    <repository>mvn:com.zte.sdn.oscp.netconf/features-restconf/{{VERSION}}/xml/features</repository>
-    <repository>mvn:com.zte.sdn.oscp.netconf/features-netconf/{{VERSION}}/xml/features</repository>
-    <repository>mvn:com.zte.sdn.oscp.netconf/features-netconf-connector/{{VERSION}}/xml/features</repository>
+    <repository>mvn:com.zte.ngip.ipsdn/ipsdn-tunnel-features/{{VERSION}}/xml/features</repository>
 
     <feature name="mw-metro" description="mw :: metro :: qinq">
+        <feature version="${ipsdn.version}">ipsdn-pce</feature>
         <bundle>mvn:com.zte.sdn.mw.e2e.qinq.service.nbi/nbirpc-impl/{{VERSION}}</bundle>
         <bundle>mvn:com.zte.sdn.mw.e2e.qinq.service.nbi/nbirpc-model/{{VERSION}}</bundle>
         <configfile finalname="${configfile.directory}/mw_qinq_config.xml" override="true">
             mvn:com.zte.sdn.mw.e2e.qinq.service.nbi/nbirpc-impl/{{VERSION}}/xml/config
         </configfile>
     </feature>
+    <!--<feature name="mw-vlan" description="mw :: metro :: vlan">-->
+        <!--<feature version="${ipsdn.version}">ipsdn-pce</feature>-->
+        <!--<bundle>mvn:com.zte.sdn.mw.e2e.qinq.drivers.vlan/vlan-driver-model/{{VERSION}}</bundle>-->
+        <!--<bundle>mvn:com.zte.sdn.mw.e2e.qinq.drivers.vlan/vlan-driver-impl/{{VERSION}}</bundle>-->
+    <!--</feature>-->
 </features>

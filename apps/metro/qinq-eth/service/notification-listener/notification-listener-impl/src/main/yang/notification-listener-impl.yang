@@ -1,0 +1,54 @@
+module notification-listener-impl {
+    yang-version 1;
+    namespace "urn:zte:sdn:mw:notification:listener:impl";
+    prefix "notification-listener-impl";
+
+    import config { prefix config; revision-date 2013-04-05; }
+    import opendaylight-md-sal-binding { prefix mdsal; revision-date 2013-10-28;}
+
+    description
+        "Service definition for notification-listener project";
+
+    revision "2017-09-13" {
+        description
+            "Initial revision";
+    }
+
+    identity notification-listener-impl {
+        base config:module-type;
+        config:java-name-prefix NotificationListener;
+    }
+
+    augment "/config:modules/config:module/config:configuration" {
+        case notification-listener-impl {
+            when "/config:modules/config:module/config:type = 'notification-listener-impl'";
+
+            container rpc-registry {
+                uses config:service-ref {
+                    refine type {
+                        mandatory true;
+                        config:required-identity mdsal:binding-rpc-registry;
+                    }
+                }
+            }
+
+            container data-broker {
+                uses config:service-ref {
+                    refine type {
+                        mandatory false;
+                        config:required-identity mdsal:binding-async-data-broker;
+                    }
+                }
+            }
+
+            container notification-service {
+                uses config:service-ref {
+                    refine type {
+                        mandatory true;
+                        config:required-identity mdsal:binding-notification-service;
+                    }
+                }
+            }
+        }
+    }
+}

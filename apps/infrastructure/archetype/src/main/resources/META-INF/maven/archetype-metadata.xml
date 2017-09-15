@@ -31,7 +31,7 @@
             </includes>
         </fileSet>
 
-        <!-- provider1 -->
+        <!-- impl -->
 
         <fileSet filtered="true" encoding="UTF-8">
             <directory>__rootArtifactId__-impl</directory>

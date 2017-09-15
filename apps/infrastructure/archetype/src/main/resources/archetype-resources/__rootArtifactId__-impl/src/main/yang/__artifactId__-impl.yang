@@ -1,6 +1,6 @@
 module ${artifactId}-impl {
     yang-version 1;
-    namespace "urn:zte:sdn:mw:${artifactId}:impl";
+    namespace "urn:zte:sdn:mw:${artifactId.replaceAll("-",":")}:impl";
     prefix "${artifactId}-impl";
 
     import config { prefix config; revision-date 2013-04-05; }

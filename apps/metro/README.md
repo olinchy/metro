@@ -26,3 +26,11 @@ cd $ODL_KARAF_HOME
 feature:repo-add mvn:com.zte.sdn.mw.e2e/metro-features/1.0.0-SNAPSHOT/xml/features
 feature:install mw-metro
 ```
+--- update feature
+```
+feature:uninstall mw-metro
+
+feature:repo-refresh mvn:com.zte.sdn.mw.e2e/metro-features/1.0.0-SNAPSHOT/xml/features
+feature:install mw-metro
+
+```

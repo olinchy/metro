@@ -1,9 +1,0 @@
-module nbirpc {
-    yang-version 1;
-    namespace "urn:zte:sdn:mw:nbirpc";
-    prefix nbirpc;
-
-    revision "2017-9-13" {
-        description "Initial revision of nbirpc model";
-    }
-}

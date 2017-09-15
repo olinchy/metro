@@ -85,7 +85,7 @@
         <dependency>
             <groupId>com.zte.ngip.ipsdn</groupId>
             <artifactId>tunnel-manager-provider</artifactId>
-            <version>${project.version}</version>
+            <version>2.2.7.R3B07</version>
         </dependency>
         <dependency>
             <groupId>com.zte.ngip.ipsdn</groupId>

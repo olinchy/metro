@@ -4,7 +4,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <snapshot>
     <required-capabilities>
-        <capability>urn:zte:sdn:mw:${artifactId}:impl?module=${artifactId}-impl&amp;revision=2017-09-13
+        <capability>urn:zte:sdn:mw:${artifactId.replaceAll("-",":")}:impl?module=${artifactId}-impl&amp;revision=2017-09-13
         </capability>
     </required-capabilities>
     <configuration>
@@ -12,7 +12,7 @@
         <data xmlns="urn:ietf:params:xml:ns:netconf:base:1.0">
             <modules xmlns="urn:opendaylight:params:xml:ns:yang:controller:config">
                 <module>
-                    <type xmlns:prefix="urn:zte:sdn:mw:${artifactId}:impl">prefix:${artifactId}-impl</type>
+                    <type xmlns:prefix="urn:zte:sdn:mw:${artifactId.replaceAll("-",":")}:impl">prefix:${artifactId}-impl</type>
                     <name>${artifactId}-impl</name>
                     <rpc-registry>
                         <type

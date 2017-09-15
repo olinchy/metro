@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Copyright © ${copyrightYear} ${copyright} and others. All rights reserved.
+
+This program and the accompanying materials are made available under the
+terms of the Eclipse Public License v1.0 which accompanies this distribution,
+and is available at http://www.eclipse.org/legal/epl-v10.html
+-->
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>com.zte.ngip.ipsdn</groupId>
+        <artifactId>ipsdn-model-parent</artifactId>
+        <version>2.2.7.R3B07</version>
+        <relativePath/>
+    </parent>
+
+    <!-- This pom.xml is providing the hook to the yang files that define the
+        API. See salGeneratorPath in parent/yang-parent/pom.xml -->
+    <groupId>${groupId}</groupId>
+    <modelVersion>4.0.0</modelVersion>
+    <artifactId>${artifactId}-model</artifactId>
+    <packaging>bundle</packaging>
+    <name>${project.artifactId}</name>
+    <prerequisites>
+        <maven>3.1.1</maven>
+    </prerequisites>
+
+    <!-- Your YANG data model (you don't have one yet in this chapter) depends
+        on YANGTOOLS -->
+    <dependencies>
+        <dependency>
+            <groupId>com.zte.sdn.oscp.controller.model</groupId>
+            <artifactId>model-inventory</artifactId>
+        </dependency>
+    </dependencies>
+</project>
