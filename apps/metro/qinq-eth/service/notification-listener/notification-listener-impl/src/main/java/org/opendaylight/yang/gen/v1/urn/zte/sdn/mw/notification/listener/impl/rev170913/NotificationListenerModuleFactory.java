@@ -7,7 +7,9 @@
 *
 * Do not modify this file unless it is present under src/main directory
 */
-package org.opendaylight.yang.gen.v1.urn.zte.sdn.mw.notification.listener.impl.rev170913;
-public class NotificationListenerModuleFactory extends org.opendaylight.yang.gen.v1.urn.zte.sdn.mw.notification.listener.impl.rev170913.AbstractNotificationListenerModuleFactory {
 
+package org.opendaylight.yang.gen.v1.urn.zte.sdn.mw.notification.listener.impl.rev170913;
+
+public class NotificationListenerModuleFactory extends org.opendaylight.yang.gen.v1.urn.zte.sdn.mw.notification
+        .listener.impl.rev170913.AbstractNotificationListenerModuleFactory {
 }

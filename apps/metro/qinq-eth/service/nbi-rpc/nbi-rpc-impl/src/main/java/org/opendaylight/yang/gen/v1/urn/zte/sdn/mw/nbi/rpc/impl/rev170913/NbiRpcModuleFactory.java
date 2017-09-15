@@ -7,7 +7,9 @@
 *
 * Do not modify this file unless it is present under src/main directory
 */
-package org.opendaylight.yang.gen.v1.urn.zte.sdn.mw.nbi.rpc.impl.rev170913;
-public class NbiRpcModuleFactory extends org.opendaylight.yang.gen.v1.urn.zte.sdn.mw.nbi.rpc.impl.rev170913.AbstractNbiRpcModuleFactory {
 
+package org.opendaylight.yang.gen.v1.urn.zte.sdn.mw.nbi.rpc.impl.rev170913;
+
+public class NbiRpcModuleFactory extends org.opendaylight.yang.gen.v1.urn.zte.sdn.mw.nbi.rpc.impl
+        .rev170913.AbstractNbiRpcModuleFactory {
 }

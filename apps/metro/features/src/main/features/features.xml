@@ -7,23 +7,35 @@ This program and the accompanying materials are made available under the
 terms of the Eclipse Public License v1.0 which accompanies this distribution,
 and is available at http://www.eclipse.org/legal/epl-v10.html
 -->
-<features name="mw-metro-${project.version}" xmlns="http://karaf.apache.org/xmlns/features/v1.2.0"
-          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<features xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="mw-metro-${project.version}"
+          xmlns="http://karaf.apache.org/xmlns/features/v1.2.0"
           xsi:schemaLocation="http://karaf.apache.org/xmlns/features/v1.2.0 http://karaf.apache.org/xmlns/features/v1.2.0">
     <repository>mvn:com.zte.sdn.oscp.dlux/features-dlux/{{VERSION}}/xml/features</repository>
     <repository>mvn:com.zte.ngip.ipsdn/ipsdn-tunnel-features/{{VERSION}}/xml/features</repository>
 
     <feature name="mw-metro" description="mw :: metro :: qinq">
+        <!--dependencies-->
         <feature version="${ipsdn.version}">ipsdn-pce</feature>
-        <bundle>mvn:com.zte.sdn.mw.e2e.qinq.service.nbi/nbirpc-impl/{{VERSION}}</bundle>
-        <bundle>mvn:com.zte.sdn.mw.e2e.qinq.service.nbi/nbirpc-model/{{VERSION}}</bundle>
-        <configfile finalname="${configfile.directory}/mw_qinq_config.xml" override="true">
-            mvn:com.zte.sdn.mw.e2e.qinq.service.nbi/nbirpc-impl/{{VERSION}}/xml/config
+
+        <!--notification listener-->
+        <bundle>mvn:com.zte.sdn.mw.e2e.qinq.service.notification.listener/notification-listener-model/{{VERSION}}
+        </bundle>
+        <bundle>mvn:com.zte.sdn.mw.e2e.qinq.service.notification.listener/notification-listener-impl/{{VERSION}}
+        </bundle>
+        <configfile finalname="${configfile.directory}/mw_metro_notification-listener.xml" override="true">
+            mvn:com.zte.sdn.mw.e2e.qinq.service.notification.listener/notification-listener-impl/{{VERSION}}/xml/config
+        </configfile>
+
+        <!-- nbi rpc -->
+        <bundle>mvn:com.zte.sdn.mw.e2e.qinq.servic.nbi.rpc/nbi-rpc-model/{{VERSION}}</bundle>
+        <bundle>mvn:com.zte.sdn.mw.e2e.qinq.servic.nbi.rpc/nbi-rpc-impl/{{VERSION}}</bundle>
+        <configfile finalname="${configfile.directory}/mw_metro_rpc.xml" override="true">
+            mvn:com.zte.sdn.mw.e2e.qinq.servic.nbi.rpc/nbi-rpc-impl/{{VERSION}}/xml/config
         </configfile>
     </feature>
     <!--<feature name="mw-vlan" description="mw :: metro :: vlan">-->
-        <!--<feature version="${ipsdn.version}">ipsdn-pce</feature>-->
-        <!--<bundle>mvn:com.zte.sdn.mw.e2e.qinq.drivers.vlan/vlan-driver-model/{{VERSION}}</bundle>-->
-        <!--<bundle>mvn:com.zte.sdn.mw.e2e.qinq.drivers.vlan/vlan-driver-impl/{{VERSION}}</bundle>-->
+    <!--<feature version="${ipsdn.version}">ipsdn-pce</feature>-->
+    <!--<bundle>mvn:com.zte.sdn.mw.e2e.qinq.drivers.vlan/vlan-driver-model/{{VERSION}}</bundle>-->
+    <!--<bundle>mvn:com.zte.sdn.mw.e2e.qinq.drivers.vlan/vlan-driver-impl/{{VERSION}}</bundle>-->
     <!--</feature>-->
 </features>
