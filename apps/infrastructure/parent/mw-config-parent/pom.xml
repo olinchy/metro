@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <!-- It is vital for this to work, that the parent section statically refers
+        to the information between <parent> tags from the parent/pom.xml file. Think
+        of this as a reverse reference -->
+    <parent>
+        <groupId>com.zte.ngip.ipsdn</groupId>
+        <artifactId>ipsdn-config-parent</artifactId>
+        <version>2.2.7.R3B07</version>
+        <relativePath/>
+    </parent>
+
+    <!-- This pom.xml is providing the hook to the yang files that define the
+        API. See salGeneratorPath in parent/pom.xml. -->
+    <groupId>com.zte.mw.sdn</groupId>
+    <artifactId>mw-config-parent</artifactId>
+    <version>1.0.0-snapshot</version>
+    <packaging>pom</packaging>
+    <name>${project.artifactId}</name>
+    <modelVersion>4.0.0</modelVersion>
+
+    <properties>
+        <ipsdn.version>2.2.7.R3B07</ipsdn.version>
+    </properties>
+
+    <build>
+        <plugins>
+            <plugin>
+                <artifactId>maven-checkstyle-plugin</artifactId>
+                <version>${checkstyle.version}</version>
+                <dependencies>
+                    <dependency>
+                        <groupId>com.zte.ngip.ipsdn</groupId>
+                        <artifactId>ipsdn-checkstyle</artifactId>
+                        <version>${ipsdn.version}</version>
+                        <scope>compile</scope>
+                    </dependency>
+                </dependencies>
+                <configuration>
+                    <configLocation>ipsdn_checks.xml</configLocation>
+                    <consoleOutput>true</consoleOutput>
+                    <includeTestResources>false</includeTestResources>
+                    <!-- <sourceDirectory> is needed so that checkstyle ignores the
+                     generated sources directory -->
+                    <sourceDirectory>${project.build.sourceDirectory}</sourceDirectory>
+                    <includes>**\/*.java</includes>
+                    <excludes>
+                        org/opendaylight/yang/gen/**,
+                        **/config/yang/**,
+                        **/thrift/gen/*.java,
+                        **\/*.properties
+                    </excludes>
+                    <failsOnError>false</failsOnError>
+                    <consoleOutput>true</consoleOutput>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>check-license</id>
+                        <goals>
+                            <goal>check</goal>
+                        </goals>
+                        <phase>process-sources</phase>
+                        <configuration>
+                            <configLocation>ipsdn-check-license.xml</configLocation>
+                            <includeResources>false</includeResources>
+                            <includeTestResources>true</includeTestResources>
+                            <sourceDirectory>${project.build.sourceDirectory}</sourceDirectory>
+                            <excludes>
+                                org/opendaylight/yang/gen/**,
+                                **/config/yang/**,
+                                **/thrift/gen/*.java
+                            </excludes>
+                            <failsOnError>false</failsOnError>
+                            <consoleOutput>true</consoleOutput>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>com.zte.ngip.ipsdn</groupId>
+                <artifactId>ipsdn-artifacts</artifactId>
+                <version>${ipsdn.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+</project>

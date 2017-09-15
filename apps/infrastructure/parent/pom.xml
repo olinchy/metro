@@ -20,6 +20,8 @@ and is available at http://www.eclipse.org/legal/epl-v10.html INTERNAL
     <modules>
         <module>mw-components-parent</module>
         <module>mw-pom-parent</module>
+        <module>mw-config-parent</module>
+        <module>mw-model-parent</module>
     </modules>
 
 </project>

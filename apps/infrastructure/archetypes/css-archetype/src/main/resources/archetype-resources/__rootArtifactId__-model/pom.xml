@@ -6,9 +6,9 @@
         to the information between <parent> tags from the parent/yang-parent/pom.xml file. Think
         of this as a reverse reference -->
     <parent>
-        <groupId>com.zte.ngip.ipsdn</groupId>
-        <artifactId>ipsdn-model-parent</artifactId>
-        <version>2.2.7.R3B07</version>
+        <groupId>com.zte.mw.sdn</groupId>
+        <artifactId>mw-model-parent</artifactId>
+        <version>1.0.0-snapshot</version>
         <relativePath/>
     </parent>
 
