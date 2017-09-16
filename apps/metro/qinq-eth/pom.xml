@@ -21,5 +21,6 @@ and is available at http://www.eclipse.org/legal/epl-v10.html INTERNAL
         <module>drivers</module>
         <module>service</module>
         <module>function</module>
+        <module>model</module>
     </modules>
 </project>

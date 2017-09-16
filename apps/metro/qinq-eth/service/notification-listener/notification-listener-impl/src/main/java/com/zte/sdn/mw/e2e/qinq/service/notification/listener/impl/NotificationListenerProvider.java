@@ -8,14 +8,20 @@
 
 package com.zte.sdn.mw.e2e.qinq.service.notification.listener.impl;
 
+import org.opendaylight.controller.sal.binding.api.NotificationProviderService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public class NotificationListenerProvider implements AutoCloseable {
     private static final Logger LOG = LoggerFactory.getLogger(NotificationListenerProvider.class);
+    private NotificationProviderService notifySer;
 
     @Override
     public void close() throws Exception {
         LOG.info("NotificationListenerProvider Closed");
+    }
+
+    public void setNotifySer(final NotificationProviderService notifySer) {
+        this.notifySer = notifySer;
     }
 }

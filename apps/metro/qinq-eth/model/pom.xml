@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <!-- It is vital for this to work, that the parent section statically refers
+        to the information between <parent> tags from the parent/yang-parent/pom.xml file. Think
+        of this as a reverse reference -->
+    <parent>
+        <groupId>com.zte.mw.sdn</groupId>
+        <artifactId>mw-model-parent</artifactId>
+        <version>1.0.0-snapshot</version>
+        <relativePath/>
+    </parent>
+
+    <!-- This pom.xml is providing the hook to the yang files that define the
+        API. See salGeneratorPath in parent/yang-parent/pom.xml -->
+    <groupId>com.zte.sdn.mw.e2e.qinq.model</groupId>
+    <modelVersion>4.0.0</modelVersion>
+    <artifactId>metro-model</artifactId>
+    <packaging>bundle</packaging>
+    <name>${project.artifactId}</name>
+    <prerequisites>
+        <maven>3.1.1</maven>
+    </prerequisites>
+
+    <!-- Your YANG data model (you don't have one yet in this chapter) depends
+        on YANGTOOLS -->
+    <dependencies>
+        <dependency>
+            <groupId>com.zte.sdn.oscp.controller.model</groupId>
+            <artifactId>model-inventory</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.zte.ngip.ipsdn</groupId>
+            <artifactId>qos-model</artifactId>
+            <version>${ipsdn.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.zte.sdn.oscp.mdsal.model</groupId>
+            <artifactId>ietf-topology</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.zte.sdn.oscp.mdsal.model</groupId>
+            <artifactId>iana-if-type-2014-05-08</artifactId>
+        </dependency>
+    </dependencies>
+</project>
