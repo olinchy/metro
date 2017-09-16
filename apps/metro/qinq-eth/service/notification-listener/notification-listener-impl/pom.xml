@@ -32,5 +32,10 @@
             <type>test-jar</type>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>com.zte.sdn.mw.e2e.qinq.model</groupId>
+            <artifactId>metro-model</artifactId>
+            <version>${project.version}</version>
+        </dependency>
     </dependencies>
 </project>

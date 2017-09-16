@@ -10,7 +10,6 @@
     <packaging>pom</packaging>
 
     <modules>
-        <module>notification-listener-model</module>
         <module>notification-listener-impl</module>
     </modules>
 

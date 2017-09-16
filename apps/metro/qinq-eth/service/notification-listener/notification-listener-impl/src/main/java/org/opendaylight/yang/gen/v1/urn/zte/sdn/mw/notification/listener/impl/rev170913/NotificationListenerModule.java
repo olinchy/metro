@@ -29,13 +29,7 @@ public class NotificationListenerModule extends org.opendaylight.yang.gen.v1.urn
 
     @Override
     public java.lang.AutoCloseable createInstance() {
-        final NotificationListenerProvider provider = new NotificationListenerProvider();
-        //        provider.setNotifySer(getNotificationServiceDependency());
-        //        provider.setContext(new NotificationListenerContext(bundleContext));
-        //        final BindingAwareBroker.RpcRegistration<?> reg = getRpcRegistryDependency()
-        //                .addRpcImplementation(NotificationListenerService.class, provider);
-        //        bundleContext.registerService(SchemaContextListener.class, provider, new Hashtable<String, String>());
-
+        final NotificationListenerProvider provider = new NotificationListenerProvider(getDataBrokerDependency());
         return () -> {
             //            reg.close();
             provider.close();

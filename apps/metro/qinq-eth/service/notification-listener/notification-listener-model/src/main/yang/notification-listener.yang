@@ -1,9 +1,0 @@
-module notification-listener {
-    yang-version 1;
-    namespace "urn:zte:sdn:mw:notification:listener";
-    prefix "notification-listener";
-
-    revision "2017-9-13" {
-        description "Initial revision of notification-listener model";
-    }
-}
