@@ -22,5 +22,6 @@ and is available at http://www.eclipse.org/legal/epl-v10.html INTERNAL
 
     <modules>
         <module>netconf</module>
+        <module>connection-api</module>
     </modules>
 </project>

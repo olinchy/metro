@@ -14,7 +14,7 @@ and is available at http://www.eclipse.org/legal/epl-v10.html INTERNAL
         <relativePath>../../parent/mw-components-parent</relativePath>
     </parent>
 
-    <groupId>com.zte.mw.sdn.connections</groupId>
+    <groupId>com.zte.mw.sdn.components.connections</groupId>
     <artifactId>netconf-connection</artifactId>
     <name>${project.artifactId}</name>
     <modelVersion>4.0.0</modelVersion>

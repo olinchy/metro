@@ -6,10 +6,7 @@
  * and is available at http://www.eclipse.org/legal/epl-v10.html
  */
 
-package com.zte.mw.sdn.infrastructure.e2e;
+package com.zte.mw.sdn.exceptions.connections;
 
-/**
- * Created by odl on 17-9-11.
- */
-public interface Model {
+public class ConnectionException extends Exception {
 }

@@ -8,7 +8,7 @@
 
 package com.zte.mw.sdn.infrastructure;
 
-import com.zte.mw.sdn.infrastructure.task.Result;
+import com.zte.mw.sdn.Result;
 import com.zte.mw.sdn.infrastructure.task.SelfScheduledTask;
 
 import java.util.ArrayList;
@@ -31,15 +31,9 @@ public class SpyScheduledTask extends SelfScheduledTask {
     private final SpyObserver spyObserver;
 
     @Override
-    protected void pre() {
-
-    }
-
-    @Override
     protected void execute() {
-        this.subTasks = new StubMonitoredTask[spyObserver.getSubTaskCount()];
-        for (int i = 0; i < subTasks.length; i++) {
-            subTasks[i] = new StubMonitoredTask(observer, i, index);
+        for (int i = 0; i < subTasks.size(); i++) {
+            subTasks.add(new StubMonitoredTask(observer, i, index));
         }
         spy.addTimeMark(System.currentTimeMillis());
     }

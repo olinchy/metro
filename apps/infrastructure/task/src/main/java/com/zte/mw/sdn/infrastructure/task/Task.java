@@ -14,7 +14,6 @@ package com.zte.mw.sdn.infrastructure.task;
 public abstract class Task implements Runnable {
     public void run() {
         try {
-            pre();
             execute();
         } catch (Exception e) {
             postException(e);
@@ -22,8 +21,6 @@ public abstract class Task implements Runnable {
             post();
         }
     }
-
-    protected abstract void pre();
 
     protected abstract void execute();
 

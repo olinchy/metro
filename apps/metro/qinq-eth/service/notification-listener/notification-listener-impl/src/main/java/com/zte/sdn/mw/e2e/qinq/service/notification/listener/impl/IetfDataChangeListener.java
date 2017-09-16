@@ -8,15 +8,22 @@
 
 package com.zte.sdn.mw.e2e.qinq.service.notification.listener.impl;
 
+import com.zte.sdn.mw.e2e.runtime.MicrowaveRuntime;
 import org.opendaylight.controller.md.sal.binding.api.DataChangeListener;
 import org.opendaylight.controller.md.sal.common.api.data.AsyncDataChangeEvent;
 import org.opendaylight.yangtools.yang.binding.DataObject;
 import org.opendaylight.yangtools.yang.binding.InstanceIdentifier;
 
 public class IetfDataChangeListener implements DataChangeListener {
+    public IetfDataChangeListener(final MicrowaveRuntime runtime) {
+        this.runtime = runtime;
+    }
+
+    private MicrowaveRuntime runtime = null;
+
     @Override
     public void onDataChanged(
             final AsyncDataChangeEvent<InstanceIdentifier<?>, DataObject> asyncDataChangeEvent) {
-
+        runtime.getDispatchPool().execute(new DeviceConfigurationTask(asyncDataChangeEvent, runtime));
     }
 }

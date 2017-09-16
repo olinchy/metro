@@ -6,13 +6,11 @@
  * and is available at http://www.eclipse.org/legal/epl-v10.html
  */
 
-package com.zte.mw.sdn.infrastructure;
+package com.zte.mw.sdn;
 
 /**
  * Created by odl on 17-9-11.
  */
-public class SDNException extends Exception {
-    public SDNException(final Exception e) {
-        super(e);
-    }
+public interface Model {
+    String getNeIdentity();
 }

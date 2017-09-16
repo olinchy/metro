@@ -37,5 +37,21 @@
             <artifactId>metro-model</artifactId>
             <version>${project.version}</version>
         </dependency>
+
+        <dependency>
+            <groupId>com.zte.mw.sdn.components.task</groupId>
+            <artifactId>task</artifactId>
+            <version>1.0-snapshot</version>
+        </dependency>
+        <dependency>
+            <groupId>com.zte.sdn.mw.e2e.runtime</groupId>
+            <artifactId>runtime</artifactId>
+            <version>1.0.0-snapshot</version>
+        </dependency>
+        <dependency>
+            <groupId>com.zte.mw.sdn.components.connections</groupId>
+            <artifactId>connection-api</artifactId>
+            <version>1.0-snapshot</version>
+        </dependency>
     </dependencies>
 </project>

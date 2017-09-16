@@ -8,6 +8,7 @@
 
 package com.zte.sdn.mw.e2e.qinq.service.notification.listener.impl;
 
+import com.zte.sdn.mw.e2e.runtime.MicrowaveRuntime;
 import org.opendaylight.controller.md.sal.binding.api.DataBroker;
 import org.opendaylight.controller.md.sal.common.api.data.AsyncDataBroker;
 import org.opendaylight.controller.md.sal.common.api.data.LogicalDatastoreType;
@@ -18,8 +19,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public class NotificationListenerProvider implements AutoCloseable {
-    public NotificationListenerProvider(final DataBroker dataBroker) {
+    public NotificationListenerProvider(final DataBroker dataBroker, MicrowaveRuntime runtime) {
         this.dataBroker = dataBroker;
+        this.runtime = runtime;
         start();
     }
 
@@ -27,11 +29,12 @@ public class NotificationListenerProvider implements AutoCloseable {
         InstanceIdentifier<VpnServices> instanceIdentifier = InstanceIdentifier.builder(L2vpnSvc.class).child(
                 VpnServices.class).build();
         dataBroker.registerDataChangeListener(
-                LogicalDatastoreType.CONFIGURATION, instanceIdentifier, new IetfDataChangeListener(), AsyncDataBroker
+                LogicalDatastoreType.CONFIGURATION, instanceIdentifier, new IetfDataChangeListener(runtime),
+                AsyncDataBroker
                         .DataChangeScope.SUBTREE);
     }
-
     private static final Logger LOG = LoggerFactory.getLogger(NotificationListenerProvider.class);
+    private final MicrowaveRuntime runtime;
     private final DataBroker dataBroker;
 
     @Override

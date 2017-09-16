@@ -8,7 +8,10 @@
 
 package com.zte.mw.sdn.infrastructure.task;
 
+import com.zte.mw.sdn.Result;
+
 import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.ThreadPoolExecutor;
 
 /**
@@ -19,13 +22,13 @@ public abstract class SelfScheduledTask extends Task {
         this.pool = pool;
     }
 
-    private final ThreadPoolExecutor pool;
-    protected MonitoredTask[] subTasks = new MonitoredTask[0];
+    protected final ThreadPoolExecutor pool;
+    protected List<MonitoredTask> subTasks = new ArrayList<>();
     protected TaskObserver observer = new TaskObserver(this);
 
     @Override
     protected final void post() {
-        this.observer.setTaskCount(subTasks.length);
+        this.observer.setTaskCount(subTasks.size());
         for (MonitoredTask task : subTasks) {
             pool.execute(task);
         }

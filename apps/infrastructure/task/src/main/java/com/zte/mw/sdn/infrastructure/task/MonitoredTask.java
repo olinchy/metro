@@ -8,6 +8,8 @@
 
 package com.zte.mw.sdn.infrastructure.task;
 
+import com.zte.mw.sdn.Result;
+
 /**
  * Created by odl on 17-9-11.
  */

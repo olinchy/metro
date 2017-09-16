@@ -6,17 +6,13 @@
  * and is available at http://www.eclipse.org/legal/epl-v10.html
  */
 
-package com.zte.mw.sdn.infrastructure.e2e;
+package com.zte.mw.sdn.connection;
 
-import com.zte.mw.sdn.infrastructure.task.TaskObserver;
+import com.zte.mw.sdn.Model;
 
 /**
  * Created by odl on 17-9-11.
  */
-public abstract class NetConfDriverTask extends DriverTask<NetConfDriver> {
-    public NetConfDriverTask(
-            final TaskObserver observer,
-            final NetConfDriver driver) {
-        super(observer, driver);
-    }
+public interface Driver {
+    void config(Model model, Connection connection);
 }

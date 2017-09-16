@@ -8,7 +8,7 @@
 
 package com.zte.mw.sdn.infrastructure;
 
-import com.zte.mw.sdn.infrastructure.task.Result;
+import com.zte.mw.sdn.Result;
 
 import java.util.ArrayList;
 

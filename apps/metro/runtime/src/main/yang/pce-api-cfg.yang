@@ -1,0 +1,53 @@
+
+module pce-api-cfg {
+    yang-version 1;
+    namespace "urn:zte:ngip:ipsdn:pce:api";
+    prefix "pce-api-cfg";
+
+    import config { prefix config; revision-date 2013-04-05; }
+
+    organization "ZTE";
+
+    contact "SunShikang <sun.shikang@zte.com.cn>";
+
+    revision "2017-03-30" {
+        description
+            "Initial revision";
+    }
+
+    identity pce-topo-provider-service {
+        description
+            "Service representing a topo service. The service
+             can create graphs for path compute.";
+
+        base "config:service-type";
+        config:java-class "com.zte.ngip.ipsdn.pce.path.api.PceTopoProvider";
+    }
+
+    identity  band-width-change-provider{
+         description
+                "when add/delete port or update bandWidth of port.";
+
+         base "config:service-type";
+         config:java-class "com.zte.ngip.ipsdn.pce.path.api.BandWidthChangeProvider";
+    }
+
+    identity topo-change-service {
+         base "band-width-change-provider";
+         config:java-class "com.zte.ngip.ipsdn.pce.path.api.TopoChangeProviderContext";
+    }
+
+    identity pce-threadfactory {
+        description
+            "Service representing a ThreadFactory instance.";
+        base "config:service-type";
+        config:java-class "com.zte.ngip.ipsdn.pce.path.api.thread.ThreadFactoryGenerator";
+    }
+
+    identity pce-label-encoding-service {
+        description "Service for encoding Segment Routing Path(SRP).";
+        base "config:service-type";
+        config:java-class "com.zte.ngip.ipsdn.pce.path.api.segmentrouting.LabelEncodingService";
+    }
+}
+

@@ -6,15 +6,12 @@
  * and is available at http://www.eclipse.org/legal/epl-v10.html
  */
 
-package com.zte.mw.sdn.infrastructure.e2e;
+package com.zte.mw.sdn.connection;
 
-import com.zte.mw.sdn.infrastructure.task.Result;
+import com.zte.mw.sdn.exceptions.connections.ConnectionException;
 
-/**
- * Created by odl on 17-9-11.
- */
-public interface Driver {
-    Result commit(Model model);
+public interface Connection {
+    void commit() throws ConnectionException;
 
-    void rollback(Model model);
+    void rollback() throws ConnectionException;
 }

@@ -8,8 +8,8 @@
 
 package com.zte.mw.sdn.infrastructure;
 
+import com.zte.mw.sdn.Result;
 import com.zte.mw.sdn.infrastructure.task.MonitoredTask;
-import com.zte.mw.sdn.infrastructure.task.Result;
 import com.zte.mw.sdn.infrastructure.task.TaskObserver;
 
 /**
@@ -24,11 +24,6 @@ public class StubMonitoredTask extends MonitoredTask {
 
     private final int index;
     private final int parentIndex;
-
-    @Override
-    protected void pre() {
-
-    }
 
     @Override
     protected void execute() {

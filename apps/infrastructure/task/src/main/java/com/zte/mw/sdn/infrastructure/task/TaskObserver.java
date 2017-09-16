@@ -8,6 +8,7 @@
 
 package com.zte.mw.sdn.infrastructure.task;
 
+import com.zte.mw.sdn.Result;
 import com.zte.mw.sdn.infrastructure.Observer;
 
 import java.util.ArrayList;
@@ -16,7 +17,7 @@ import java.util.ArrayList;
  * Created by odl on 17-9-11.
  */
 public class TaskObserver implements Observer<Result> {
-    public TaskObserver(final SelfScheduledTask owner) {
+    TaskObserver(final SelfScheduledTask owner) {
         this.owner = owner;
     }
 
@@ -24,7 +25,7 @@ public class TaskObserver implements Observer<Result> {
     private int taskCount = 0;
     private ArrayList<Result> results = new ArrayList<>();
 
-    public void setTaskCount(final int taskCount) {
+    void setTaskCount(final int taskCount) {
         this.taskCount = taskCount;
     }
 
@@ -37,7 +38,7 @@ public class TaskObserver implements Observer<Result> {
         }
     }
 
-    public ArrayList<Result> getResults() {
+    ArrayList<Result> getResults() {
         return results;
     }
 }

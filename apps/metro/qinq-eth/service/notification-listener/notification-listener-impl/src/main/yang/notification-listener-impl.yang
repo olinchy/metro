@@ -49,6 +49,15 @@ module notification-listener-impl {
                     }
                 }
             }
+
+            container mw-runtime-service {
+                 uses config:service-ref {
+                      refine type {
+                            mandatory true;
+                            config:required-identity mw-runtime:runtime;
+                      }
+                 }
+            }
         }
     }
 }

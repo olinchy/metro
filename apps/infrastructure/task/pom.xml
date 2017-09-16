@@ -26,6 +26,11 @@ and is available at http://www.eclipse.org/legal/epl-v10.html INTERNAL
 
     <dependencies>
         <dependency>
+            <groupId>com.zte.mw.sdn.components</groupId>
+            <artifactId>api</artifactId>
+            <version>1.0-snapshot</version>
+        </dependency>
+        <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
             <version>4.11</version>
