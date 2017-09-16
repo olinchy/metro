@@ -31,7 +31,8 @@ public class NotificationListenerModuleFactory extends org.opendaylight.yang.gen
     public Module createModule(
             final String instanceName, final DependencyResolver dependencyResolver, final DynamicMBeanWithInstance old,
             final BundleContext bundleContext) throws Exception {
-        NotificationListenerModule module = super.createModule(instanceName, dependencyResolver, old, bundleContext);
+        NotificationListenerModule module = (NotificationListenerModule) super.createModule(
+                instanceName, dependencyResolver, old, bundleContext);
         module.setBundleContext(bundleContext);
 
         return module;
