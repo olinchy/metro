@@ -61,6 +61,11 @@ public class CreateTask extends SelfScheduledTask {
     }
 
     private List<Model> toNodeModel(final VpnSvc vpnSvc) {
+
+        // TODO: 17-9-16 fuction --> vpnservice ==> node
+        // create model of nodes
+        // path calculation
+        // persist
         return null;
     }
 

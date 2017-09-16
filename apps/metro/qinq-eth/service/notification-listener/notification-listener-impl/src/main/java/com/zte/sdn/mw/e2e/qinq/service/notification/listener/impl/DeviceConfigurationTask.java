@@ -36,10 +36,10 @@ public class DeviceConfigurationTask implements Runnable {
         CompletableFuture
                 .runAsync(new CreateTask(changeEvent.getCreatedData(), runtime), runtime.getDispatchPool())
                 .thenRunAsync(
-                        new UpdateTask(changeEvent.getOriginalData(), changeEvent.getUpdatedData(), runtime),
+                        new DeleteTask(changeEvent.getOriginalData(), changeEvent.getRemovedPaths(), runtime),
                         runtime.getDispatchPool())
                 .thenRunAsync(
-                        new DeleteTask(changeEvent.getOriginalData(), changeEvent.getRemovedPaths(), runtime),
+                        new UpdateTask(changeEvent.getOriginalData(), changeEvent.getUpdatedData(), runtime),
                         runtime.getDispatchPool())
                 .exceptionally(this::postException);
     }

@@ -32,8 +32,8 @@ public class NotificationListenerModule extends org.opendaylight.yang.gen.v1.urn
     @Override
     public java.lang.AutoCloseable createInstance() {
         LOG.info("start to register ietf listener");
-        //        final NotificationListenerProvider provider = new NotificationListenerProvider
-        // (getDataBrokerDependency(), getMicrowaveRuntime());
+        //new NotificationListenerProvider
+        // (getDataBrokerDependency(), getMicrowaveRuntime()).start();
         return () -> {
             //            reg.close();
             //            provider.close();

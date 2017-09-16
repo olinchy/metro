@@ -22,20 +22,19 @@ public class NotificationListenerProvider implements AutoCloseable {
     public NotificationListenerProvider(final DataBroker dataBroker, MicrowaveRuntime runtime) {
         this.dataBroker = dataBroker;
         this.runtime = runtime;
-        start();
     }
+
+    private static final Logger LOG = LoggerFactory.getLogger(NotificationListenerProvider.class);
+    private final MicrowaveRuntime runtime;
+    private final DataBroker dataBroker;
 
     private void start() {
         InstanceIdentifier<VpnServices> instanceIdentifier = InstanceIdentifier.builder(L2vpnSvc.class).child(
                 VpnServices.class).build();
         dataBroker.registerDataChangeListener(
                 LogicalDatastoreType.CONFIGURATION, instanceIdentifier, new IetfDataChangeListener(runtime),
-                AsyncDataBroker
-                        .DataChangeScope.SUBTREE);
+                AsyncDataBroker.DataChangeScope.SUBTREE);
     }
-    private static final Logger LOG = LoggerFactory.getLogger(NotificationListenerProvider.class);
-    private final MicrowaveRuntime runtime;
-    private final DataBroker dataBroker;
 
     @Override
     public void close() throws Exception {
