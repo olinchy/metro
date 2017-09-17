@@ -10,7 +10,7 @@ and is available at http://www.eclipse.org/legal/epl-v10.html INTERNAL
     <parent>
         <groupId>com.zte.mw.sdn</groupId>
         <artifactId>mw-components-parent</artifactId>
-        <version>1.0-snapshot</version>
+        <version>1.0.0-SNAPSHOT</version>
         <relativePath>../../parent/mw-components-parent</relativePath>
     </parent>
 
@@ -24,7 +24,7 @@ and is available at http://www.eclipse.org/legal/epl-v10.html INTERNAL
         <dependency>
             <groupId>com.zte.mw.sdn.components</groupId>
             <artifactId>api</artifactId>
-            <version>1.0-snapshot</version>
+            <version>1.0.0-SNAPSHOT</version>
         </dependency>
         <dependency>
             <groupId>junit</groupId>

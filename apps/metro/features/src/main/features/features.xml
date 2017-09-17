@@ -15,11 +15,9 @@ and is available at http://www.eclipse.org/legal/epl-v10.html
 
     <feature name="mw-metro" description="mw :: metro :: qinq">
         <!--dependencies-->
-        <feature version="${ipsdn.version}">ipsdn-tunnel</feature>
+        <feature version="{{VERSION}}">ipsdn-tunnel</feature>
 
         <!--notification listener-->
-        <bundle>mvn:com.zte.sdn.mw.e2e.qinq.service.notification.listener/notification-listener-model/{{VERSION}}
-        </bundle>
         <bundle>mvn:com.zte.sdn.mw.e2e.qinq.service.notification.listener/notification-listener-impl/{{VERSION}}
         </bundle>
         <configfile finalname="${configfile.directory}/mw_metro_notification-listener.xml" override="true">

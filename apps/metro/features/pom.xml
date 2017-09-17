@@ -35,7 +35,6 @@ and is available at http://www.eclipse.org/legal/epl-v10.html INTERNAL
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <configfile.directory>etc/opendaylight/karaf</configfile.directory>
         <ipsdn.version>2.2.7.R3B07</ipsdn.version>
-        <current.version>2.2.7.R3B07</current.version>
         <bgppcep.version>0.5.5-2.00.10R1B05</bgppcep.version>
     </properties>
 
@@ -44,7 +43,7 @@ and is available at http://www.eclipse.org/legal/epl-v10.html INTERNAL
             <dependency>
                 <groupId>com.zte.ngip.ipsdn</groupId>
                 <artifactId>ipsdn-tunnel-features</artifactId>
-                <version>${current.version}</version>
+                <version>${ipsdn.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
@@ -70,7 +69,7 @@ and is available at http://www.eclipse.org/legal/epl-v10.html INTERNAL
         <dependency>
             <groupId>com.zte.ngip.ipsdn</groupId>
             <artifactId>ipsdn-tunnel-features</artifactId>
-            <version>${current.version}</version>
+            <version>${ipsdn.version}</version>
             <type>xml</type>
             <classifier>features</classifier>
             <scope>runtime</scope>
@@ -81,37 +80,32 @@ and is available at http://www.eclipse.org/legal/epl-v10.html INTERNAL
         <dependency>
             <groupId>com.zte.sdn.mw.e2e.qinq.service.notification.listener</groupId>
             <artifactId>notification-listener-impl</artifactId>
-            <version>${current.version}</version>
+            <version>${project.version}</version>
         </dependency>
         <dependency>
             <groupId>com.zte.sdn.mw.e2e.qinq.service.notification.listener</groupId>
             <artifactId>notification-listener-impl</artifactId>
-            <version>${current.version}</version>
+            <version>${project.version}</version>
             <classifier>config</classifier>
             <type>xml</type>
-        </dependency>
-        <dependency>
-            <groupId>com.zte.sdn.mw.e2e.qinq.service.notification.listener</groupId>
-            <artifactId>notification-listener-model</artifactId>
-            <version>${current.version}</version>
         </dependency>
         <!-- nbi rpc -->
         <dependency>
             <groupId>com.zte.sdn.mw.e2e.qinq.servic.nbi.rpc</groupId>
             <artifactId>nbi-rpc-impl</artifactId>
-            <version>${current.version}</version>
+            <version>${project.version}</version>
         </dependency>
         <dependency>
             <groupId>com.zte.sdn.mw.e2e.qinq.servic.nbi.rpc</groupId>
             <artifactId>nbi-rpc-impl</artifactId>
-            <version>${current.version}</version>
+            <version>${project.version}</version>
             <classifier>config</classifier>
             <type>xml</type>
         </dependency>
         <dependency>
             <groupId>com.zte.sdn.mw.e2e.qinq.servic.nbi.rpc</groupId>
             <artifactId>nbi-rpc-model</artifactId>
-            <version>${current.version}</version>
+            <version>${project.version}</version>
         </dependency>
     </dependencies>
 

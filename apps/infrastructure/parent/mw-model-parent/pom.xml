@@ -18,7 +18,7 @@
     <artifactId>mw-model-parent</artifactId>
     <packaging>pom</packaging>
     <name>${project.artifactId}</name>
-    <version>1.0.0-snapshot</version>
+    <version>1.0.0-SNAPSHOT</version>
     <modelVersion>4.0.0</modelVersion>
 
     <properties>

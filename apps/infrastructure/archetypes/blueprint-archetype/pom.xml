@@ -4,7 +4,7 @@
 
     <groupId>com.zte.sdn.mw</groupId>
     <artifactId>blueprint-archetype</artifactId>
-    <version>1.0.0-snapshot</version>
+    <version>1.0.0-SNAPSHOT</version>
     <packaging>maven-archetype</packaging>
 
     <build>

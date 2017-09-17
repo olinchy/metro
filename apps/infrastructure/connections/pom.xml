@@ -11,7 +11,7 @@ and is available at http://www.eclipse.org/legal/epl-v10.html INTERNAL
     <parent>
         <groupId>com.zte.mw.sdn</groupId>
         <artifactId>mw-pom-parent</artifactId>
-        <version>1.0-snapshot</version>
+        <version>1.0.0-SNAPSHOT</version>
         <relativePath>../parent/mw-pom-parent</relativePath>
     </parent>
 
