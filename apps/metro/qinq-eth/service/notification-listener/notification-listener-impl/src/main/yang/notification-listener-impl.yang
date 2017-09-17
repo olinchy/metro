@@ -5,6 +5,7 @@ module notification-listener-impl {
 
     import config { prefix config; revision-date 2013-04-05; }
     import opendaylight-md-sal-binding { prefix mdsal; revision-date 2013-10-28;}
+    import mw-e2e-runtime-api { prefix mw-e2e-runtime-api; revision-date 2017-09-17; }
 
     description
         "Service definition for notification-listener project";
@@ -54,7 +55,7 @@ module notification-listener-impl {
                  uses config:service-ref {
                       refine type {
                             mandatory true;
-                            config:required-identity mw-runtime:runtime;
+                            config:required-identity mw-e2e-runtime-api:mw-base-environment;
                       }
                  }
             }

@@ -4,6 +4,8 @@ import org.osgi.framework.BundleContext;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.zte.sdn.mw.e2e.qinq.service.notification.listener.impl.NotificationListenerProvider;
+
 public class NotificationListenerModule extends org.opendaylight.yang.gen.v1.urn.zte.sdn.mw.notification.listener
         .impl.rev170913.AbstractNotificationListenerModule {
     public NotificationListenerModule(
@@ -32,12 +34,10 @@ public class NotificationListenerModule extends org.opendaylight.yang.gen.v1.urn
     @Override
     public java.lang.AutoCloseable createInstance() {
         LOG.info("start to register ietf listener");
-        //new NotificationListenerProvider
-        // (getDataBrokerDependency(), getMicrowaveRuntime()).start();
-        return () -> {
-            //            reg.close();
-            //            provider.close();
-        };
+
+        new NotificationListenerProvider
+                (getDataBrokerDependency(), getMwRuntimeServiceDependency()).start();
+        return () -> {};
     }
 
     public void setBundleContext(final BundleContext bundleContext) {

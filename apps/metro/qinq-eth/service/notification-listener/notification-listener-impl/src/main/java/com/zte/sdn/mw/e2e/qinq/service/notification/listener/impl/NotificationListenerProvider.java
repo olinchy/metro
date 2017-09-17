@@ -29,7 +29,7 @@ public class NotificationListenerProvider implements AutoCloseable {
     private final MicrowaveRuntime runtime;
     private final DataBroker dataBroker;
 
-    private void start() {
+    public void start() {
         InstanceIdentifier<VpnServices> instanceIdentifier = InstanceIdentifier.builder(L2vpnSvc.class).child(
                 VpnServices.class).build();
         dataBroker.registerDataChangeListener(
