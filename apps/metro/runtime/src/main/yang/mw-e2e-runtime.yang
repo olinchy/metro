@@ -4,24 +4,18 @@ module mw-e2e-runtime {
     prefix "mw-e2e-runtime";
 
     import config { prefix config; revision-date 2013-04-05; }
+    import mw-e2e-runtime-api { prefix mw-e2e-runtime-api; revision-date 2017-09-17; }
 
     organization "ZTE";
 
-    revision "2017-09-16" {
+    revision "2017-09-17" {
         description
             "Initial revision";
     }
 
-    identity mw-base-environment {
-        description
-            "Service representing a infrastructure of microwave instance.";
-        base "config:service-type";
-        config:java-class "com.zte.sdn.mw.e2e.runtime.MicrowaveRuntime";
-    }
-
     identity mw-e2e-runtime-builder {
          base config:module-type;
-         config:provided-service mw-base-environment;
+         config:provided-service mw-e2e-runtime-api:mw-base-environment;
          config:java-name-prefix MicrowaveRuntime;
     }
 

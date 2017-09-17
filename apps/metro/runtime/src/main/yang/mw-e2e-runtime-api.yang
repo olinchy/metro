@@ -1,0 +1,22 @@
+module mw-e2e-runtime-api {
+    yang-version 1;
+    namespace "urn:mw:metro:runtime";
+    prefix "mw-e2e-runtime-api";
+
+    import config { prefix config; revision-date 2013-04-05; }
+
+    organization "ZTE";
+
+    revision "2017-09-17" {
+        description
+            "Initial revision";
+    }
+
+    identity mw-base-environment {
+        description
+            "Service representing a infrastructure of microwave instance.";
+        base "config:service-type";
+        config:java-class "com.zte.sdn.mw.e2e.runtime.MicrowaveRuntime";
+    }
+
+}
