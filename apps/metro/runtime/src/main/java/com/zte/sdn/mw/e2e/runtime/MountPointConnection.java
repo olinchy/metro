@@ -42,7 +42,7 @@ public class MountPointConnection implements Connection {
                         Topology.class,
                         new TopologyKey(new TopologyId(TopologyNetconf.QNAME
                                                                .getLocalName())))
-                .child(Node.class, new NodeKey(NodeId.getDefaultInstance(neIdentity)));
+                .child(Node.class, new NodeKey(new NodeId(neIdentity)));
     }
 
     private static final Logger LOG = LoggerFactory.getLogger(MountPointConnection.class);
