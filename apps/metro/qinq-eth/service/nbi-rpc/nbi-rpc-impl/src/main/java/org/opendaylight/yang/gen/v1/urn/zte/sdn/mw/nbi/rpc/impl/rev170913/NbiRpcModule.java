@@ -24,6 +24,7 @@ public class NbiRpcModule extends org.opendaylight.yang.gen.v1.urn.zte.sdn.mw.nb
     @Override
     public java.lang.AutoCloseable createInstance() {
         // TODO:implement
-        throw new java.lang.UnsupportedOperationException();
+        //        throw new java.lang.UnsupportedOperationException();
+        return () -> {};
     }
 }

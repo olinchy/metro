@@ -1,5 +1,8 @@
 package org.opendaylight.yang.gen.v1.urn.mw.metro.runtime.impl.rev170917;
 
+import org.opendaylight.controller.md.sal.binding.api.MountPointService;
+import org.opendaylight.controller.sal.binding.api.BindingAwareBroker;
+
 import com.zte.sdn.mw.e2e.runtime.MicrowaveRuntimeImpl;
 
 public class MicrowaveRuntimeModule extends org.opendaylight.yang.gen.v1.urn.mw.metro.runtime.impl
@@ -25,6 +28,9 @@ public class MicrowaveRuntimeModule extends org.opendaylight.yang.gen.v1.urn.mw.
 
     @Override
     public java.lang.AutoCloseable createInstance() {
-        return new MicrowaveRuntimeImpl();
+        final BindingAwareBroker.ConsumerContext broker = getBrokerDependency().registerConsumer(context -> {
+        });
+        final MountPointService mountPointService = broker.getSALService(MountPointService.class);
+        return new MicrowaveRuntimeImpl(mountPointService);
     }
 }

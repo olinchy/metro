@@ -11,6 +11,13 @@
                     <type xmlns:prefix="urn:mw:metro:runtime:impl">prefix:mw-e2e-runtime-builder</type>
                     <name>mw-e2e-runtime-builder</name>
                     <name-prefix>microwave-runtime</name-prefix>
+
+                    <broker>
+                        <type xmlns:binding="urn:opendaylight:params:xml:ns:yang:controller:md:sal:binding">
+                            binding:binding-broker-osgi-registry
+                        </type>
+                        <name>binding-osgi-broker</name>
+                    </broker>
                 </module>
             </modules>
             <!--provided services-->

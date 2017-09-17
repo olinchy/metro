@@ -13,4 +13,8 @@ package com.zte.mw.sdn;
  */
 public interface Model {
     String getNeIdentity();
+
+    enum OperationType {
+        CREATE, DELETE, UPDATE
+    }
 }

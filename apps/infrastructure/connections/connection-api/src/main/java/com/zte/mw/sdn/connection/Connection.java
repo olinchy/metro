@@ -8,10 +8,11 @@
 
 package com.zte.mw.sdn.connection;
 
-import com.zte.mw.sdn.exceptions.connections.ConnectionException;
+import org.opendaylight.yangtools.yang.binding.DataObject;
+import org.opendaylight.yangtools.yang.binding.InstanceIdentifier;
+
+import com.zte.mw.sdn.Model.OperationType;
 
 public interface Connection {
-    void commit() throws ConnectionException;
-
-    void rollback() throws ConnectionException;
+    <T extends DataObject> void config(InstanceIdentifier<T> identifier, T data, OperationType oper);
 }
