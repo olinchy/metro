@@ -14,6 +14,7 @@ import com.zte.mw.sdn.connection.Connection;
 import com.zte.mw.sdn.connection.Driver;
 import com.zte.mw.sdn.infrastructure.task.MonitoredTask;
 import com.zte.mw.sdn.infrastructure.task.TaskObserver;
+
 import com.zte.sdn.mw.e2e.runtime.MicrowaveRuntime;
 
 public class SouthTask extends MonitoredTask {
@@ -35,7 +36,7 @@ public class SouthTask extends MonitoredTask {
     }
 
     @Override
-    protected void postException(final Exception e) {
-        result = new Result(e);
+    protected void postException(final Exception exception) {
+        result = new Result(exception);
     }
 }

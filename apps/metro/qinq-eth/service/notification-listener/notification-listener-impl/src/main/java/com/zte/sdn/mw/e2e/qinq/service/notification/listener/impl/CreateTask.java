@@ -8,22 +8,24 @@
 
 package com.zte.sdn.mw.e2e.qinq.service.notification.listener.impl;
 
-import com.zte.mw.sdn.Model;
-import com.zte.mw.sdn.Result;
-import com.zte.mw.sdn.infrastructure.task.MonitoredTask;
-import com.zte.mw.sdn.infrastructure.task.SelfScheduledTask;
-import com.zte.sdn.mw.e2e.runtime.MicrowaveRuntime;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
+
 import org.opendaylight.yang.gen.v1.urn.ietf.params.xml.ns.yang.ietf.l2vpn.svc.rev170622.l2vpn.svc.vpn.services.VpnSvc;
 import org.opendaylight.yangtools.yang.binding.DataObject;
 import org.opendaylight.yangtools.yang.binding.InstanceIdentifier;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
-import java.util.Map;
-import java.util.stream.Collectors;
+import com.zte.mw.sdn.Model;
+import com.zte.mw.sdn.Result;
+import com.zte.mw.sdn.infrastructure.task.MonitoredTask;
+import com.zte.mw.sdn.infrastructure.task.SelfScheduledTask;
+
+import com.zte.sdn.mw.e2e.runtime.MicrowaveRuntime;
 
 public class CreateTask extends SelfScheduledTask {
     public CreateTask(final Map<InstanceIdentifier<?>, DataObject> createdData, MicrowaveRuntime runtime) {
@@ -40,9 +42,8 @@ public class CreateTask extends SelfScheduledTask {
     protected void execute() {
         List<VpnSvc> toBeCreate =
                 createData.entrySet().stream().map(Map.Entry::getValue).filter(value -> value instanceof VpnSvc)
-                        .peek(vpn -> LOG.info("create vpn service of microwave", vpn)).map(
-                        dataLink -> (VpnSvc) dataLink)
-                        .collect(Collectors.toList());
+                        .peek(vpn -> LOG.info("create vpn service of microwave", vpn))
+                        .map(dataLink -> (VpnSvc) dataLink).collect(Collectors.toList());
         for (VpnSvc vpnSvc : toBeCreate) {
             subTasks.addAll(toDeviceTasks(vpnSvc));
         }
@@ -70,8 +71,8 @@ public class CreateTask extends SelfScheduledTask {
     }
 
     @Override
-    protected void postException(final Exception e) {
-        LOG.warn("create " + createData + " caught exception", e);
+    protected void postException(final Exception exception) {
+        LOG.warn("create " + createData + " caught exception", exception);
     }
 
     @Override

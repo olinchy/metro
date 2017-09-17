@@ -8,15 +8,17 @@
 
 package com.zte.sdn.mw.e2e.qinq.service.notification.listener.impl;
 
-import com.zte.mw.sdn.Result;
-import com.zte.mw.sdn.infrastructure.task.SelfScheduledTask;
-import com.zte.sdn.mw.e2e.runtime.MicrowaveRuntime;
-import org.opendaylight.yangtools.yang.binding.DataObject;
-import org.opendaylight.yangtools.yang.binding.InstanceIdentifier;
-
 import java.util.ArrayList;
 import java.util.Map;
 import java.util.Set;
+
+import org.opendaylight.yangtools.yang.binding.DataObject;
+import org.opendaylight.yangtools.yang.binding.InstanceIdentifier;
+
+import com.zte.mw.sdn.Result;
+import com.zte.mw.sdn.infrastructure.task.SelfScheduledTask;
+
+import com.zte.sdn.mw.e2e.runtime.MicrowaveRuntime;
 
 public class DeleteTask extends SelfScheduledTask {
     public DeleteTask(
@@ -36,7 +38,7 @@ public class DeleteTask extends SelfScheduledTask {
     }
 
     @Override
-    protected void postException(final Exception e) {
+    protected void postException(final Exception exception) {
 
     }
 }

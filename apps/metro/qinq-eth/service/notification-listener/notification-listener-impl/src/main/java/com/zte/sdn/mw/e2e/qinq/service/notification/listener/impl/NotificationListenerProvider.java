@@ -8,7 +8,6 @@
 
 package com.zte.sdn.mw.e2e.qinq.service.notification.listener.impl;
 
-import com.zte.sdn.mw.e2e.runtime.MicrowaveRuntime;
 import org.opendaylight.controller.md.sal.binding.api.DataBroker;
 import org.opendaylight.controller.md.sal.common.api.data.AsyncDataBroker;
 import org.opendaylight.controller.md.sal.common.api.data.LogicalDatastoreType;
@@ -17,6 +16,8 @@ import org.opendaylight.yang.gen.v1.urn.ietf.params.xml.ns.yang.ietf.l2vpn.svc.r
 import org.opendaylight.yangtools.yang.binding.InstanceIdentifier;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import com.zte.sdn.mw.e2e.runtime.MicrowaveRuntime;
 
 public class NotificationListenerProvider implements AutoCloseable {
     public NotificationListenerProvider(final DataBroker dataBroker, MicrowaveRuntime runtime) {

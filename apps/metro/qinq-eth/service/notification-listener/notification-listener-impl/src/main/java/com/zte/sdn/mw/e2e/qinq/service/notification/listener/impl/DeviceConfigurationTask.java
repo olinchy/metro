@@ -8,14 +8,15 @@
 
 package com.zte.sdn.mw.e2e.qinq.service.notification.listener.impl;
 
-import com.zte.sdn.mw.e2e.runtime.MicrowaveRuntime;
+import java.util.concurrent.CompletableFuture;
+
 import org.opendaylight.controller.md.sal.common.api.data.AsyncDataChangeEvent;
 import org.opendaylight.yangtools.yang.binding.DataObject;
 import org.opendaylight.yangtools.yang.binding.InstanceIdentifier;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.util.concurrent.CompletableFuture;
+import com.zte.sdn.mw.e2e.runtime.MicrowaveRuntime;
 
 public class DeviceConfigurationTask implements Runnable {
     public DeviceConfigurationTask(
@@ -44,8 +45,8 @@ public class DeviceConfigurationTask implements Runnable {
                 .exceptionally(this::postException);
     }
 
-    private Void postException(final Throwable e) {
-        LOG.warn("execute Device configuration task caught exception", e);
+    private Void postException(final Throwable ex) {
+        LOG.warn("execute Device configuration task caught exception", ex);
         return null;
     }
 }
