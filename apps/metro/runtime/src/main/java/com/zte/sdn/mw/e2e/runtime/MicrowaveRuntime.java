@@ -8,10 +8,11 @@
 
 package com.zte.sdn.mw.e2e.runtime;
 
+import java.util.concurrent.ThreadPoolExecutor;
+
 import com.zte.mw.sdn.connection.Connection;
 import com.zte.mw.sdn.connection.Driver;
 
-import java.util.concurrent.ThreadPoolExecutor;
 
 public interface MicrowaveRuntime {
     ThreadPoolExecutor getDispatchPool();

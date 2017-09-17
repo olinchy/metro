@@ -21,6 +21,10 @@ and is available at http://www.eclipse.org/legal/epl-v10.html INTERNAL
 
     <dependencies>
         <dependency>
+            <groupId>com.zte.sdn.oscp.controller</groupId>
+            <artifactId>config-api</artifactId>
+        </dependency>
+        <dependency>
             <groupId>com.zte.mw.sdn.components.connections</groupId>
             <artifactId>connection-api</artifactId>
             <version>1.0-snapshot</version>
