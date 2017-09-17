@@ -8,11 +8,11 @@
 
 package com.zte.mw.sdn.infrastructure;
 
-import com.zte.mw.sdn.Result;
-import com.zte.mw.sdn.infrastructure.task.SelfScheduledTask;
-
 import java.util.ArrayList;
 import java.util.concurrent.ThreadPoolExecutor;
+
+import com.zte.mw.sdn.Result;
+import com.zte.mw.sdn.infrastructure.task.SelfScheduledTask;
 
 /**
  * Created by odl on 17-9-11.
@@ -39,7 +39,7 @@ public class SpyScheduledTask extends SelfScheduledTask {
     }
 
     @Override
-    protected void postException(final Exception e) {
+    protected void postException(final Exception exception) {
 
     }
 

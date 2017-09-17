@@ -21,11 +21,11 @@ public class Result {
     public Result() {
     }
 
-    public Result(final Exception e) {
-        if (e instanceof SDNException) {
-            this.exception = (SDNException) e;
+    public Result(final Exception exception) {
+        if (exception instanceof SDNException) {
+            this.exception = (SDNException) exception;
         } else {
-            this.exception = new SDNException(e);
+            this.exception = new SDNException(exception);
         }
     }
 

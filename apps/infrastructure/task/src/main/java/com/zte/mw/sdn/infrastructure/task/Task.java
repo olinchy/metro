@@ -24,7 +24,7 @@ public abstract class Task implements Runnable {
 
     protected abstract void execute();
 
-    protected abstract void postException(final Exception e);
+    protected abstract void postException(final Exception exception);
 
     protected abstract void post();
 }

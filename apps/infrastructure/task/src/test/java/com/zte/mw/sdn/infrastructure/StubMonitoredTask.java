@@ -38,7 +38,7 @@ public class StubMonitoredTask extends MonitoredTask {
     }
 
     @Override
-    protected void postException(final Exception e) {
+    protected void postException(final Exception exception) {
 
     }
 }
