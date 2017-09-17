@@ -10,12 +10,19 @@ package com.zte.sdn.mw.e2e.runtime;
 
 import java.util.concurrent.ThreadPoolExecutor;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.zte.mw.sdn.connection.Connection;
 import com.zte.mw.sdn.connection.Driver;
 
 public class MicrowaveRuntimeImpl implements MicrowaveRuntime, AutoCloseable {
+    private static final Logger LOG = LoggerFactory.getLogger(MicrowaveRuntimeImpl.class);
+
     @Override
     public ThreadPoolExecutor getDispatchPool() {
+
+        LOG.info("getDispatchPool had been called");
         return null;
     }
 
