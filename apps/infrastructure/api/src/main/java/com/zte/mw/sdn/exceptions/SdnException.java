@@ -8,24 +8,24 @@
 
 package com.zte.mw.sdn.exceptions;
 
-public class SDNException extends Exception {
-    public SDNException() {
+public class SdnException extends Exception {
+    public SdnException() {
         super();
     }
 
-    public SDNException(final String message) {
+    public SdnException(final String message) {
         super(message);
     }
 
-    public SDNException(final String message, final Throwable cause) {
+    public SdnException(final String message, final Throwable cause) {
         super(message, cause);
     }
 
-    public SDNException(final Throwable cause) {
+    public SdnException(final Throwable cause) {
         super(cause);
     }
 
-    protected SDNException(
+    protected SdnException(
             final String message, final Throwable cause, final boolean enableSuppression,
             final boolean writableStackTrace) {
         super(message, cause, enableSuppression, writableStackTrace);

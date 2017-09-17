@@ -32,9 +32,9 @@ public class SpyObserver implements Observer<Integer> {
     }
 
     @Override
-    public void update(final Integer o) {
+    public void update(final Integer target) {
         synchronized (this) {
-            finishedCount += o;
+            finishedCount += target;
             if (finishedCount == taskCount * subTaskCount) {
                 synchronized (test) {
                     test.notifyAll();

@@ -8,30 +8,30 @@
 
 package com.zte.mw.sdn;
 
-import com.zte.mw.sdn.exceptions.SDNException;
+import com.zte.mw.sdn.exceptions.SdnException;
 
 /**
  * Created by odl on 17-9-11.
  */
 public class Result {
-    public Result(final SDNException e) {
-        this.exception = e;
+    public Result(final SdnException ex) {
+        this.exception = ex;
     }
 
     public Result() {
     }
 
     public Result(final Exception exception) {
-        if (exception instanceof SDNException) {
-            this.exception = (SDNException) exception;
+        if (exception instanceof SdnException) {
+            this.exception = (SdnException) exception;
         } else {
-            this.exception = new SDNException(exception);
+            this.exception = new SdnException(exception);
         }
     }
 
-    private SDNException exception;
+    private SdnException exception;
 
-    public SDNException getException() {
+    public SdnException getException() {
         return exception;
     }
 

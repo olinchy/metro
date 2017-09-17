@@ -1,8 +1,8 @@
-package org.opendaylight.yang.gen.v1.urn.mw.metro.runtime.rev170917;
+package org.opendaylight.yang.gen.v1.urn.mw.metro.runtime.impl.rev170917;
 
 import com.zte.sdn.mw.e2e.runtime.MicrowaveRuntimeImpl;
 
-public class MicrowaveRuntimeModule extends org.opendaylight.yang.gen.v1.urn.mw.metro.runtime
+public class MicrowaveRuntimeModule extends org.opendaylight.yang.gen.v1.urn.mw.metro.runtime.impl
         .rev170917.AbstractMicrowaveRuntimeModule {
     public MicrowaveRuntimeModule(
             org.opendaylight.controller.config.api.ModuleIdentifier identifier,
@@ -13,7 +13,7 @@ public class MicrowaveRuntimeModule extends org.opendaylight.yang.gen.v1.urn.mw.
     public MicrowaveRuntimeModule(
             org.opendaylight.controller.config.api.ModuleIdentifier identifier,
             org.opendaylight.controller.config.api.DependencyResolver dependencyResolver,
-            org.opendaylight.yang.gen.v1.urn.mw.metro.runtime.rev170917.MicrowaveRuntimeModule oldModule,
+            org.opendaylight.yang.gen.v1.urn.mw.metro.runtime.impl.rev170917.MicrowaveRuntimeModule oldModule,
             java.lang.AutoCloseable oldInstance) {
         super(identifier, dependencyResolver, oldModule, oldInstance);
     }

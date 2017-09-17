@@ -33,6 +33,12 @@
                         </type>
                         <name>binding-notification-broker</name>
                     </notification-service>
+                    <!-- required services -->
+                    <mw-runtime-service>
+                        <type xmlns:binding="urn:mw:metro:runtime">binding:mw-base-environment</type>
+                        <name>mw-e2e-runtime-builder</name>
+                    </mw-runtime-service>
+
                 </module>
             </modules>
         </data>

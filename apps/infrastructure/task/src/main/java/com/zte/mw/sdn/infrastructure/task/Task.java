@@ -8,6 +8,8 @@
 
 package com.zte.mw.sdn.infrastructure.task;
 
+import com.zte.mw.sdn.exceptions.SdnException;
+
 /**
  * Created by odl on 17-9-11.
  */
@@ -15,14 +17,14 @@ public abstract class Task implements Runnable {
     public void run() {
         try {
             execute();
-        } catch (Exception e) {
+        } catch (SdnException e) {
             postException(e);
         } finally {
             post();
         }
     }
 
-    protected abstract void execute();
+    protected abstract void execute() throws SdnException;
 
     protected abstract void postException(final Exception exception);
 

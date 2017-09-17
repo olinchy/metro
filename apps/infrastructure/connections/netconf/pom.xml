@@ -9,16 +9,16 @@ and is available at http://www.eclipse.org/legal/epl-v10.html INTERNAL
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
         <groupId>com.zte.mw.sdn</groupId>
-        <artifactId>mw-components-parent</artifactId>
+        <artifactId>mw-config-parent</artifactId>
         <version>1.0.0-SNAPSHOT</version>
-        <relativePath>../../parent/mw-components-parent</relativePath>
+        <relativePath>../../parent/mw-config-parent</relativePath>
     </parent>
 
     <groupId>com.zte.mw.sdn.components.connections</groupId>
     <artifactId>netconf-connection</artifactId>
     <name>${project.artifactId}</name>
     <modelVersion>4.0.0</modelVersion>
-    <packaging>jar</packaging>
+    <packaging>bundle</packaging>
 
     <dependencies>
         <dependency>

@@ -8,11 +8,11 @@
 
 package com.zte.mw.sdn.infrastructure;
 
-import org.junit.Test;
-
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
+
+import org.junit.Test;
 
 /**
  * Created by odl on 17-9-11.

@@ -1,6 +1,6 @@
 module mw-e2e-runtime {
     yang-version 1;
-    namespace "urn:mw:metro:runtime";
+    namespace "urn:mw:metro:runtime:impl";
     prefix "mw-e2e-runtime";
 
     import config { prefix config; revision-date 2013-04-05; }

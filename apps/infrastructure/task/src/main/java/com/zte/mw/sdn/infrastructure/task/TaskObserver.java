@@ -8,10 +8,10 @@
 
 package com.zte.mw.sdn.infrastructure.task;
 
+import java.util.ArrayList;
+
 import com.zte.mw.sdn.Result;
 import com.zte.mw.sdn.infrastructure.Observer;
-
-import java.util.ArrayList;
 
 /**
  * Created by odl on 17-9-11.
@@ -29,8 +29,8 @@ public class TaskObserver implements Observer<Result> {
         this.taskCount = taskCount;
     }
 
-    public void update(final Result result) {
-        results.add(result);
+    public void update(final Result target) {
+        results.add(target);
         if (results.size() == taskCount) {
             synchronized (owner) {
                 owner.notifyAll();

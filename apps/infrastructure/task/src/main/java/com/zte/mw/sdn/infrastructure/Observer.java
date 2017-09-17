@@ -12,5 +12,5 @@ package com.zte.mw.sdn.infrastructure;
  * Created by odl on 17-9-11.
  */
 public interface Observer<T> {
-    void update(T t);
+    void update(T target);
 }

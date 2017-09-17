@@ -11,15 +11,15 @@ and is available at http://www.eclipse.org/legal/epl-v10.html INTERNAL
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>com.zte.mw.sdn</groupId>
-        <artifactId>mw-components-parent</artifactId>
+        <artifactId>mw-config-parent</artifactId>
         <version>1.0.0-SNAPSHOT</version>
-        <relativePath>../parent/mw-components-parent</relativePath>
+        <relativePath>../parent/mw-config-parent</relativePath>
     </parent>
 
     <groupId>com.zte.mw.sdn.components.task</groupId>
     <artifactId>device-configuration-task</artifactId>
     <name>${project.artifactId}</name>
-    <packaging>jar</packaging>
+    <packaging>bundle</packaging>
 
     <dependencies>
         <dependency>

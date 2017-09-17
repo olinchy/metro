@@ -8,9 +8,9 @@
 
 package com.zte.mw.sdn.infrastructure;
 
-import com.zte.mw.sdn.Result;
-
 import java.util.ArrayList;
+
+import com.zte.mw.sdn.Result;
 
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
