@@ -1,6 +1,6 @@
 #set($symbol_pound='#')
-        #set($symbol_dollar='$')
-        #set($symbol_escape='\' )
+#set($symbol_dollar='$')
+#set($symbol_escape='\' )
 /*
  * ${copyright} and others.  All rights reserved.
  *
@@ -8,8 +8,8 @@
  * terms of the Eclipse Public License v1.0 which accompanies this distribution,
  * and is available at http://www.eclipse.org/legal/epl-v10.html
  */
-        package ${package};
+package ${package};
 
 public interface ${classPrefix} {
 
-        }
+}

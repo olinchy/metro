@@ -1,3 +1,6 @@
+#set( $ldt = $package.getClass().forName("java.time.LocalDateTime").getMethod("now").invoke(null) )
+#set( $dtf = $package.getClass().forName("java.time.format.DateTimeFormatter").getMethod("ofPattern", $package.getClass()).invoke(null, "yyyy-MM-dd") )
+#set( $date = $ldt.format($dtf) )
 module ${artifactId} {
     yang-version 1;
     namespace "urn:zte:sdn:mw:${artifactId.replaceAll("-",":")}";
@@ -6,10 +9,12 @@ module ${artifactId} {
     import config { prefix config; revision-date 2013-04-05; }
     import opendaylight-md-sal-binding { prefix mdsal; revision-date 2013-10-28;}
 
+    organization "ZTE";
+
     description
         "Service definition for ${artifactId} project";
 
-    revision "2017-09-13" {
+    revision "${date}" {
         description
             "Initial revision";
     }

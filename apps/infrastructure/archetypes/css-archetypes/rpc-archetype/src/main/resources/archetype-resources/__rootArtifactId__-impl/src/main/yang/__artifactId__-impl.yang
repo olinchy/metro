@@ -1,3 +1,6 @@
+#set( $ldt = $package.getClass().forName("java.time.LocalDateTime").getMethod("now").invoke(null) )
+#set( $dtf = $package.getClass().forName("java.time.format.DateTimeFormatter").getMethod("ofPattern", $package.getClass()).invoke(null, "yyyy-MM-dd") )
+#set( $date = $ldt.format($dtf) )
 module ${artifactId}-impl {
     yang-version 1;
     namespace "urn:zte:sdn:mw:${artifactId.replaceAll("-",":")}:impl";
@@ -11,7 +14,7 @@ module ${artifactId}-impl {
     description
         "Service definition for ${artifactId} project";
 
-    revision "2017-09-13" {
+    revision "${date}" {
         description
             "Initial revision";
     }

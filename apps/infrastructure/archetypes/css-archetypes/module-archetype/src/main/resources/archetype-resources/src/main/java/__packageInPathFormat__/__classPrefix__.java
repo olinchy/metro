@@ -13,9 +13,9 @@ package ${package};
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class ${classPrefix} implements AutoCloseable{
+public class ${classPrefix} implements AutoCloseable {
 
-private static final Logger LOG=LoggerFactory.getLogger(${classPrefix}.class);
+    private static final Logger LOG = LoggerFactory.getLogger(${classPrefix}.class);
 
     @Override
     public void close()throws Exception{

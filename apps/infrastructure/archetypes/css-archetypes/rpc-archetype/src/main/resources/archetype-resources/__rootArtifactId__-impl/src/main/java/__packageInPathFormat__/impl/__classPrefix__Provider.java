@@ -1,6 +1,6 @@
 #set($symbol_pound='#')
-        #set($symbol_dollar='$')
-        #set($symbol_escape='\' )
+#set($symbol_dollar='$')
+#set($symbol_escape='\' )
 /*
  * ${copyright} and others.  All rights reserved.
  *
@@ -8,20 +8,17 @@
  * terms of the Eclipse Public License v1.0 which accompanies this distribution,
  * and is available at http://www.eclipse.org/legal/epl-v10.html
  */
-        package ${package}.impl;
+package ${package}.impl;
 
-        import org.slf4j.Logger;
-        import org.slf4j.LoggerFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
-public class $ {
-    classPrefix
-}Provider implements AutoCloseable{
+public class ${classPrefix}Provider implements AutoCloseable {
 
-private static final Logger LOG=LoggerFactory.getLogger(${classPrefix}Provider.class);
+    private static final Logger LOG=LoggerFactory.getLogger(${classPrefix}Provider.class);
 
-@Override
-public void close()throws Exception{
+    @Override
+    public void close()throws Exception{
         LOG.info("${classPrefix}Provider Closed");
-        }
-
-        }
+    }
+}
