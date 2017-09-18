@@ -4,8 +4,8 @@ module mw-e2e-runtime {
     prefix "mw-e2e-runtime";
 
     import config { prefix config; revision-date 2013-04-05; }
+    import driver-register {prefix driver-register; revision-date 2017-09-18;}
     import mw-e2e-runtime-api { prefix mw-e2e-runtime-api; revision-date 2017-09-17; }
-    import driver-register {prefix driver-register; revision-date 2017-9-13;}
     import opendaylight-md-sal-binding { prefix mdsal; revision-date 2013-10-28; }
 
     organization "ZTE";

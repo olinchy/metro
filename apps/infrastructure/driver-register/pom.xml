@@ -31,6 +31,14 @@
             <artifactId>config-api</artifactId>
         </dependency>
         <dependency>
+            <groupId>com.zte.sdn.oscp.controller.model</groupId>
+            <artifactId>model-inventory</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.zte.sdn.oscp.netconf</groupId>
+            <artifactId>sal-netconf-connector</artifactId>
+        </dependency>
+        <dependency>
             <groupId>com.zte.mw.sdn.components.connections</groupId>
             <artifactId>connection-api</artifactId>
             <version>${project.version}</version>

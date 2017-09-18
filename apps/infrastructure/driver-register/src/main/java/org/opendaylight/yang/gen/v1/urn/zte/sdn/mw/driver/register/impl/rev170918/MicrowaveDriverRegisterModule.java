@@ -1,8 +1,11 @@
-package org.opendaylight.yang.gen.v1.urn.zte.sdn.mw.driver.register.impl.rev170917;
+package org.opendaylight.yang.gen.v1.urn.zte.sdn.mw.driver.register.impl.rev170918;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.zte.mw.sdn.components.DriverHolder;
 
-public class MicrowaveDriverRegisterModule extends org.opendaylight.yang.gen.v1.urn.zte.sdn.mw.driver.register.impl.rev170917.AbstractMicrowaveDriverRegisterModule {
+public class MicrowaveDriverRegisterModule extends org.opendaylight.yang.gen.v1.urn.zte.sdn.mw.driver.register.impl.rev170918.AbstractMicrowaveDriverRegisterModule {
     public MicrowaveDriverRegisterModule(
             org.opendaylight.controller.config.api.ModuleIdentifier identifier,
             org.opendaylight.controller.config.api.DependencyResolver dependencyResolver) {
@@ -12,10 +15,12 @@ public class MicrowaveDriverRegisterModule extends org.opendaylight.yang.gen.v1.
     public MicrowaveDriverRegisterModule(
             org.opendaylight.controller.config.api.ModuleIdentifier identifier,
             org.opendaylight.controller.config.api.DependencyResolver dependencyResolver,
-            org.opendaylight.yang.gen.v1.urn.zte.sdn.mw.driver.register.impl.rev170917.MicrowaveDriverRegisterModule oldModule,
+            org.opendaylight.yang.gen.v1.urn.zte.sdn.mw.driver.register.impl.rev170918.MicrowaveDriverRegisterModule oldModule,
             java.lang.AutoCloseable oldInstance) {
         super(identifier, dependencyResolver, oldModule, oldInstance);
     }
+
+    private static final Logger LOG = LoggerFactory.getLogger(MicrowaveDriverRegisterModule.class);
 
     @Override
     public void customValidation() {
@@ -24,6 +29,7 @@ public class MicrowaveDriverRegisterModule extends org.opendaylight.yang.gen.v1.
 
     @Override
     public java.lang.AutoCloseable createInstance() {
+        LOG.info("initialized");
         return new DriverHolder();
     }
 }

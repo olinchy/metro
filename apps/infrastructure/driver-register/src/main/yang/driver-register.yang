@@ -3,11 +3,14 @@ module driver-register {
     namespace "urn:zte:sdn:mw:driver:register";
     prefix "driver-register";
 
-    revision "2017-9-13" {
-        description "Initial revision of driver-register model";
-    }
-
     import config { prefix config; revision-date 2013-04-05; }
+
+    organization "ZTE";
+
+    revision "2017-09-18" {
+        description
+            "Initial revision of driver-register model";
+    }
 
     identity service-driver-register {
         description

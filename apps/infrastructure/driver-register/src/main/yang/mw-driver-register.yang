@@ -4,11 +4,11 @@ module mw-driver-register {
     prefix "mw-driver-register";
 
     import config { prefix config; revision-date 2013-04-05; }
-    import driver-register {prefix driver-register; revision-date 2017-9-13;}
+    import driver-register {prefix driver-register; revision-date 2017-09-18;}
 
     organization "ZTE";
 
-    revision "2017-09-17" {
+    revision "2017-09-18" {
         description
             "Initial revision";
     }
@@ -20,7 +20,7 @@ module mw-driver-register {
     }
 
     augment "/config:modules/config:module/config:configuration" {
-         case mw-e2e-runtime-builder {
+         case mw-driver-register-impl {
               when "/config:modules/config:module/config:type = 'mw-driver-register-impl'";
               leaf name-prefix {
                   type string;

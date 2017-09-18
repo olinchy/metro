@@ -3,7 +3,9 @@ module nbi-rpc {
     namespace "urn:zte:sdn:mw:nbi:rpc";
     prefix "nbi-rpc";
 
-    revision "2017-9-13" {
+    revision "2017-09-13" {
         description "Initial revision of nbi-rpc model";
     }
+
+    organization "ZTE";
 }

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <snapshot>
     <required-capabilities>
-        <capability>urn:zte:sdn:mw:driver:register:impl?module=mw-dirver-register&amp;revision=2017-09-13</capability>
-        <capability>urn:zte:sdn:mw:driver:register?module=driver-register&amp;revision=2017-09-13</capability>
+        <capability>urn:zte:sdn:mw:driver:register:impl?module=mw-dirver-register&amp;revision=2017-09-18</capability>
+        <capability>urn:zte:sdn:mw:driver:register?module=driver-register&amp;revision=2017-09-18</capability>
     </required-capabilities>
     <configuration>
         <data xmlns="urn:ietf:params:xml:ns:netconf:base:1.0">
