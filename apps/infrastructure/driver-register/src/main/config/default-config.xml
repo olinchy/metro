@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<snapshot>
+    <required-capabilities>
+        <capability>urn:zte:sdn:mw:driver:register:impl?module=mw-dirver-register&amp;revision=2017-09-13</capability>
+        <capability>urn:zte:sdn:mw:driver:register?module=driver-register&amp;revision=2017-09-13</capability>
+    </required-capabilities>
+    <configuration>
+        <data xmlns="urn:ietf:params:xml:ns:netconf:base:1.0">
+            <modules xmlns="urn:opendaylight:params:xml:ns:yang:controller:config">
+                <module>
+                    <type xmlns:prefix="urn:zte:sdn:mw:driver:register:impl">prefix:mw-driver-register-impl</type>
+                    <name>mw-driver-register-impl</name>
+                    <name-prefix>microwave-driver-register</name-prefix>
+                </module>
+            </modules>
+            <!--provided services-->
+            <services xmlns="urn:opendaylight:params:xml:ns:yang:controller:config">
+                <service>
+                    <type xmlns:binding="urn:zte:sdn:mw:driver:register">binding:service-driver-register</type>
+                    <instance>
+                        <name>mw-driver-register-impl</name>
+                        <provider>
+                            /config/modules/module[name='mw-driver-register-impl']/instance[name='mw-driver-register-impl']
+                        </provider>
+                    </instance>
+                </service>
+            </services>
+        </data>
+    </configuration>
+</snapshot>

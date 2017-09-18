@@ -8,5 +8,10 @@
 
 package com.zte.mw.sdn.components;
 
+import com.zte.mw.sdn.connection.Driver;
+
 public interface DriverRegister {
+    Driver[] getRegistered();
+
+    void register(Driver driver);
 }

@@ -1,0 +1,30 @@
+module mw-driver-register {
+    yang-version 1;
+    namespace "urn:zte:sdn:mw:driver:register:impl";
+    prefix "mw-driver-register";
+
+    import config { prefix config; revision-date 2013-04-05; }
+    import driver-register {prefix driver-register; revision-date 2017-9-13;}
+
+    organization "ZTE";
+
+    revision "2017-09-17" {
+        description
+            "Initial revision";
+    }
+
+    identity mw-driver-register-impl {
+         base config:module-type;
+         config:provided-service driver-register:service-driver-register;
+         config:java-name-prefix MicrowaveDriverRegister;
+    }
+
+    augment "/config:modules/config:module/config:configuration" {
+         case mw-e2e-runtime-builder {
+              when "/config:modules/config:module/config:type = 'mw-driver-register-impl'";
+              leaf name-prefix {
+                  type string;
+              }
+         }
+    }
+}

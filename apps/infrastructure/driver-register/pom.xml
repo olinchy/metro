@@ -30,5 +30,10 @@
             <groupId>com.zte.sdn.oscp.controller</groupId>
             <artifactId>config-api</artifactId>
         </dependency>
+        <dependency>
+            <groupId>com.zte.mw.sdn.components.connections</groupId>
+            <artifactId>connection-api</artifactId>
+            <version>${project.version}</version>
+        </dependency>
     </dependencies>
 </project>

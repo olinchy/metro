@@ -16,12 +16,17 @@ import org.opendaylight.controller.md.sal.binding.api.MountPointService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.zte.mw.sdn.components.DriverRegister;
 import com.zte.mw.sdn.connection.Connection;
 import com.zte.mw.sdn.connection.Driver;
 
 public class MicrowaveRuntimeImpl implements MicrowaveRuntime, AutoCloseable {
-    public MicrowaveRuntimeImpl(final MountPointService mountPointService) {
+    public MicrowaveRuntimeImpl(
+            final MountPointService mountPointService,
+            final DriverRegister driverRegister) {
         this.mountPointService = mountPointService;
+        this.driverRegister = driverRegister;
+
         LOG.info("mount point service is " + this.mountPointService.toString());
     }
 
@@ -39,10 +44,10 @@ public class MicrowaveRuntimeImpl implements MicrowaveRuntime, AutoCloseable {
     }
 
     private final MountPointService mountPointService;
+    private final DriverRegister driverRegister;
 
     @Override
     public ThreadPoolExecutor getDispatchPool() {
-
         return dispatchPool;
     }
 
@@ -58,7 +63,7 @@ public class MicrowaveRuntimeImpl implements MicrowaveRuntime, AutoCloseable {
 
     @Override
     public Driver[] getDrivers() {
-        return;
+        return driverRegister.getRegistered();
     }
 
     @Override

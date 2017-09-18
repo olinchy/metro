@@ -31,6 +31,6 @@ public class MicrowaveRuntimeModule extends org.opendaylight.yang.gen.v1.urn.mw.
         final BindingAwareBroker.ConsumerContext broker = getBrokerDependency().registerConsumer(context -> {
         });
         final MountPointService mountPointService = broker.getSALService(MountPointService.class);
-        return new MicrowaveRuntimeImpl(mountPointService);
+        return new MicrowaveRuntimeImpl(mountPointService, getDriverRegisterDependency());
     }
 }
