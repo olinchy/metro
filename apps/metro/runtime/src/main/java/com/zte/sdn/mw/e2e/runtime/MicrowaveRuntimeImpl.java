@@ -12,22 +12,21 @@ import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 
-import org.opendaylight.controller.md.sal.binding.api.MountPointService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.zte.mw.sdn.components.DriverRegister;
+import com.zte.mw.sdn.components.connections.ConnectionProvider;
 import com.zte.mw.sdn.connection.Connection;
 import com.zte.mw.sdn.connection.Driver;
 
 public class MicrowaveRuntimeImpl implements MicrowaveRuntime, AutoCloseable {
     public MicrowaveRuntimeImpl(
-            final MountPointService mountPointService,
-            final DriverRegister driverRegister) {
-        this.mountPointService = mountPointService;
+            final DriverRegister driverRegister, final ConnectionProvider provider) {
         this.driverRegister = driverRegister;
+        this.provider = provider;
 
-        LOG.info("mount point service is " + this.mountPointService.toString());
+        LOG.info("connection provider is " + this.provider.toString());
     }
 
     private static final Logger LOG = LoggerFactory.getLogger(MicrowaveRuntimeImpl.class);
@@ -43,8 +42,8 @@ public class MicrowaveRuntimeImpl implements MicrowaveRuntime, AutoCloseable {
         LOG.info("configuration pool is " + configurationPool.toString());
     }
 
-    private final MountPointService mountPointService;
     private final DriverRegister driverRegister;
+    private final ConnectionProvider provider;
 
     @Override
     public ThreadPoolExecutor getDispatchPool() {
@@ -58,7 +57,7 @@ public class MicrowaveRuntimeImpl implements MicrowaveRuntime, AutoCloseable {
 
     @Override
     public Connection createSouthConnection(final String neIdentity) {
-        return new MountPointConnection(mountPointService, neIdentity);
+        return provider.createConnection(neIdentity);
     }
 
     @Override

@@ -1,0 +1,21 @@
+module connection-provider {
+    yang-version 1;
+    namespace "urn:zte:sdn:mw:connection:provider";
+    prefix "connection-provider";
+
+    import config { prefix config; revision-date 2013-04-05; }
+
+    organization "ZTE";
+
+    revision "2017-09-18" {
+        description "Initial revision of connection-provider model";
+    }
+
+    identity service-connection-provider {
+        description
+            "Service representing a infrastructure of connection-provider instance.";
+        base "config:service-type";
+        config:java-class "com.zte.mw.sdn.components.connections.ConnectionProvider";
+    }
+
+}

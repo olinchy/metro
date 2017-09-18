@@ -1,0 +1,42 @@
+module netconf-connection {
+    yang-version 1;
+    namespace "urn:zte:sdn:mw:netconf:connection:impl";
+    prefix "netconf-connection";
+
+    import config { prefix config; revision-date 2013-04-05; }
+    import opendaylight-md-sal-binding { prefix mdsal; revision-date 2013-10-28;}
+    import connection-provider { prefix connection-provider; revision-date 2017-09-18;}
+
+    organization "ZTE";
+
+    description
+        "Service definition for netconf-connection project";
+
+    revision "2017-09-18" {
+        description
+            "Initial revision";
+    }
+
+    identity netconf-connection {
+         base config:module-type;
+         config:provided-service connection-provider:service-connection-provider;
+         config:java-name-prefix NetconfConnection;
+    }
+
+    augment "/config:modules/config:module/config:configuration" {
+         case netconf-connection {
+              when "/config:modules/config:module/config:type = 'netconf-connection'";
+              leaf name-prefix {
+                  type string;
+              }
+            container broker {
+                uses config:service-ref {
+                    refine type {
+                        mandatory true;
+                        config:required-identity mdsal:binding-broker-osgi-registry;
+                    }
+                }
+            }
+         }
+    }
+}

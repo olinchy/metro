@@ -12,16 +12,15 @@
                     <name>mw-e2e-runtime-builder</name>
                     <name-prefix>microwave-runtime</name-prefix>
 
-                    <broker>
-                        <type xmlns:binding="urn:opendaylight:params:xml:ns:yang:controller:md:sal:binding">
-                            binding:binding-broker-osgi-registry
-                        </type>
-                        <name>binding-osgi-broker</name>
-                    </broker>
                     <driver-register>
                         <type xmlns:binding="urn:zte:sdn:mw:driver:register">binding:service-driver-register</type>
                         <name>mw-driver-register-impl</name>
                     </driver-register>
+                    <connection-provider>
+                        <type xmlns:binding="urn:zte:sdn:mw:connection:provider">binding:service-connection-provider
+                        </type>
+                        <name>netconf-connection</name>
+                    </connection-provider>
                 </module>
             </modules>
             <!--provided services-->

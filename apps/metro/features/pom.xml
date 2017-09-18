@@ -108,6 +108,18 @@ and is available at http://www.eclipse.org/legal/epl-v10.html INTERNAL
             <type>xml</type>
         </dependency>
         <!--connections-->
+        <dependency>
+            <groupId>com.zte.mw.sdn.components.connections</groupId>
+            <artifactId>netconf-connection</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.zte.mw.sdn.components.connections</groupId>
+            <artifactId>netconf-connection</artifactId>
+            <version>${project.version}</version>
+            <classifier>config</classifier>
+            <type>xml</type>
+        </dependency>
 
         <dependency>
             <groupId>com.zte.sdn.mw.e2e.runtime</groupId>

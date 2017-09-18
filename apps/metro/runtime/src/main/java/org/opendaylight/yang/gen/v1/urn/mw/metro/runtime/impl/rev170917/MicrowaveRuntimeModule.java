@@ -32,10 +32,6 @@ public class MicrowaveRuntimeModule extends org.opendaylight.yang.gen.v1.urn.mw.
 
     @Override
     public java.lang.AutoCloseable createInstance() {
-        final BindingAwareBroker.ConsumerContext broker = getBrokerDependency().registerConsumer(context -> {
-        });
-        final MountPointService mountPointService = broker.getSALService(MountPointService.class);
-
         new Thread(() -> {
             while (true) {
                 try {
@@ -47,6 +43,6 @@ public class MicrowaveRuntimeModule extends org.opendaylight.yang.gen.v1.urn.mw.
                 }
             }
         }).start();
-        return new MicrowaveRuntimeImpl(mountPointService, getDriverRegisterDependency());
+        return new MicrowaveRuntimeImpl(getDriverRegisterDependency(), getConnectionProviderDependency());
     }
 }
