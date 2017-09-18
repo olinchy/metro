@@ -10,8 +10,8 @@
         <relativePath/>
     </parent>
 
-    <groupId>com.zte.sdn.mw.e2e.qinq.drivers</groupId>
-    <artifactId>vlan-driver</artifactId>
+    <groupId>${groupId}</groupId>
+    <artifactId>${artifactId}</artifactId>
     <name>${project.artifactId}</name>
     <packaging>bundle</packaging>
 
@@ -26,26 +26,6 @@
             <artifactId>sal-binding-broker-impl</artifactId>
             <type>test-jar</type>
             <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>com.zte.sdn.mw.e2e.runtime</groupId>
-            <artifactId>runtime</artifactId>
-            <version>${project.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>com.zte.mw.sdn.components</groupId>
-            <artifactId>driver-register</artifactId>
-            <version>${project.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>com.zte.mw.sdn.components.connections</groupId>
-            <artifactId>connection-api</artifactId>
-            <version>${project.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>com.zte.mw.sdn</groupId>
-            <artifactId>device-model</artifactId>
-            <version>${project.version}</version>
         </dependency>
     </dependencies>
 </project>

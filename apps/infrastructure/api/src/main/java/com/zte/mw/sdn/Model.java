@@ -8,11 +8,15 @@
 
 package com.zte.mw.sdn;
 
+import org.opendaylight.yangtools.yang.binding.DataObject;
+
 /**
  * Created by odl on 17-9-11.
  */
 public interface Model {
     String getNeIdentity();
+
+    <T extends DataObject> T get(Class<T> dataClass);
 
     enum OperationType {
         CREATE, DELETE, UPDATE

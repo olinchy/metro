@@ -24,7 +24,7 @@ and is available at http://www.eclipse.org/legal/epl-v10.html INTERNAL
         <module>css-archetype</module>
         <module>blueprint-archetype</module>
         <module>service-api-archetype</module>
-        <module>impl-archetype</module>
+        <module>module-archetype</module>
     </modules>
 
 </project>

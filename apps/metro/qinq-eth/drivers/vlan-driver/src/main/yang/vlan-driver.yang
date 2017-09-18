@@ -1,0 +1,46 @@
+module vlan-driver {
+    yang-version 1;
+    namespace "urn:zte:sdn:mw:vlan:driver";
+    prefix "vlan-driver";
+
+    import config { prefix config; revision-date 2013-04-05; }
+    import opendaylight-md-sal-binding { prefix mdsal; revision-date 2013-10-28;}
+    import mw-e2e-runtime-api { prefix mw-e2e-runtime-api; revision-date 2017-09-17; }
+    import driver-register {prefix driver-register; revision-date 2017-9-13;}
+
+    description
+        "Service definition for vlan-driver project";
+
+    revision "2017-09-13" {
+        description
+            "Initial revision";
+    }
+
+    identity vlan-driver {
+        base config:module-type;
+        config:java-name-prefix VlanDriver;
+    }
+
+    augment "/config:modules/config:module/config:configuration" {
+        case vlan-driver {
+            when "/config:modules/config:module/config:type = 'vlan-driver'";
+
+            container mw-runtime-service {
+                 uses config:service-ref {
+                      refine type {
+                            mandatory true;
+                            config:required-identity mw-e2e-runtime-api:mw-base-environment;
+                      }
+                 }
+            }
+            container driver-register {
+                uses config:service-ref {
+                    refine type {
+                        mandatory true;
+                        config:required-identity driver-register:service-driver-register;
+                    }
+                }
+            }
+        }
+    }
+}
