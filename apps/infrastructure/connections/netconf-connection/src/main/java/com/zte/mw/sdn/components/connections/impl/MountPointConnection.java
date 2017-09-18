@@ -6,7 +6,7 @@
  * and is available at http://www.eclipse.org/legal/epl-v10.html
  */
 
-package com.zte.mw.sdn.components.connections;
+package com.zte.mw.sdn.components.connections.impl;
 
 import org.opendaylight.controller.md.sal.binding.api.DataBroker;
 import org.opendaylight.controller.md.sal.binding.api.MountPoint;
@@ -38,10 +38,7 @@ public class MountPointConnection implements Connection {
     private InstanceIdentifier<Node> path(final String neIdentity) {
         return InstanceIdentifier
                 .create(NetworkTopology.class)
-                .child(
-                        Topology.class,
-                        new TopologyKey(new TopologyId(TopologyNetconf.QNAME
-                                                               .getLocalName())))
+                .child(Topology.class, new TopologyKey(new TopologyId(TopologyNetconf.QNAME.getLocalName())))
                 .child(Node.class, new NodeKey(new NodeId(neIdentity)));
     }
 

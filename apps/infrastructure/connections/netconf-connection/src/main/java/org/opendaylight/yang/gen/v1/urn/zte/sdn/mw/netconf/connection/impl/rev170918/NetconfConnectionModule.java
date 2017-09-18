@@ -5,7 +5,7 @@ import org.opendaylight.controller.sal.binding.api.BindingAwareBroker;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.zte.mw.sdn.components.connections.NetconfConnection;
+import com.zte.mw.sdn.components.connections.impl.NetConfConnection;
 
 public class NetconfConnectionModule extends org.opendaylight.yang.gen.v1.urn.zte.sdn.mw.netconf.connection.impl.rev170918.AbstractNetconfConnectionModule {
     public NetconfConnectionModule(
@@ -34,6 +34,6 @@ public class NetconfConnectionModule extends org.opendaylight.yang.gen.v1.urn.zt
         LOG.info("initialized");
         final BindingAwareBroker.ConsumerContext broker = getBrokerDependency().registerConsumer(context -> {});
         final MountPointService mountPointService = broker.getSALService(MountPointService.class);
-        return new NetconfConnection(mountPointService);
+        return new NetConfConnection(mountPointService);
     }
 }
