@@ -18,5 +18,4 @@ module mw-e2e-runtime-api {
         base "config:service-type";
         config:java-class "com.zte.sdn.mw.e2e.runtime.MicrowaveRuntime";
     }
-
 }

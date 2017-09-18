@@ -58,7 +58,7 @@ public class MicrowaveRuntimeImpl implements MicrowaveRuntime, AutoCloseable {
 
     @Override
     public Driver[] getDrivers() {
-        return new Driver[]{new StubDriver()};
+        return;
     }
 
     @Override

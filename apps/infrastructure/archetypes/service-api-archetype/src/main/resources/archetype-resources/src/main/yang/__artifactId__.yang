@@ -1,0 +1,19 @@
+module ${artifactId} {
+    yang-version 1;
+    namespace "urn:zte:sdn:mw:${artifactId.replaceAll("-", ":")}";
+    prefix "${artifactId}";
+
+    revision "2017-9-13" {
+        description "Initial revision of ${artifactId} model";
+    }
+
+    import config { prefix config; revision-date 2013-04-05; }
+
+    identity service-${artifactId} {
+        description
+            "Service representing a infrastructure of ${artifactId} instance.";
+        base "config:service-type";
+        config:java-class "${package}.${classPrefix}";
+    }
+
+}

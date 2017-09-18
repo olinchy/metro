@@ -1,0 +1,19 @@
+module driver-register {
+    yang-version 1;
+    namespace "urn:zte:sdn:mw:driver:register";
+    prefix "driver-register";
+
+    revision "2017-9-13" {
+        description "Initial revision of driver-register model";
+    }
+
+    import config { prefix config; revision-date 2013-04-05; }
+
+    identity service-driver-register {
+        description
+            "Service representing a infrastructure of driver-register instance.";
+        base "config:service-type";
+        config:java-class "com.zte.mw.sdn.components.DriverRegister";
+    }
+
+}

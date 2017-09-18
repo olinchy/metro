@@ -36,6 +36,7 @@ and is available at http://www.eclipse.org/legal/epl-v10.html INTERNAL
         <module>device-configuration-task</module>
         <module>connections</module>
         <module>api</module>
+        <module>driver-register</module>
     </modules>
 
 </project>
