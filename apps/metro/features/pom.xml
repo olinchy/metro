@@ -91,6 +91,11 @@ and is available at http://www.eclipse.org/legal/epl-v10.html INTERNAL
 
         <!--drivers-->
         <dependency>
+            <groupId>com.zte.mw.sdn</groupId>
+            <artifactId>device-model</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
             <groupId>com.zte.sdn.mw.e2e.qinq.drivers</groupId>
             <artifactId>vlan-driver</artifactId>
             <version>${project.version}</version>

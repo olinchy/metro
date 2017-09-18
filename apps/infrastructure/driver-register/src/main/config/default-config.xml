@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <snapshot>
     <required-capabilities>
-        <capability>urn:zte:sdn:mw:driver:register:impl?module=mw-dirver-register&amp;revision=2017-09-18</capability>
+        <capability>urn:zte:sdn:mw:driver:register:impl?module=mw-driver-register&amp;revision=2017-09-18</capability>
         <capability>urn:zte:sdn:mw:driver:register?module=driver-register&amp;revision=2017-09-18</capability>
     </required-capabilities>
     <configuration>

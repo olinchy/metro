@@ -28,11 +28,6 @@
             <scope>test</scope>
         </dependency>
         <dependency>
-            <groupId>com.zte.sdn.mw.e2e.runtime</groupId>
-            <artifactId>runtime</artifactId>
-            <version>${project.version}</version>
-        </dependency>
-        <dependency>
             <groupId>com.zte.mw.sdn.components</groupId>
             <artifactId>driver-register</artifactId>
             <version>${project.version}</version>

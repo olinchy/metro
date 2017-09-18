@@ -25,14 +25,6 @@ module vlan-driver {
         case vlan-driver {
             when "/config:modules/config:module/config:type = 'vlan-driver'";
 
-            container mw-runtime-service {
-                 uses config:service-ref {
-                      refine type {
-                            mandatory true;
-                            config:required-identity mw-e2e-runtime-api:mw-base-environment;
-                      }
-                 }
-            }
             container driver-register {
                 uses config:service-ref {
                     refine type {
