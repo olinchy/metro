@@ -6,6 +6,8 @@ module ${artifactId}-impl {
     import config { prefix config; revision-date 2013-04-05; }
     import opendaylight-md-sal-binding { prefix mdsal; revision-date 2013-10-28;}
 
+    organization "ZTE";
+
     description
         "Service definition for ${artifactId} project";
 

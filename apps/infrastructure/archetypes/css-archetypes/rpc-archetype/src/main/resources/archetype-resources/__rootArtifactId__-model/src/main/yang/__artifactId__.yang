@@ -3,7 +3,9 @@ module ${artifactId} {
     namespace "urn:zte:sdn:mw:${artifactId.replaceAll("-", ":")}";
     prefix "${artifactId}";
 
-    revision "2017-9-13" {
+    revision "2017-09-13" {
         description "Initial revision of ${artifactId} model";
     }
+
+    organization "ZTE";
 }
