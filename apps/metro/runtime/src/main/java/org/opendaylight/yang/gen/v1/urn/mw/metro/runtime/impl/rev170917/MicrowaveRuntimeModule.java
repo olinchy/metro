@@ -1,7 +1,5 @@
 package org.opendaylight.yang.gen.v1.urn.mw.metro.runtime.impl.rev170917;
 
-import org.opendaylight.controller.md.sal.binding.api.MountPointService;
-import org.opendaylight.controller.sal.binding.api.BindingAwareBroker;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -32,17 +30,6 @@ public class MicrowaveRuntimeModule extends org.opendaylight.yang.gen.v1.urn.mw.
 
     @Override
     public java.lang.AutoCloseable createInstance() {
-        new Thread(() -> {
-            while (true) {
-                try {
-                    LOG.info("driver register has " + getDriverRegisterDependency().getRegistered().length
-                                     + " drivers");
-                    Thread.sleep(10000);
-                } catch (InterruptedException e) {
-
-                }
-            }
-        }).start();
         return new MicrowaveRuntimeImpl(getDriverRegisterDependency(), getConnectionProviderDependency());
     }
 }
