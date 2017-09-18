@@ -14,4 +14,6 @@ public interface DriverRegister {
     Driver[] getRegistered();
 
     void register(Driver driver);
+
+    void remove(Driver driver);
 }

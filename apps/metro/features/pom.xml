@@ -89,6 +89,21 @@ and is available at http://www.eclipse.org/legal/epl-v10.html INTERNAL
             <type>xml</type>
         </dependency>
 
+        <!--drivers-->
+        <dependency>
+            <groupId>com.zte.sdn.mw.e2e.qinq.drivers</groupId>
+            <artifactId>vlan-driver</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.zte.sdn.mw.e2e.qinq.drivers</groupId>
+            <artifactId>vlan-driver</artifactId>
+            <version>${project.version}</version>
+            <classifier>config</classifier>
+            <type>xml</type>
+        </dependency>
+        <!--connections-->
+
         <dependency>
             <groupId>com.zte.sdn.mw.e2e.runtime</groupId>
             <artifactId>runtime</artifactId>

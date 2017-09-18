@@ -23,9 +23,16 @@ and is available at http://www.eclipse.org/legal/epl-v10.html
         <bundle>mvn:com.zte.mw.sdn.components.connections/connection-api/{{VERSION}}</bundle>
 
         <!-- interface define-->
+        <!-- driver register-->
         <bundle>mvn:com.zte.mw.sdn.components/driver-register/{{VERSION}}</bundle>
         <configfile finalname="${configfile.directory}/mw_metro_driver_register.xml" override="true">
             mvn:com.zte.mw.sdn.components/driver-register/{{VERSION}}/xml/config
+        </configfile>
+
+        <!--drivers-->
+        <bundle>mvn:com.zte.sdn.mw.e2e.qinq.drivers/vlan-driver/{{VERSION}}</bundle>
+        <configfile finalname="${configfile.directory}/mw_metro_driver_vlan.xml" override="true">
+            mvn:com.zte.sdn.mw.e2e.qinq.drivers/vlan-driver/{{VERSION}}/xml/config
         </configfile>
 
         <!--runtime-->
