@@ -18,10 +18,10 @@
                         </type>
                         <name>binding-osgi-broker</name>
                     </broker>
-                    <service-driver-register>
+                    <driver-register>
                         <type xmlns:binding="urn:zte:sdn:mw:driver:register">binding:service-driver-register</type>
                         <name>mw-driver-register-impl</name>
-                    </service-driver-register>
+                    </driver-register>
                 </module>
             </modules>
             <!--provided services-->
