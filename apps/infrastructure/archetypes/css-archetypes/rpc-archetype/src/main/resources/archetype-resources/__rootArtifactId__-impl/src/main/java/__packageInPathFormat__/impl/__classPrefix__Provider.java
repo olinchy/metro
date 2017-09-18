@@ -18,7 +18,7 @@ public class ${classPrefix}Provider implements AutoCloseable {
     private static final Logger LOG=LoggerFactory.getLogger(${classPrefix}Provider.class);
 
     @Override
-    public void close()throws Exception{
+    public void close() throws Exception{
         LOG.info("${classPrefix}Provider Closed");
     }
 }
