@@ -13,12 +13,12 @@
         <requiredProperty key="copyright"/>
         <requiredProperty key="copyrightYear">
             <defaultValue>
-                2016
+                2017
             </defaultValue>
         </requiredProperty>
         <requiredProperty key="version">
             <defaultValue>
-                0.1.0-SNAPSHOT
+                1.0.0-SNAPSHOT
             </defaultValue>
         </requiredProperty>
     </requiredProperties>
