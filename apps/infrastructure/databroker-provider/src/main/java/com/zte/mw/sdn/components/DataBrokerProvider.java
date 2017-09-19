@@ -147,7 +147,7 @@ public class DataBrokerProvider {
                     @Override
                     public void onFailure(Throwable throwable) {
                         LOG.warn("occur execption while read {} , {}", path, throwable);
-                        retFuture.set(Optional.<T>absent());
+                        retFuture.set(Optional.absent());
                     }
                 })
         );
