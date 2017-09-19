@@ -25,9 +25,9 @@
                         <name>mw-e2e-runtime-builder</name>
                     </mw-runtime-service>
                     <mw-pce-path-calculator>
-                        <type xmlns:binding="urn:zte:sdn:mw:pce:path:calculator">binding:service-pce-path-calculator
+                        <type xmlns:binding="urn:zte:ngip:ipsdn:pce:path:calculator">binding:service-pce-path-calculator
                         </type>
-                        <name>pce-path-calculator-impl</name>
+                        <name>pce-path-impl</name>
                     </mw-pce-path-calculator>
 
                 </module>
