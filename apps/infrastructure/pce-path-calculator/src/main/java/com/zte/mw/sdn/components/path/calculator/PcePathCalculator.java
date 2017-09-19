@@ -7,6 +7,8 @@
  */
 package com.zte.mw.sdn.components.path.calculator;
 
-public interface PcePathCalculator {
+import org.opendaylight.yang.gen.v1.urn.zte.ngip.ipsdn.pce.path.rev150814.PcePathService;
+
+public interface PcePathCalculator extends PcePathService {
 
 }

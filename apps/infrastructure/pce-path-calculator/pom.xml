@@ -15,6 +15,17 @@
     <name>${project.artifactId}</name>
     <packaging>bundle</packaging>
 
+    <build>
+        <plugins>
+            <plugin>
+                <artifactId>maven-checkstyle-plugin</artifactId>
+                <configuration>
+                    <skip>true</skip>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
     <dependencies>
         <dependency>
             <groupId>com.zte.sdn.oscp.controller</groupId>
@@ -26,6 +37,33 @@
             <artifactId>sal-binding-broker-impl</artifactId>
             <type>test-jar</type>
             <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.zte.sdn.oscp.controller</groupId>
+            <artifactId>sal-binding-api</artifactId>
+            <version>${restconf.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.zte.ngip.ipsdn</groupId>
+            <artifactId>pce-model</artifactId>
+            <version>${ipsdn.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.zte.ngip.ipsdn</groupId>
+            <artifactId>pce-path-core</artifactId>
+            <version>${ipsdn.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.mina</groupId>
+            <artifactId>mina-core</artifactId>
+            <version>2.0.7</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.karaf.shell</groupId>
+            <artifactId>org.apache.karaf.shell.console</artifactId>
+            <version>3.0.3</version>
+            <scope>compile</scope>
         </dependency>
     </dependencies>
 </project>

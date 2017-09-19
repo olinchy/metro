@@ -7,7 +7,29 @@
 *
 * Do not modify this file unless it is present under src/main directory
 */
-package org.opendaylight.yang.gen.v1.urn.zte.sdn.mw.pce.path.calculator.impl.rev170919;
-public class PcePathCalculatorModuleFactory extends org.opendaylight.yang.gen.v1.urn.zte.sdn.mw.pce.path.calculator.impl.rev170919.AbstractPcePathCalculatorModuleFactory {
 
+package org.opendaylight.yang.gen.v1.urn.zte.sdn.mw.pce.path.calculator.impl.rev170919;
+
+import org.opendaylight.controller.config.api.DependencyResolver;
+import org.osgi.framework.BundleContext;
+
+public class PcePathCalculatorModuleFactory extends org.opendaylight.yang.gen.v1.urn.zte.sdn.mw.pce.path.calculator.impl.rev170919.AbstractPcePathCalculatorModuleFactory {
+    @Override
+    public PcePathCalculatorModule instantiateModule(
+            final String instanceName, final DependencyResolver dependencyResolver,
+            final PcePathCalculatorModule oldModule,
+            final AutoCloseable oldInstance, final BundleContext bundleContext) {
+        PcePathCalculatorModule module = super.instantiateModule(
+                instanceName, dependencyResolver, oldModule, oldInstance, bundleContext);
+        module.setBundleContext(bundleContext);
+        return module;
+    }
+
+    @Override
+    public PcePathCalculatorModule instantiateModule(
+            final String instanceName, final DependencyResolver dependencyResolver, final BundleContext bundleContext) {
+        PcePathCalculatorModule module = super.instantiateModule(instanceName, dependencyResolver, bundleContext);
+        module.setBundleContext(bundleContext);
+        return module;
+    }
 }
