@@ -12,13 +12,6 @@
                     <type xmlns:prefix="urn:zte:sdn:mw:notification:listener:impl">prefix:notification-listener-impl
                     </type>
                     <name>notification-listener-impl</name>
-                    <rpc-registry>
-                        <type
-                                xmlns:binding="urn:opendaylight:params:xml:ns:yang:controller:md:sal:binding">
-                            binding:binding-rpc-registry
-                        </type>
-                        <name>binding-rpc-broker</name>
-                    </rpc-registry>
                     <data-broker>
                         <type
                                 xmlns:binding="urn:opendaylight:params:xml:ns:yang:controller:md:sal:binding">
@@ -26,18 +19,16 @@
                         </type>
                         <name>binding-data-broker</name>
                     </data-broker>
-                    <notification-service>
-                        <type
-                                xmlns:binding="urn:opendaylight:params:xml:ns:yang:controller:md:sal:binding">
-                            binding:binding-notification-service
-                        </type>
-                        <name>binding-notification-broker</name>
-                    </notification-service>
                     <!-- required services -->
                     <mw-runtime-service>
                         <type xmlns:binding="urn:mw:metro:runtime">binding:mw-base-environment</type>
                         <name>mw-e2e-runtime-builder</name>
                     </mw-runtime-service>
+                    <mw-pce-path-calculator>
+                        <type xmlns:binding="urn:zte:sdn:mw:pce:path:calculator">binding:service-pce-path-calculator
+                        </type>
+                        <name>pce-path-calculator-impl</name>
+                    </mw-pce-path-calculator>
 
                 </module>
             </modules>

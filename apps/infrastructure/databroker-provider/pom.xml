@@ -10,7 +10,7 @@ and is available at http://www.eclipse.org/legal/epl-v10.html INTERNAL
 
     <parent>
         <groupId>com.zte.mw.sdn</groupId>
-        <artifactId>mw-components-parent</artifactId>
+        <artifactId>mw-config-parent</artifactId>
         <version>1.0.0-SNAPSHOT</version>
         <relativePath>../parent/mw-components-parent</relativePath>
     </parent>
@@ -22,7 +22,7 @@ and is available at http://www.eclipse.org/legal/epl-v10.html INTERNAL
     <prerequisites>
         <maven>3.1.1</maven>
     </prerequisites>
-    <packaging>jar</packaging>
+    <packaging>bundle</packaging>
 
     <dependencies>
 

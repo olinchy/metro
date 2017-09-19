@@ -53,5 +53,10 @@
             <artifactId>databroker-provider</artifactId>
             <version>${project.version}</version>
         </dependency>
+        <dependency>
+            <groupId>com.zte.mw.sdn.components.path.calculator</groupId>
+            <artifactId>pce-path-calculator</artifactId>
+            <version>${project.version}</version>
+        </dependency>
     </dependencies>
 </project>

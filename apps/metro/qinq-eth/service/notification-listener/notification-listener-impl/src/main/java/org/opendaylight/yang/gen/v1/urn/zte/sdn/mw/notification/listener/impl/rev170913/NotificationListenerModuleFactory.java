@@ -17,24 +17,4 @@ import org.osgi.framework.BundleContext;
 
 public class NotificationListenerModuleFactory extends org.opendaylight.yang.gen.v1.urn.zte.sdn.mw.notification
         .listener.impl.rev170913.AbstractNotificationListenerModuleFactory {
-    @Override
-    public Module createModule(
-            final String instanceName, final DependencyResolver dependencyResolver, final BundleContext bundleContext) {
-        NotificationListenerModule module = (NotificationListenerModule) super.createModule(
-                instanceName, dependencyResolver, bundleContext);
-        module.setBundleContext(bundleContext);
-
-        return module;
-    }
-
-    @Override
-    public Module createModule(
-            final String instanceName, final DependencyResolver dependencyResolver, final DynamicMBeanWithInstance old,
-            final BundleContext bundleContext) throws Exception {
-        NotificationListenerModule module = (NotificationListenerModule) super.createModule(
-                instanceName, dependencyResolver, old, bundleContext);
-        module.setBundleContext(bundleContext);
-
-        return module;
-    }
 }

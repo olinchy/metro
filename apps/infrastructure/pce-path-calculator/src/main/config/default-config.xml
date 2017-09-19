@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<snapshot>
+    <required-capabilities>
+        <capability>urn:zte:sdn:mw:pce:path:calculator:impl?module=pce-path-calculator-impl&amp;revision=2017-09-19</capability>
+        <capability>urn:zte:sdn:mw:pce:path:calculator?module=pce-path-calculator&amp;revision=2017-09-19</capability>
+    </required-capabilities>
+    <configuration>
+        <data xmlns="urn:ietf:params:xml:ns:netconf:base:1.0">
+            <modules xmlns="urn:opendaylight:params:xml:ns:yang:controller:config">
+                <module>
+                    <type xmlns:prefix="urn:zte:sdn:mw:pce:path:calculator:impl">
+                        prefix:pce-path-calculator-impl
+                    </type>
+                    <name>pce-path-calculator-impl</name>
+                </module>
+            </modules>
+            <!--provided services-->
+            <services xmlns="urn:opendaylight:params:xml:ns:yang:controller:config">
+                <service>
+                    <type xmlns:binding="urn:zte:sdn:mw:pce:path:calculator">binding:service-pce-path-calculator</type>
+                    <instance>
+                        <name>pce-path-calculator-impl</name>
+                        <provider>
+                            /config/modules/module[name='pce-path-calculator-impl']/instance[name='pce-path-calculator-impl']
+                        </provider>
+                    </instance>
+                </service>
+            </services>
+        </data>
+    </configuration>
+</snapshot>

@@ -1,0 +1,21 @@
+module pce-path-calculator {
+    yang-version 1;
+    namespace "urn:zte:sdn:mw:pce:path:calculator";
+    prefix "pce-path-calculator";
+
+    import config { prefix config; revision-date 2013-04-05; }
+
+    organization "ZTE";
+
+    revision "2017-09-19" {
+        description "Service definition of pce-path-calculator";
+    }
+
+    identity service-pce-path-calculator {
+        description
+            "Service representing a infrastructure of pce-path-calculator.";
+        base "config:service-type";
+        config:java-class "com.zte.mw.sdn.components.path.calculator.PcePathCalculator";
+    }
+
+}

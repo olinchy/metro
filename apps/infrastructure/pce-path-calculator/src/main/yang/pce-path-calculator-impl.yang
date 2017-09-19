@@ -1,0 +1,34 @@
+module pce-path-calculator-impl {
+    yang-version 1;
+    namespace "urn:zte:sdn:mw:pce:path:calculator:impl";
+    prefix "pce-path-calculator-impl";
+
+    import config { prefix config; revision-date 2013-04-05; }
+    import opendaylight-md-sal-binding { prefix mdsal; revision-date 2013-10-28;}
+    import pce-path-calculator { prefix pce-path-calculator; revision-date 2017-09-19;}
+
+    organization "ZTE";
+
+    description
+        "Service implementation for pce-path-calculator project";
+
+    revision "2017-09-19" {
+        description
+            "Initial revision";
+    }
+
+    identity pce-path-calculator-impl {
+         base config:module-type;
+         config:provided-service pce-path-calculator:service-pce-path-calculator;
+         config:java-name-prefix PcePathCalculator;
+    }
+
+    augment "/config:modules/config:module/config:configuration" {
+         case pce-path-calculator-impl {
+              when "/config:modules/config:module/config:type = 'pce-path-calculator-impl'";
+              leaf name-prefix {
+                  type string;
+              }
+         }
+    }
+}

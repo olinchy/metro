@@ -1,9 +1,10 @@
 package org.opendaylight.yang.gen.v1.urn.zte.sdn.mw.notification.listener.impl.rev170913;
 
-import com.zte.mw.sdn.components.DataBrokerProvider;
 import org.osgi.framework.BundleContext;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import com.zte.mw.sdn.components.DataBrokerProvider;
 
 import com.zte.sdn.mw.e2e.qinq.service.notification.listener.impl.NotificationListenerProvider;
 
@@ -25,7 +26,6 @@ public class NotificationListenerModule extends org.opendaylight.yang.gen.v1.urn
     }
 
     private static final Logger LOG = LoggerFactory.getLogger(NotificationListenerModule.class);
-    private BundleContext bundleContext;
 
     @Override
     public void customValidation() {
@@ -38,10 +38,8 @@ public class NotificationListenerModule extends org.opendaylight.yang.gen.v1.urn
         LOG.info("start to register ietf listener");
         new NotificationListenerProvider
                 (getDataBrokerDependency(), getMwRuntimeServiceDependency()).start();
-        return () -> {};
-    }
 
-    public void setBundleContext(final BundleContext bundleContext) {
-        this.bundleContext = bundleContext;
+        LOG.info("path calculator is " + getMwPcePathCalculatorDependency().toString());
+        return () -> {};
     }
 }

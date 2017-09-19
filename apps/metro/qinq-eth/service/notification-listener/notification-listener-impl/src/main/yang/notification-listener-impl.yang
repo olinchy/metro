@@ -6,6 +6,7 @@ module notification-listener-impl {
     import config { prefix config; revision-date 2013-04-05; }
     import opendaylight-md-sal-binding { prefix mdsal; revision-date 2013-10-28;}
     import mw-e2e-runtime-api { prefix mw-e2e-runtime-api; revision-date 2017-09-17; }
+    import pce-path-calculator { prefix pce-path-calculator; revision-date 2017-09-19; }
 
     description
         "Service definition for notification-listener project";
@@ -24,15 +25,6 @@ module notification-listener-impl {
         case notification-listener-impl {
             when "/config:modules/config:module/config:type = 'notification-listener-impl'";
 
-            container rpc-registry {
-                uses config:service-ref {
-                    refine type {
-                        mandatory true;
-                        config:required-identity mdsal:binding-rpc-registry;
-                    }
-                }
-            }
-
             container data-broker {
                 uses config:service-ref {
                     refine type {
@@ -41,21 +33,19 @@ module notification-listener-impl {
                     }
                 }
             }
-
-            container notification-service {
-                uses config:service-ref {
-                    refine type {
-                        mandatory true;
-                        config:required-identity mdsal:binding-notification-service;
-                    }
-                }
-            }
-
             container mw-runtime-service {
                  uses config:service-ref {
                       refine type {
                             mandatory true;
                             config:required-identity mw-e2e-runtime-api:mw-base-environment;
+                      }
+                 }
+            }
+            container mw-pce-path-calculator {
+                 uses config:service-ref {
+                      refine type {
+                            mandatory true;
+                            config:required-identity pce-path-calculator:service-pce-path-calculator;
                       }
                  }
             }

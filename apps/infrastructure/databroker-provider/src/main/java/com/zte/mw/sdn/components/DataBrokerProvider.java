@@ -20,13 +20,13 @@ import org.opendaylight.yangtools.yang.binding.DataObject;
 import org.opendaylight.yangtools.yang.binding.InstanceIdentifier;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
 import com.google.common.base.Optional;
 import com.google.common.base.Preconditions;
 import com.google.common.util.concurrent.FutureCallback;
 import com.google.common.util.concurrent.Futures;
 import com.google.common.util.concurrent.ListenableFuture;
 import com.google.common.util.concurrent.SettableFuture;
-
 import com.zte.ngip.ipsdn.common.db.DataStoreSilentProcessor;
 
 public class DataBrokerProvider {
@@ -57,8 +57,7 @@ public class DataBrokerProvider {
         processor = new DataStoreSilentProcessor(dataBroker);
     }
 
-    public <T extends DataObject> T
-    readConfigurationDb(InstanceIdentifier<T> path) {
+    public <T extends DataObject> T readConfigurationDb(InstanceIdentifier<T> path) {
         ReadOnlyTransaction tx = dataBroker.newReadOnlyTransaction();
         Optional<T> result;
         try {
@@ -137,18 +136,20 @@ public class DataBrokerProvider {
             final InstanceIdentifier<T> path) {
         checkForReady();
         final SettableFuture<Optional<T>> retFuture = SettableFuture.create();
-        processor.addDBOper(tx -> Futures.addCallback(tx.read(type, path), new FutureCallback<Optional<T>>() {
-                                @Override
-                                public void onSuccess(Optional<T> result) {
-                                    retFuture.set(result);
-                                }
+        processor.addDBOper(tx -> Futures.addCallback(
+                tx.read(type, path),
+                new FutureCallback<Optional<T>>() {
+                    @Override
+                    public void onSuccess(Optional<T> result) {
+                        retFuture.set(result);
+                    }
 
-                                @Override
-                                public void onFailure(Throwable throwable) {
-                                    LOG.warn("occur execption while read {} , {}", path, throwable);
-                                    retFuture.set(Optional.<T>absent());
-                                }
-                            })
+                    @Override
+                    public void onFailure(Throwable throwable) {
+                        LOG.warn("occur execption while read {} , {}", path, throwable);
+                        retFuture.set(Optional.<T>absent());
+                    }
+                })
         );
         return retFuture;
     }
