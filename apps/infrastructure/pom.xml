@@ -36,6 +36,7 @@ and is available at http://www.eclipse.org/legal/epl-v10.html INTERNAL
         <module>connections</module>
         <module>api</module>
         <module>driver-register</module>
+        <module>databroker-provider</module>
     </modules>
 
 </project>

@@ -15,6 +15,7 @@ and is available at http://www.eclipse.org/legal/epl-v10.html
 
     <feature name="mw-metro" description="mw :: metro :: qinq">
         <!--dependencies-->
+        <!--ipsdn -->
         <feature version="${ipsdn.version}">ipsdn-tunnel</feature>
 
         <!--dependencies -->

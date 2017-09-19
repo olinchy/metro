@@ -29,6 +29,10 @@ and is available at http://www.eclipse.org/legal/epl-v10.html INTERNAL
             </plugin>
         </plugins>
     </build>
+    <properties>
+        <restconf.version>1.3.5-2.00.10R1B05</restconf.version>
+        <ipsdn.version>2.2.7.R3B07</ipsdn.version>
+    </properties>
 
     <dependencyManagement>
         <dependencies>

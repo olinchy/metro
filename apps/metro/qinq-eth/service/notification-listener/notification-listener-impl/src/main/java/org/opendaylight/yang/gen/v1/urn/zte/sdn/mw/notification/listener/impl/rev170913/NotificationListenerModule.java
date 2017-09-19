@@ -1,5 +1,6 @@
 package org.opendaylight.yang.gen.v1.urn.zte.sdn.mw.notification.listener.impl.rev170913;
 
+import com.zte.mw.sdn.components.DataBrokerProvider;
 import org.osgi.framework.BundleContext;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -33,10 +34,8 @@ public class NotificationListenerModule extends org.opendaylight.yang.gen.v1.urn
 
     @Override
     public java.lang.AutoCloseable createInstance() {
+        DataBrokerProvider.getInstance().setDataBroker(getDataBrokerDependency());
         LOG.info("start to register ietf listener");
-        LOG.info("start to get dispatch pool");
-        getMwRuntimeServiceDependency().getDispatchPool();
-
         new NotificationListenerProvider
                 (getDataBrokerDependency(), getMwRuntimeServiceDependency()).start();
         return () -> {};

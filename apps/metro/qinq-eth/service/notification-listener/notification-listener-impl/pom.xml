@@ -36,12 +36,22 @@
         <dependency>
             <groupId>com.zte.mw.sdn.components.task</groupId>
             <artifactId>task</artifactId>
-            <version>1.0.0-SNAPSHOT</version>
+            <version>${project.version}</version>
         </dependency>
         <dependency>
             <groupId>com.zte.sdn.mw.e2e.runtime</groupId>
             <artifactId>runtime</artifactId>
-            <version>1.0.0-SNAPSHOT</version>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.zte.ngip.ipsdn</groupId>
+            <artifactId>pce-model</artifactId>
+            <version>${ipsdn.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.zte.mw.sdn.components</groupId>
+            <artifactId>databroker-provider</artifactId>
+            <version>${project.version}</version>
         </dependency>
     </dependencies>
 </project>
