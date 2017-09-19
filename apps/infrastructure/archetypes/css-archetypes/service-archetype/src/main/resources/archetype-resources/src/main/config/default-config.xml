@@ -1,0 +1,37 @@
+#set( $ldt = $package.getClass().forName("java.time.LocalDateTime").getMethod("now").invoke(null) )
+#set( $dtf = $package.getClass().forName("java.time.format.DateTimeFormatter").getMethod("ofPattern", $package.getClass()).invoke(null, "yyyy-MM-dd") )
+#set( $date = $ldt.format($dtf) )
+#set( $symbol_pound = '#' )
+#set( $symbol_dollar = '$' )
+#set($symbol_escape = '\' )
+<?xml version="1.0" encoding="UTF-8"?>
+<snapshot>
+    <required-capabilities>
+        <capability>urn:zte:sdn:mw:${artifactId.replaceAll("-",":")}:impl?module=${artifactId}-impl&amp;revision=${date}</capability>
+        <capability>urn:zte:sdn:mw:${artifactId.replaceAll("-",":")}?module=${artifactId}&amp;revision=${date}</capability>
+    </required-capabilities>
+    <configuration>
+        <data xmlns="urn:ietf:params:xml:ns:netconf:base:1.0">
+            <modules xmlns="urn:opendaylight:params:xml:ns:yang:controller:config">
+                <module>
+                    <type xmlns:prefix="urn:zte:sdn:mw:${artifactId.replaceAll('-',':')}:impl">
+                        prefix:${artifactId}-impl
+                    </type>
+                    <name>${artifactId}-impl</name>
+                </module>
+            </modules>
+            <!--provided services-->
+            <services xmlns="urn:opendaylight:params:xml:ns:yang:controller:config">
+                <service>
+                    <type xmlns:binding="urn:zte:sdn:mw:${artifactId.replaceAll("-",":")}">binding:service-${artifactId}</type>
+                    <instance>
+                        <name>${artifactId}-impl</name>
+                        <provider>
+                            /config/modules/module[name='${artifactId}-impl']/instance[name='${artifactId}-impl']
+                        </provider>
+                    </instance>
+                </service>
+            </services>
+        </data>
+    </configuration>
+</snapshot>

@@ -8,17 +8,8 @@
  * terms of the Eclipse Public License v1.0 which accompanies this distribution,
  * and is available at http://www.eclipse.org/legal/epl-v10.html
  */
-
 package ${package};
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+public interface ${classPrefix} {
 
-public class ${classPrefix} implements AutoCloseable {
-    private static final Logger LOG = LoggerFactory.getLogger(${classPrefix}.class);
-
-    @Override
-    public void close() throws Exception {
-        LOG.info("${classPrefix} Closed");
-    }
 }

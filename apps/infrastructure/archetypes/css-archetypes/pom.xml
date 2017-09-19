@@ -25,6 +25,7 @@ and is available at http://www.eclipse.org/legal/epl-v10.html INTERNAL
         <module>service-api-archetype</module>
         <module>module-archetype</module>
         <module>service-provider-archetype</module>
+        <module>service-archetype</module>
     </modules>
 
 </project>

@@ -11,7 +11,7 @@ module ${artifactId} {
     organization "ZTE";
 
     revision "${date}" {
-        description "Initial revision of ${artifactId} model";
+        description "Service definition of ${artifactId}";
     }
 
     identity service-${artifactId} {

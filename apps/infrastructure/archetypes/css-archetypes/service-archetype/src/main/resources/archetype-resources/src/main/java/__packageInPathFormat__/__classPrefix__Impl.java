@@ -14,11 +14,11 @@ package ${package};
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class ${classPrefix} implements AutoCloseable {
-    private static final Logger LOG = LoggerFactory.getLogger(${classPrefix}.class);
+public class ${classPrefix}Impl implements AutoCloseable, ${classPrefix} {
+    private static final Logger LOG = LoggerFactory.getLogger(${classPrefix}Impl.class);
 
     @Override
     public void close() throws Exception {
-        LOG.info("${classPrefix} Closed");
+        LOG.info("${classPrefix}Impl Closed");
     }
 }
