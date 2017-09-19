@@ -6,7 +6,7 @@
  * and is available at http://www.eclipse.org/legal/epl-v10.html
  */
 
-package com.zte.mw.sdn.components;
+package com.zte.mw.sdn.components.databroker;
 
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeUnit;

@@ -51,7 +51,7 @@ import org.slf4j.LoggerFactory;
 
 import com.zte.mw.sdn.Model;
 import com.zte.mw.sdn.Result;
-import com.zte.mw.sdn.components.DataBrokerProvider;
+import com.zte.mw.sdn.components.databroker.DataBrokerProvider;
 import com.zte.mw.sdn.infrastructure.task.MonitoredTask;
 import com.zte.mw.sdn.infrastructure.task.SelfScheduledTask;
 import com.zte.sdn.mw.e2e.runtime.MicrowaveRuntime;

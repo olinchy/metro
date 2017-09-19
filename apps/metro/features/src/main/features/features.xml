@@ -22,6 +22,7 @@ and is available at http://www.eclipse.org/legal/epl-v10.html
         <bundle>mvn:com.zte.mw.sdn.components/api/{{VERSION}}</bundle>
         <bundle>mvn:com.zte.mw.sdn.components.task/task/{{VERSION}}</bundle>
         <bundle>mvn:com.zte.mw.sdn.components.connections/connection-api/{{VERSION}}</bundle>
+        <bundle>mvn:com.zte.mw.sdn.components/databroker-provider/{{VERSION}}</bundle>
 
         <bundle>mvn:com.zte.mw.sdn.components.path.calculator/pce-path-calculator/{{VERSION}}</bundle>
         <configfile finalname="${configfile.directory}/mw_metro_pce_path_calculator.xml" override="true">

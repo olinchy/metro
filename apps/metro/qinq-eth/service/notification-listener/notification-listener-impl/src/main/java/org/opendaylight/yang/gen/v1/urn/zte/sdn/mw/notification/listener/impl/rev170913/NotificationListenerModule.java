@@ -1,10 +1,9 @@
 package org.opendaylight.yang.gen.v1.urn.zte.sdn.mw.notification.listener.impl.rev170913;
 
-import org.osgi.framework.BundleContext;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.zte.mw.sdn.components.DataBrokerProvider;
+import com.zte.mw.sdn.components.databroker.DataBrokerProvider;
 
 import com.zte.sdn.mw.e2e.qinq.service.notification.listener.impl.NotificationListenerProvider;
 
