@@ -1,0 +1,57 @@
+#set( $ldt = $package.getClass().forName("java.time.LocalDateTime").getMethod("now").invoke(null) )
+#set( $dtf = $package.getClass().forName("java.time.format.DateTimeFormatter").getMethod("ofPattern", $package.getClass()).invoke(null, "yyyy-MM-dd") )
+#set( $date = $ldt.format($dtf) )
+module ${artifactId}-impl {
+    yang-version 1;
+    namespace "urn:zte:ngip:ipsdn:${artifactId}:impl";
+    prefix "${artifactId}-impl";
+
+    import config { prefix config; revision-date 2013-04-05; }
+    import opendaylight-md-sal-binding { prefix mdsal; revision-date 2013-10-28;}
+
+    description
+        "Service definition for ${artifactId} project";
+
+    revision "${date}" {
+        description
+            "Initial revision";
+    }
+
+    identity ${artifactId}-impl {
+        base config:module-type;
+        config:java-name-prefix ${classPrefix};
+    }
+
+    augment "/config:modules/config:module/config:configuration" {
+        case ${artifactId}-impl {
+            when "/config:modules/config:module/config:type = '${artifactId}-impl'";
+
+            container rpc-registry {
+                uses config:service-ref {
+                    refine type {
+                        mandatory true;
+                        config:required-identity mdsal:binding-rpc-registry;
+                    }
+                }
+            }
+
+            container data-broker {
+                uses config:service-ref {
+                    refine type {
+                        mandatory false;
+                        config:required-identity mdsal:binding-async-data-broker;
+                    }
+                }
+            }
+
+            container notification-service {
+                uses config:service-ref {
+                    refine type {
+                        mandatory true;
+                        config:required-identity mdsal:binding-notification-service;
+                    }
+                }
+            }
+        }
+    }
+}

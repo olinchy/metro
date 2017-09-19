@@ -1,0 +1,41 @@
+#set( $ldt = $package.getClass().forName("java.time.LocalDateTime").getMethod("now").invoke(null) )
+#set( $dtf = $package.getClass().forName("java.time.format.DateTimeFormatter").getMethod("ofPattern", $package.getClass()).invoke(null, "yyyy-MM-dd") )
+#set( $date = $ldt.format($dtf) )
+#set( $symbol_pound = '#' )
+#set( $symbol_dollar = '$' )
+#set($symbol_escape = '\' )
+<?xml version="1.0" encoding="UTF-8"?>
+<snapshot>
+    <required-capabilities>
+        <capability>urn:zte:ngip:ipsdn:${artifactId}:impl?module=${artifactId}-impl&amp;revision=${date}
+        </capability>
+    </required-capabilities>
+    <configuration>
+
+        <data xmlns="urn:ietf:params:xml:ns:netconf:base:1.0">
+            <modules xmlns="urn:opendaylight:params:xml:ns:yang:controller:config">
+                <module>
+                    <type xmlns:prefix="urn:zte:ngip:ipsdn:${artifactId}:impl">prefix:${artifactId}-impl</type>
+                    <name>${artifactId}-impl</name>
+                    <rpc-registry>
+                        <type
+                            xmlns:binding="urn:opendaylight:params:xml:ns:yang:controller:md:sal:binding">binding:binding-rpc-registry</type>
+                        <name>binding-rpc-broker</name>
+                    </rpc-registry>
+                    <data-broker>
+                        <type
+                            xmlns:binding="urn:opendaylight:params:xml:ns:yang:controller:md:sal:binding">binding:binding-async-data-broker</type>
+                        <name>binding-data-broker</name>
+                    </data-broker>
+                    <notification-service>
+                        <type
+                            xmlns:binding="urn:opendaylight:params:xml:ns:yang:controller:md:sal:binding">
+                            binding:binding-notification-service
+                        </type>
+                        <name>binding-notification-broker</name>
+                    </notification-service>
+                </module>
+            </modules>
+        </data>
+    </configuration>
+</snapshot>

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- vi: set et smarttab sw=4 tabstop=4: -->
+<!-- Copyright (c) 2014 Cisco Systems, Inc. and others. All rights reserved.
+    This program and the accompanying materials are made available under the
+    terms of the Eclipse Public License v1.0 which accompanies this distribution,
+    and is available at http://www.eclipse.org/legal/epl-v10.html -->
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <parent>
+        <groupId>com.zte.ngip.ipsdn</groupId>
+        <artifactId>ipsdn-tunnel-config-parent</artifactId>
+        <version>2.2.7.R3B07</version>
+        <relativePath>../../../../parent/config-parent</relativePath>
+    </parent>
+
+    <modelVersion>4.0.0</modelVersion>
+    <artifactId>pce-path-impl</artifactId>
+    <name>${project.artifactId}</name>
+    <packaging>bundle</packaging>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.zte.ngip.ipsdn</groupId>
+            <artifactId>pce-model</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.zte.ngip.ipsdn</groupId>
+            <artifactId>pce-api</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.zte.ngip.ipsdn</groupId>
+            <artifactId>pce-path-core</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.zte.ngip.ipsdn</groupId>
+            <artifactId>common-util</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.zte.sdn.oscp.controller</groupId>
+            <artifactId>sal-distributed-datastore</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.servicemix.bundles</groupId>
+            <artifactId>org.apache.servicemix.bundles.jung-graph-impl</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.zte.sdn.oscp.mdsal.model</groupId>
+            <artifactId>ietf-topology</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.zte.ngip.ipsdn</groupId>
+            <artifactId>common-manager-model</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.karaf.shell</groupId>
+            <artifactId>org.apache.karaf.shell.console</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.zte.ngip.ipsdn</groupId>
+            <artifactId>pce-api</artifactId>
+        </dependency>
+    </dependencies>
+   </project>
