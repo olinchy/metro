@@ -13,6 +13,7 @@ import org.opendaylight.controller.md.sal.binding.api.MountPoint;
 import org.opendaylight.controller.md.sal.binding.api.MountPointService;
 import org.opendaylight.controller.md.sal.binding.api.WriteTransaction;
 import org.opendaylight.controller.md.sal.common.api.data.LogicalDatastoreType;
+import org.opendaylight.controller.md.sal.common.api.data.TransactionCommitFailedException;
 import org.opendaylight.yang.gen.v1.urn.opendaylight.netconf.node.topology.rev150114.network.topology.topology.topology.types.TopologyNetconf;
 import org.opendaylight.yang.gen.v1.urn.tbd.params.xml.ns.yang.network.topology.rev131021.NetworkTopology;
 import org.opendaylight.yang.gen.v1.urn.tbd.params.xml.ns.yang.network.topology.rev131021.NodeId;
@@ -35,6 +36,9 @@ public class MountPointConnection implements Connection {
         this.dataBroker = mountPoint.getService(DataBroker.class).get();
     }
 
+    private static final Logger LOG = LoggerFactory.getLogger(MountPointConnection.class);
+    private final DataBroker dataBroker;
+
     private InstanceIdentifier<Node> path(final String neIdentity) {
         return InstanceIdentifier
                 .create(NetworkTopology.class)
@@ -42,25 +46,15 @@ public class MountPointConnection implements Connection {
                 .child(Node.class, new NodeKey(new NodeId(neIdentity)));
     }
 
-    private static final Logger LOG = LoggerFactory.getLogger(MountPointConnection.class);
-    private final DataBroker dataBroker;
-
     @Override
     public <T extends DataObject> void config(InstanceIdentifier<T> identifier, T data, Model.OperationType oper) {
         WriteTransaction transaction = dataBroker.newWriteOnlyTransaction();
-
-        switch (oper) {
-            case CREATE:
-                transaction.put(LogicalDatastoreType.CONFIGURATION, identifier, data);
-                break;
-            case UPDATE:
-                transaction.merge(LogicalDatastoreType.CONFIGURATION, identifier, data);
-                break;
-            case DELETE:
-                transaction.delete(LogicalDatastoreType.CONFIGURATION, identifier);
-                break;
-            default:
-                LOG.warn("execute configuration failed");
+        try {
+            transaction.merge(LogicalDatastoreType.CONFIGURATION, identifier, data);
+            transaction.submit().checkedGet();
+        } catch (TransactionCommitFailedException | IllegalStateException e) {
+            transaction.cancel();
+            LOG.warn("config to device failed! caught ", e);
         }
     }
 }
