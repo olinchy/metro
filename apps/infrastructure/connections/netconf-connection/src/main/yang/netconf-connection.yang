@@ -1,6 +1,6 @@
 module netconf-connection {
     yang-version 1;
-    namespace "urn:zte:sdn:mw:netconf:connection:impl";
+    namespace "urn:zte:mw:sdn:netconf:connection:impl";
     prefix "netconf-connection";
 
     import config { prefix config; revision-date 2013-04-05; }

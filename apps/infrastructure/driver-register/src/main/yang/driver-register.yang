@@ -1,6 +1,6 @@
 module driver-register {
     yang-version 1;
-    namespace "urn:zte:sdn:mw:driver:register";
+    namespace "urn:zte:mw:sdn:driver:register";
     prefix "driver-register";
 
     import config { prefix config; revision-date 2013-04-05; }

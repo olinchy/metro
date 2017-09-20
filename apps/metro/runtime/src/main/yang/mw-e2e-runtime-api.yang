@@ -16,6 +16,6 @@ module mw-e2e-runtime-api {
         description
             "Service representing a infrastructure of microwave instance.";
         base "config:service-type";
-        config:java-class "com.zte.sdn.mw.e2e.runtime.MicrowaveRuntime";
+        config:java-class "com.zte.mw.sdn.e2e.runtime.MicrowaveRuntime";
     }
 }

@@ -1,6 +1,6 @@
 module mw-driver-register {
     yang-version 1;
-    namespace "urn:zte:sdn:mw:driver:register:impl";
+    namespace "urn:zte:mw:sdn:driver:register:impl";
     prefix "mw-driver-register";
 
     import config { prefix config; revision-date 2013-04-05; }

@@ -3,7 +3,7 @@
 #set( $date = $ldt.format($dtf) )
 module ${artifactId} {
     yang-version 1;
-    namespace "urn:zte:sdn:mw:${artifactId}";
+    namespace "urn:zte:mw:sdn:${artifactId}";
     prefix "${artifactId}";
 
     revision "${date}" {

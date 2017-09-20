@@ -8,7 +8,7 @@ and is available at http://www.eclipse.org/legal/epl-v10.html INTERNAL
 <project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
-    <groupId>com.zte.sdn.mw.e2e</groupId>
+    <groupId>com.zte.mw.sdn.e2e</groupId>
     <artifactId>metro-aggregator</artifactId>
     <version>1.0.0-SNAPSHOT</version>
     <name>${project.artifactId}</name>

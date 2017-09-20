@@ -8,14 +8,14 @@
 <snapshot>
     <required-capabilities>
         <capability>
-            urn:zte:sdn:mw:${artifactId.replaceAll("-",":")}:impl?module=${artifactId}-impl&amp;revision=${date}
+            urn:zte:mw:sdn:${artifactId.replaceAll("-",":")}:impl?module=${artifactId}-impl&amp;revision=${date}
         </capability>
     </required-capabilities>
     <configuration>
         <data xmlns="urn:ietf:params:xml:ns:netconf:base:1.0">
             <modules xmlns="urn:opendaylight:params:xml:ns:yang:controller:config">
                 <module>
-                    <type xmlns:prefix="urn:zte:sdn:mw:${artifactId.replaceAll('-',':')}:impl">
+                    <type xmlns:prefix="urn:zte:mw:sdn:${artifactId.replaceAll('-',':')}:impl">
                         prefix:${artifactId}-impl
                     </type>
                     <name>${artifactId}-impl</name>

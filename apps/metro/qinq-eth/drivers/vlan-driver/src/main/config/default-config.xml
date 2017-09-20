@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <snapshot>
     <required-capabilities>
-        <capability>urn:zte:sdn:mw:vlan:driver?module=vlan-driver&amp;revision=2017-09-13</capability>
+        <capability>urn:zte:mw:sdn:vlan:driver?module=vlan-driver&amp;revision=2017-09-13</capability>
     </required-capabilities>
     <configuration>
         <data xmlns="urn:ietf:params:xml:ns:netconf:base:1.0">
             <modules xmlns="urn:opendaylight:params:xml:ns:yang:controller:config">
                 <module>
-                    <type xmlns:prefix="urn:zte:sdn:mw:vlan:driver">
+                    <type xmlns:prefix="urn:zte:mw:sdn:vlan:driver">
                         prefix:vlan-driver
                     </type>
                     <name>vlan-driver</name>
                     <!-- required services -->
                     <driver-register>
-                        <type xmlns:binding="urn:zte:sdn:mw:driver:register">binding:service-driver-register</type>
+                        <type xmlns:binding="urn:zte:mw:sdn:driver:register">binding:service-driver-register</type>
                         <name>mw-driver-register-impl</name>
                     </driver-register>
                 </module>

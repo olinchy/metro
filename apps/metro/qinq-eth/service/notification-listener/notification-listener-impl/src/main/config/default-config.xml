@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <snapshot>
     <required-capabilities>
-        <capability>urn:zte:sdn:mw:notification:listener:impl?module=notification-listener-impl&amp;revision=2017-09-13
+        <capability>urn:zte:mw:sdn:notification:listener:impl?module=notification-listener-impl&amp;revision=2017-09-13
         </capability>
     </required-capabilities>
     <configuration>
@@ -9,7 +9,7 @@
         <data xmlns="urn:ietf:params:xml:ns:netconf:base:1.0">
             <modules xmlns="urn:opendaylight:params:xml:ns:yang:controller:config">
                 <module>
-                    <type xmlns:prefix="urn:zte:sdn:mw:notification:listener:impl">prefix:notification-listener-impl
+                    <type xmlns:prefix="urn:zte:mw:sdn:notification:listener:impl">prefix:notification-listener-impl
                     </type>
                     <name>notification-listener-impl</name>
                     <data-broker>

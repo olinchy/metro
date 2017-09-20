@@ -1,6 +1,6 @@
 module nbi-rpc-impl {
     yang-version 1;
-    namespace "urn:zte:sdn:mw:nbi:rpc:impl";
+    namespace "urn:zte:mw:sdn:nbi:rpc:impl";
     prefix "nbi-rpc-impl";
 
     import config { prefix config; revision-date 2013-04-05; }

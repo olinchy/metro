@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <snapshot>
     <required-capabilities>
-        <capability>urn:zte:sdn:mw:nbi:rpc:impl?module=nbi-rpc-impl&amp;revision=2017-09-13
+        <capability>urn:zte:mw:sdn:nbi:rpc:impl?module=nbi-rpc-impl&amp;revision=2017-09-13
         </capability>
     </required-capabilities>
     <configuration>
@@ -9,7 +9,7 @@
         <data xmlns="urn:ietf:params:xml:ns:netconf:base:1.0">
             <modules xmlns="urn:opendaylight:params:xml:ns:yang:controller:config">
                 <module>
-                    <type xmlns:prefix="urn:zte:sdn:mw:nbi:rpc:impl">prefix:nbi-rpc-impl</type>
+                    <type xmlns:prefix="urn:zte:mw:sdn:nbi:rpc:impl">prefix:nbi-rpc-impl</type>
                     <name>nbi-rpc-impl</name>
                     <rpc-registry>
                         <type

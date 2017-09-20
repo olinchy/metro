@@ -1,6 +1,6 @@
 module notification-listener-impl {
     yang-version 1;
-    namespace "urn:zte:sdn:mw:notification:listener:impl";
+    namespace "urn:zte:mw:sdn:notification:listener:impl";
     prefix "notification-listener-impl";
 
     import config { prefix config; revision-date 2013-04-05; }

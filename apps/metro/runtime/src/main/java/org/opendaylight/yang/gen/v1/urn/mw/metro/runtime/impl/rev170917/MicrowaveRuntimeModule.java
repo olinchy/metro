@@ -3,7 +3,7 @@ package org.opendaylight.yang.gen.v1.urn.mw.metro.runtime.impl.rev170917;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.zte.sdn.mw.e2e.runtime.MicrowaveRuntimeImpl;
+import com.zte.mw.sdn.e2e.runtime.MicrowaveRuntimeImpl;
 
 public class MicrowaveRuntimeModule extends org.opendaylight.yang.gen.v1.urn.mw.metro.runtime.impl
         .rev170917.AbstractMicrowaveRuntimeModule {

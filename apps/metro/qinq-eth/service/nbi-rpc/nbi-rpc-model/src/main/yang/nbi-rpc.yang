@@ -1,6 +1,6 @@
 module nbi-rpc {
     yang-version 1;
-    namespace "urn:zte:sdn:mw:nbi:rpc";
+    namespace "urn:zte:mw:sdn:nbi:rpc";
     prefix "nbi-rpc";
 
     revision "2017-09-13" {

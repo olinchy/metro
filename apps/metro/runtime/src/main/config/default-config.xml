@@ -13,11 +13,11 @@
                     <name-prefix>microwave-runtime</name-prefix>
 
                     <driver-register>
-                        <type xmlns:binding="urn:zte:sdn:mw:driver:register">binding:service-driver-register</type>
+                        <type xmlns:binding="urn:zte:mw:sdn:driver:register">binding:service-driver-register</type>
                         <name>mw-driver-register-impl</name>
                     </driver-register>
                     <connection-provider>
-                        <type xmlns:binding="urn:zte:sdn:mw:connection:provider">binding:service-connection-provider
+                        <type xmlns:binding="urn:zte:mw:sdn:connection:provider">binding:service-connection-provider
                         </type>
                         <name>netconf-connection</name>
                     </connection-provider>

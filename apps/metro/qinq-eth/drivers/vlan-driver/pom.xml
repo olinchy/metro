@@ -10,7 +10,7 @@
         <relativePath/>
     </parent>
 
-    <groupId>com.zte.sdn.mw.e2e.qinq.drivers</groupId>
+    <groupId>com.zte.mw.sdn.e2e.qinq.drivers</groupId>
     <artifactId>vlan-driver</artifactId>
     <name>${project.artifactId}</name>
     <packaging>bundle</packaging>

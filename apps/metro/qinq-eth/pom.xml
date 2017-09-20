@@ -13,7 +13,7 @@ and is available at http://www.eclipse.org/legal/epl-v10.html INTERNAL
     <packaging>pom</packaging>
     <parent>
         <artifactId>metro-aggregator</artifactId>
-        <groupId>com.zte.sdn.mw.e2e</groupId>
+        <groupId>com.zte.mw.sdn.e2e</groupId>
         <version>1.0.0-SNAPSHOT</version>
         <relativePath>../</relativePath>
     </parent>

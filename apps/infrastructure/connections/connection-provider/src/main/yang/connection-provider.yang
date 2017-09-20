@@ -1,6 +1,6 @@
 module connection-provider {
     yang-version 1;
-    namespace "urn:zte:sdn:mw:connection:provider";
+    namespace "urn:zte:mw:sdn:connection:provider";
     prefix "connection-provider";
 
     import config { prefix config; revision-date 2013-04-05; }

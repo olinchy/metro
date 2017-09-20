@@ -7,14 +7,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <snapshot>
     <required-capabilities>
-        <capability>urn:zte:sdn:mw:${artifactId.replaceAll("-",":")}?module=${artifactId}&amp;revision=${date}
+        <capability>urn:zte:mw:sdn:${artifactId.replaceAll("-",":")}?module=${artifactId}&amp;revision=${date}
         </capability>
     </required-capabilities>
     <configuration>
         <data xmlns="urn:ietf:params:xml:ns:netconf:base:1.0">
             <modules xmlns="urn:opendaylight:params:xml:ns:yang:controller:config">
                 <module>
-                    <type xmlns:prefix="urn:zte:sdn:mw:${artifactId.replaceAll('-',':')}">
+                    <type xmlns:prefix="urn:zte:mw:sdn:${artifactId.replaceAll('-',':')}">
                         prefix:${artifactId}
                     </type>
                     <name>${artifactId}</name>

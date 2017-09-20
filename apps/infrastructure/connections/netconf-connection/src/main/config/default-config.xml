@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <snapshot>
     <required-capabilities>
-        <capability>urn:zte:sdn:mw:netconf:connection:impl?module=netconf-connection&amp;revision=2017-09-18
+        <capability>urn:zte:mw:sdn:netconf:connection:impl?module=netconf-connection&amp;revision=2017-09-18
         </capability>
-        <capability>urn:zte:sdn:mw:connection:provider?module=connection-provider&amp;revision=2017-09-18</capability>
+        <capability>urn:zte:mw:sdn:connection:provider?module=connection-provider&amp;revision=2017-09-18</capability>
     </required-capabilities>
     <configuration>
         <data xmlns="urn:ietf:params:xml:ns:netconf:base:1.0">
             <modules xmlns="urn:opendaylight:params:xml:ns:yang:controller:config">
                 <module>
-                    <type xmlns:prefix="urn:zte:sdn:mw:netconf:connection:impl">
+                    <type xmlns:prefix="urn:zte:mw:sdn:netconf:connection:impl">
                         prefix:netconf-connection
                     </type>
                     <name>netconf-connection</name>
@@ -24,7 +24,7 @@
             <!--provided services-->
             <services xmlns="urn:opendaylight:params:xml:ns:yang:controller:config">
                 <service>
-                    <type xmlns:binding="urn:zte:sdn:mw:connection:provider">binding:service-connection-provider</type>
+                    <type xmlns:binding="urn:zte:mw:sdn:connection:provider">binding:service-connection-provider</type>
                     <instance>
                         <name>netconf-connection</name>
                         <provider>

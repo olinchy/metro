@@ -1,6 +1,6 @@
 module vlan-driver {
     yang-version 1;
-    namespace "urn:zte:sdn:mw:vlan:driver";
+    namespace "urn:zte:mw:sdn:vlan:driver";
     prefix "vlan-driver";
 
     import config { prefix config; revision-date 2013-04-05; }

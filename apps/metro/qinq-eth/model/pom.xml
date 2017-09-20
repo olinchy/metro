@@ -14,7 +14,7 @@
 
     <!-- This pom.xml is providing the hook to the yang files that define the
         API. See salGeneratorPath in parent/yang-parent/pom.xml -->
-    <groupId>com.zte.sdn.mw.e2e.qinq.model</groupId>
+    <groupId>com.zte.mw.sdn.e2e.qinq.model</groupId>
     <modelVersion>4.0.0</modelVersion>
     <artifactId>metro-model</artifactId>
     <packaging>bundle</packaging>

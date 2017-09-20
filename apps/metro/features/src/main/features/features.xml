@@ -40,9 +40,9 @@ and is available at http://www.eclipse.org/legal/epl-v10.html
         <bundle>mvn:com.zte.mw.sdn/device-model/{{VERSION}}</bundle>
 
         <!--drivers-->
-        <bundle>mvn:com.zte.sdn.mw.e2e.qinq.drivers/vlan-driver/{{VERSION}}</bundle>
+        <bundle>mvn:com.zte.mw.sdn.e2e.qinq.drivers/vlan-driver/{{VERSION}}</bundle>
         <configfile finalname="${configfile.directory}/mw_metro_driver_vlan.xml" override="true">
-            mvn:com.zte.sdn.mw.e2e.qinq.drivers/vlan-driver/{{VERSION}}/xml/config
+            mvn:com.zte.mw.sdn.e2e.qinq.drivers/vlan-driver/{{VERSION}}/xml/config
         </configfile>
         <!--connection-->
         <bundle>mvn:com.zte.mw.sdn.components.connections/connection-provider/{{VERSION}}</bundle>
@@ -52,31 +52,31 @@ and is available at http://www.eclipse.org/legal/epl-v10.html
         </configfile>
 
         <!--runtime-->
-        <bundle>mvn:com.zte.sdn.mw.e2e.runtime/runtime/{{VERSION}}</bundle>
+        <bundle>mvn:com.zte.mw.sdn.e2e.runtime/runtime/{{VERSION}}</bundle>
         <configfile finalname="${configfile.directory}/mw_metro_runtime.xml" override="true">
-            mvn:com.zte.sdn.mw.e2e.runtime/runtime/{{VERSION}}/xml/config
+            mvn:com.zte.mw.sdn.e2e.runtime/runtime/{{VERSION}}/xml/config
         </configfile>
 
         <!--metro model-->
         <bundle>mvn:com.zte.ngip.ipsdn/qos-model/{{VERSION}}</bundle>
-        <bundle>mvn:com.zte.sdn.mw.e2e.qinq.model/metro-model/{{VERSION}}</bundle>
+        <bundle>mvn:com.zte.mw.sdn.e2e.qinq.model/metro-model/{{VERSION}}</bundle>
         <!--notification listener-->
-        <bundle>mvn:com.zte.sdn.mw.e2e.qinq.service.notification.listener/notification-listener-impl/{{VERSION}}
+        <bundle>mvn:com.zte.mw.sdn.e2e.qinq.service.notification.listener/notification-listener-impl/{{VERSION}}
         </bundle>
         <configfile finalname="${configfile.directory}/mw_metro_notification-listener.xml" override="true">
-            mvn:com.zte.sdn.mw.e2e.qinq.service.notification.listener/notification-listener-impl/{{VERSION}}/xml/config
+            mvn:com.zte.mw.sdn.e2e.qinq.service.notification.listener/notification-listener-impl/{{VERSION}}/xml/config
         </configfile>
 
         <!-- nbi rpc -->
-        <bundle>mvn:com.zte.sdn.mw.e2e.qinq.servic.nbi.rpc/nbi-rpc-model/{{VERSION}}</bundle>
-        <bundle>mvn:com.zte.sdn.mw.e2e.qinq.servic.nbi.rpc/nbi-rpc-impl/{{VERSION}}</bundle>
+        <bundle>mvn:com.zte.mw.sdn.e2e.qinq.servic.nbi.rpc/nbi-rpc-model/{{VERSION}}</bundle>
+        <bundle>mvn:com.zte.mw.sdn.e2e.qinq.servic.nbi.rpc/nbi-rpc-impl/{{VERSION}}</bundle>
         <configfile finalname="${configfile.directory}/mw_metro_rpc.xml" override="true">
-            mvn:com.zte.sdn.mw.e2e.qinq.servic.nbi.rpc/nbi-rpc-impl/{{VERSION}}/xml/config
+            mvn:com.zte.mw.sdn.e2e.qinq.servic.nbi.rpc/nbi-rpc-impl/{{VERSION}}/xml/config
         </configfile>
     </feature>
     <!--<feature name="mw-vlan" description="mw :: metro :: vlan">-->
     <!--<feature version="${ipsdn.version}">ipsdn-pce</feature>-->
-    <!--<bundle>mvn:com.zte.sdn.mw.e2e.qinq.drivers.vlan/vlan-driver-model/{{VERSION}}</bundle>-->
-    <!--<bundle>mvn:com.zte.sdn.mw.e2e.qinq.drivers.vlan/vlan-driver-impl/{{VERSION}}</bundle>-->
+    <!--<bundle>mvn:com.zte.mw.sdn.e2e.qinq.drivers.vlan/vlan-driver-model/{{VERSION}}</bundle>-->
+    <!--<bundle>mvn:com.zte.mw.sdn.e2e.qinq.drivers.vlan/vlan-driver-impl/{{VERSION}}</bundle>-->
     <!--</feature>-->
 </features>
