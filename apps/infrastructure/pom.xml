@@ -35,7 +35,6 @@ and is available at http://www.eclipse.org/legal/epl-v10.html INTERNAL
         <module>api</module>
         <module>driver-register</module>
         <module>databroker-provider</module>
-    <module>pce-path-calculator</module>
   </modules>
 
 </project>
