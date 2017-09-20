@@ -33,8 +33,10 @@ public abstract class SelfScheduledTask extends Task {
             pool.execute(task);
         }
         try {
-            synchronized (this) {
-                this.wait();
+            if (subTasks.size() > 0) {
+                synchronized (this) {
+                    this.wait();
+                }
             }
         } catch (InterruptedException e) {
             // TODO: 17-9-11 need handle
