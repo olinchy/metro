@@ -53,11 +53,11 @@
             <artifactId>databroker-provider</artifactId>
             <version>${project.version}</version>
         </dependency>
-        <!--<dependency>-->
-            <!--<groupId>com.zte.mw.sdn.components.path.calculator</groupId>-->
-            <!--<artifactId>pce-path-calculator</artifactId>-->
-            <!--<version>${project.version}</version>-->
-        <!--</dependency>-->
+        <dependency>
+            <groupId>com.zte.mw.sdn</groupId>
+            <artifactId>device-model</artifactId>
+            <version>${project.version}</version>
+        </dependency>
         <dependency>
             <groupId>com.zte.ngip.ipsdn</groupId>
             <artifactId>pce-path-impl</artifactId>

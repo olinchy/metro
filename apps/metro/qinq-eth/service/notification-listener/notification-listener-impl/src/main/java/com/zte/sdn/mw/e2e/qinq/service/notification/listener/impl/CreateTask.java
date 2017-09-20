@@ -8,10 +8,13 @@
 
 package com.zte.sdn.mw.e2e.qinq.service.notification.listener.impl;
 
+import static com.zte.sdn.mw.e2e.qinq.service.notification.listener.impl.PcePathCalculatorHolder.instance;
+
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.ExecutionException;
 import java.util.stream.Collectors;
 
 import org.opendaylight.yang.gen.v1.urn.ietf.params.xml.ns.yang.ietf.l2vpn.svc.rev170622.SvcId;
@@ -43,6 +46,7 @@ import org.opendaylight.yang.gen.v1.urn.tbd.params.xml.ns.yang.network.topology.
 import org.opendaylight.yang.gen.v1.urn.tbd.params.xml.ns.yang.network.topology.rev131021.TopologyId;
 import org.opendaylight.yang.gen.v1.urn.zte.ngip.ipsdn.pce.path.rev150814.CreateTunnelPathInput;
 import org.opendaylight.yang.gen.v1.urn.zte.ngip.ipsdn.pce.path.rev150814.CreateTunnelPathInputBuilder;
+import org.opendaylight.yang.gen.v1.urn.zte.ngip.ipsdn.pce.path.rev150814.CreateTunnelPathOutput;
 import org.opendaylight.yang.gen.v1.urn.zte.ngip.ipsdn.pce.path.rev150814.links.PathLink;
 import org.opendaylight.yangtools.yang.binding.DataObject;
 import org.opendaylight.yangtools.yang.binding.InstanceIdentifier;
@@ -76,6 +80,11 @@ public class CreateTask extends SelfScheduledTask {
         for (VpnSvc vpnSvc : toBeCreate) {
             subTasks.addAll(toDeviceTasks(vpnSvc));
         }
+    }
+
+    @Override
+    protected void postException(final Exception exception) {
+        LOG.warn("create " + createData + " caught exception", exception);
     }
 
     private Collection<? extends MonitoredTask> toDeviceTasks(final VpnSvc vpnSvc) {
@@ -223,16 +232,15 @@ public class CreateTask extends SelfScheduledTask {
                 .build();
 
         List<PathLink> pathLinks = null;
-//        try {
-//            Future<RpcResult<CreateTunnelPathOutput>> output =
-//                    PcePathProvider.getInstance().createTunnelPath(tunnelPathInput);
-//
-//            pathLinks = output.get().getResult().getTunnelPath().getPathLink();
-//        } catch (InterruptedException exp) {
-//            LOG.error("PathCalcService createPath InterruptedException ", exp);
-//        } catch (ExecutionException exp) {
-//            LOG.error("PathCalcService createPath ExecutionException ", exp);
-//        }
+        try {
+            CreateTunnelPathOutput output = instance().getCalculator().createTunnelPath(tunnelPathInput);
+
+            pathLinks = output.getTunnelPath().getPathLink();
+        } catch (InterruptedException exp) {
+            LOG.error("PathCalcService createPath InterruptedException ", exp);
+        } catch (ExecutionException exp) {
+            LOG.error("PathCalcService createPath ExecutionException ", exp);
+        }
 
         for (PathLink pathLink : pathLinks) {
             Link link = new LinkBuilder()
@@ -247,11 +255,6 @@ public class CreateTask extends SelfScheduledTask {
         }
 
         return links;
-    }
-
-    @Override
-    protected void postException(final Exception exception) {
-        LOG.warn("create " + createData + " caught exception", exception);
     }
 
     @Override

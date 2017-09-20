@@ -2,10 +2,10 @@ package org.opendaylight.yang.gen.v1.urn.zte.sdn.mw.notification.listener.impl.r
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import com.zte.sdn.mw.e2e.qinq.service.notification.listener.impl.NotificationListenerProvider;
+import com.zte.sdn.mw.e2e.qinq.service.notification.listener.impl.PcePathCalculatorHolder;
 
 import com.zte.mw.sdn.components.databroker.DataBrokerProvider;
-
-import com.zte.sdn.mw.e2e.qinq.service.notification.listener.impl.NotificationListenerProvider;
 
 public class NotificationListenerModule extends org.opendaylight.yang.gen.v1.urn.zte.sdn.mw.notification.listener
         .impl.rev170913.AbstractNotificationListenerModule {
@@ -37,6 +37,7 @@ public class NotificationListenerModule extends org.opendaylight.yang.gen.v1.urn
         LOG.info("start to register ietf listener");
         new NotificationListenerProvider
                 (getDataBrokerDependency(), getMwRuntimeServiceDependency()).start();
+        PcePathCalculatorHolder.instance().setPathCalculator(getMwPcePathCalculatorDependency());
 
         LOG.info("path calculator is " + getMwPcePathCalculatorDependency().toString());
         return () -> {};
