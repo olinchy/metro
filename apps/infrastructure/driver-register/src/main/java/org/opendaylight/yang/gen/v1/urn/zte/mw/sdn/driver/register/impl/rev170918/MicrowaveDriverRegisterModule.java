@@ -5,7 +5,7 @@ import org.slf4j.LoggerFactory;
 
 import com.zte.mw.sdn.components.DriverHolder;
 
-public class MicrowaveDriverRegisterModule extends org.opendaylight.yang.gen.v1.urn.zte.sdn.mw.driver.register.impl.rev170918.AbstractMicrowaveDriverRegisterModule {
+public class MicrowaveDriverRegisterModule extends org.opendaylight.yang.gen.v1.urn.zte.mw.sdn.driver.register.impl.rev170918.AbstractMicrowaveDriverRegisterModule {
     public MicrowaveDriverRegisterModule(
             org.opendaylight.controller.config.api.ModuleIdentifier identifier,
             org.opendaylight.controller.config.api.DependencyResolver dependencyResolver) {

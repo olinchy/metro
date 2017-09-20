@@ -10,5 +10,5 @@
 
 package org.opendaylight.yang.gen.v1.urn.zte.mw.sdn.driver.register.impl.rev170918;
 
-public class MicrowaveDriverRegisterModuleFactory extends org.opendaylight.yang.gen.v1.urn.zte.sdn.mw.driver.register.impl.rev170918.AbstractMicrowaveDriverRegisterModuleFactory {
+public class MicrowaveDriverRegisterModuleFactory extends org.opendaylight.yang.gen.v1.urn.zte.mw.sdn.driver.register.impl.rev170918.AbstractMicrowaveDriverRegisterModuleFactory {
 }
