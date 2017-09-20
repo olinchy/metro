@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- vi: set et smarttab sw=4 tabstop=4: -->
+<!--
+Copyright(c) ZTE,Inc.2015-2018 and others.  All rights reserved.
+
+This program and the accompanying materials are made available under the
+terms of the Eclipse Public License v1.0 which accompanies this distribution,
+and is available at http://www.eclipse.org/legal/epl-v10.html
+-->
+<snapshot>
+    <required-capabilities>
+        <capability>urn:zte:ngip:ipsdn:pce-path-impl?module=pce-path-impl&amp;revision=2014-12-10</capability>
+        <capability>urn:opendaylight:params:xml:ns:yang:controller:md:sal:binding?module=opendaylight-md-sal-binding&amp;revision=2013-10-28</capability>
+        <capability>urn:zte:ngip:ipsdn:pce:api?module=pce-api-cfg&amp;revision=2017-03-30</capability>
+        <capability>urn:zte:ngip:ipsdn:pce-vtelink-topo?module=pce-vtelink-topo&amp;revision=2017-04-06</capability>
+        <capability>urn:zte:ngip:ipsdn:pce:thread:pool?module=pce-thread-pool&amp;revision=2017-04-06</capability>
+        <capability>urn:zte:ngip:ipsdn:pce:sr?module=pce-sr&amp;revision=2017-08-18</capability>
+        <capability>urn:zte:ngip:ipsdn:pce:path:calculator?module=pce-path-calculator&amp;revision=2017-09-19
+        </capability>
+    </required-capabilities>
+    <configuration>
+
+        <data xmlns="urn:ietf:params:xml:ns:netconf:base:1.0">
+            <modules xmlns="urn:opendaylight:params:xml:ns:yang:controller:config">
+                <module>
+                    <type xmlns:prefix="urn:zte:ngip:ipsdn:pce-path-impl">prefix:pce-path-impl</type>
+                    <name>pce-path-impl</name>
+
+                    <data-broker>
+                        <type xmlns:binding="urn:opendaylight:params:xml:ns:yang:controller:md:sal:binding">
+                            binding:binding-async-data-broker
+                        </type>
+                        <name>binding-data-broker</name>
+                    </data-broker>
+
+                    <notification-service>
+                        <type xmlns:binding="urn:opendaylight:params:xml:ns:yang:controller:md:sal:binding">
+                            binding:binding-notification-service
+                        </type>
+                        <name>binding-notification-broker</name>
+                    </notification-service>
+
+                    <rpc-registry>
+                        <type xmlns:binding="urn:opendaylight:params:xml:ns:yang:controller:md:sal:binding">
+                            binding:binding-rpc-registry
+                        </type>
+                        <name>binding-rpc-broker</name>
+                    </rpc-registry>
+                    <pce-toporovider-service>
+                        <type xmlns:binding="urn:zte:ngip:ipsdn:pce:api">binding:pce-topo-provider-service</type>
+                        <name>pce-vtelink-topo-impl</name>
+                    </pce-toporovider-service>
+                    <pce-topo-change-service>
+                        <type xmlns:binding="urn:zte:ngip:ipsdn:pce:api">binding:topo-change-service</type>
+                        <name>pce-vtelink-topo-impl</name>
+                    </pce-topo-change-service>
+                    <pce-factory-service>
+                        <type xmlns:binding="urn:zte:ngip:ipsdn:pce:api">binding:pce-threadfactory</type>
+                        <name>pce-thread-factory-builder</name>
+                    </pce-factory-service>
+
+                    <pce-label-encoding-service>
+                        <type xmlns:binding="urn:zte:ngip:ipsdn:pce:api">binding:pce-label-encoding-service</type>
+                        <name>pce-sr</name>
+                    </pce-label-encoding-service>
+                    <can-zero-band-width>false</can-zero-band-width>
+                </module>
+            </modules>
+            <!--provided services-->
+            <services xmlns="urn:opendaylight:params:xml:ns:yang:controller:config">
+                <service>
+                    <type xmlns:binding="urn:zte:ngip:ipsdn:pce:path:calculator">binding:service-pce-path-calculator</type>
+                    <instance>
+                        <name>pce-path-impl</name>
+                        <provider>
+                            /config/modules/module[name='pce-path-impl']/instance[name='pce-path-impl']
+                        </provider>
+                    </instance>
+                </service>
+            </services>
+        </data>
+    </configuration>
+</snapshot>
